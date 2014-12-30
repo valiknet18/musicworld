@@ -1,0 +1,3 @@
+valiknet_music_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ValiknetMusicBundle:Default:index }
