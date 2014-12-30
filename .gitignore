@@ -13,3 +13,5 @@
 .idea/*
 *~
 /src/Acme/*
+UPGRADE.md
+UPGRADE-*
