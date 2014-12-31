@@ -21,7 +21,7 @@ class GroupController extends Controller
         $groups = $this->getDoctrine()
                         ->getManager()
                         ->getRepository('ValiknetMusicBundle:Group')
-                        ->findAll();
+                        ->findBy([], ['name' => 'ASC']);
 
         $paginator  = $this->get('knp_paginator');
         $groups = $paginator->paginate(
