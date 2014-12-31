@@ -1,3 +1,7 @@
 valiknet_group:
-    resource: "@ValiknetMusicBundle/Resources/config/group_routing.yml"
-    prefix: /group
+  resource: "@ValiknetMusicBundle/Resources/config/group_routing.yml"
+  prefix: /group
+
+valiknet_article:
+  resource: "@ValiknetMusicBundle/Resources/config/article_routing.yml"
+   prefix: /article

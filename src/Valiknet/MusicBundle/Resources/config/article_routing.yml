@@ -1,0 +1,3 @@
+valiknet_article_view:
+  path: /{slug}/view
+  defaults: { _controller: ValiknetMusicBundle:Article:view }
