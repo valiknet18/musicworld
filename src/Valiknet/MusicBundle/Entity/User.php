@@ -74,7 +74,7 @@ class User
     protected $news;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Group", mappedBy="users")
+     * @ORM\OneToMany(targetEntity="GroupUser", mappedBy="user")
      */
     protected $groups;
     /**
@@ -293,10 +293,10 @@ class User
     /**
      * Add groups
      *
-     * @param \Valiknet\MusicBundle\Entity\Group $groups
+     * @param \Valiknet\MusicBundle\Entity\GroupUser $groups
      * @return User
      */
-    public function addGroup(\Valiknet\MusicBundle\Entity\Group $groups)
+    public function addGroup(\Valiknet\MusicBundle\Entity\GroupUser $groups)
     {
         $this->groups[] = $groups;
 
@@ -306,9 +306,9 @@ class User
     /**
      * Remove groups
      *
-     * @param \Valiknet\MusicBundle\Entity\Group $groups
+     * @param \Valiknet\MusicBundle\Entity\GroupUser $groups
      */
-    public function removeGroup(\Valiknet\MusicBundle\Entity\Group $groups)
+    public function removeGroup(\Valiknet\MusicBundle\Entity\GroupUser $groups)
     {
         $this->groups->removeElement($groups);
     }
