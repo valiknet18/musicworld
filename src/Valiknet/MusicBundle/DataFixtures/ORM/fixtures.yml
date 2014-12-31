@@ -1,0 +1,59 @@
+Valiknet\MusicBundle\Entity\Article:
+  article{1..40}:
+    name: <word(5)>
+    text: <text()>
+    createdAt: <dateTimeBetween('-30 years', 'now')>
+    groups: 3x @group*
+    users: 3x @user*
+
+Valiknet\MusicBundle\Entity\Clip:
+  clip{1..50}:
+    name: <word(7)>
+    text: <text()>
+    video: www.youtube.com/embed/v2cRj9Z96PQ
+    group: @group*
+
+Valiknet\MusicBundle\Entity\Country:
+  country{1..20}:
+    name: <country()>
+
+Valiknet\MusicBundle\Entity\Group:
+  group{1..20}:
+    name: <word(5)>
+    history: <text()>
+    createdAt: <dateTimeBetween('-30 years', 'now')>
+    country: @country*
+    styles: 4x @style*
+
+Valiknet\MusicBundle\Entity\GroupUser:
+  Group_user{1..30}:
+    group: @group*
+    user: @user*
+    role: <numberBetween(1,10)>
+    joinedAt: <dateTimeBetween('-30 years', 'now')>
+
+Valiknet\MusicBundle\Entity\Release:
+  release{1..20}:
+    type: <numberBetween(1,5)>
+    name: <word(7)>
+    text: <text()>
+    releasedAt: <dateTimeBetween('-30 years', 'now')>
+    group: @group*
+
+Valiknet\MusicBundle\Entity\Style:
+  style{1..20}:
+    name: <word(4)>
+
+Valiknet\MusicBundle\Entity\Track:
+  track{1..100}:
+    name: <sentence(3)>
+    timeline: "03:10"
+    release: @release*
+
+Valiknet\MusicBundle\Entity\User:
+  user{1..40}:
+    name: <firstName()>
+    lastname: <lastName()>
+    history: <text()>
+    birthedAt: <dateTimeBetween('-30 years', 'now')>
+    country: @country*
