@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity()
- * @ORM\Table(name="style")
+ * @ORM\Table(name="`style`")
  */
 class Style
 {
@@ -41,18 +41,23 @@ class Style
     protected $children;
 
     /**
-     * @var integer
-     *
      * @ORM\ManyToOne(targetEntity="Style", inversedBy="children")
      * @ORM\JoinColumn(nullable=true)
      */
     protected $parent;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Group", mappedBy="styles")
+     */
+    protected $groups;
+
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -165,5 +170,38 @@ class Style
     public function getParent()
     {
         return $this->parent;
+    }
+
+    /**
+     * Add groups
+     *
+     * @param \Valiknet\MusicBundle\Entity\Group $groups
+     * @return Style
+     */
+    public function addGroup(\Valiknet\MusicBundle\Entity\Group $groups)
+    {
+        $this->groups[] = $groups;
+
+        return $this;
+    }
+
+    /**
+     * Remove groups
+     *
+     * @param \Valiknet\MusicBundle\Entity\Group $groups
+     */
+    public function removeGroup(\Valiknet\MusicBundle\Entity\Group $groups)
+    {
+        $this->groups->removeElement($groups);
+    }
+
+    /**
+     * Get groups
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGroups()
+    {
+        return $this->groups;
     }
 }

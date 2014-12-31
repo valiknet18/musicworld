@@ -42,6 +42,14 @@ class Country
      * @ORM\OneToMany(targetEntity="User", mappedBy="country")
      */
     protected $users;
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->name;
+    }
     /**
      * Constructor
      */

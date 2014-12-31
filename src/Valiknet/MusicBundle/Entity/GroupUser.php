@@ -45,6 +45,16 @@ class GroupUser
     protected $joinedAt;
 
     /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * Set role
      *
      * @param string $role
@@ -134,15 +144,5 @@ class GroupUser
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 }

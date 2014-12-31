@@ -43,6 +43,14 @@ class Article
     protected $slug;
 
     /**
+     * @var datetime
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    protected $createdAt;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Group", inversedBy="news")
      */
     protected $groups;
@@ -137,6 +145,29 @@ class Article
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Article
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
     }
 
     /**

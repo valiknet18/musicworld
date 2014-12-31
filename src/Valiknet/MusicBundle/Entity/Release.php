@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity()
- * @ORM\Table(name="release")
+ * @ORM\Table(name="`release`")
  */
 class Release
 {
