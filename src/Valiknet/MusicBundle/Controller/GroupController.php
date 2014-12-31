@@ -103,17 +103,8 @@ class GroupController extends Controller
             throw new NotFoundHttpException('Такой групи немає в базі');
         }
 
-        $clip = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ValiknetMusicBundle:Clip')
-                    ->findOneBy(["slug" => $slugClip, "group_id" => $group->getId()]);
-
-        if (!$clip) {
-            throw new NotFoundHttpException('Такого кліпу немає в цій базі');
-        }
-
         return [
-            "clip" => $clip
+            "group" => $group
         ];
     }
 
@@ -160,13 +151,8 @@ class GroupController extends Controller
             throw new NotFoundHttpException('Такой групи немає в базі');
         }
 
-        $clip = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ValiknetMusicBundle:Clip')
-                    ->findOneBySlug($slugRelease);
-
-        if (!$clip) {
-            throw new NotFoundHttpException('Такого релізу немає в цієй базі');
-        }
+        return [
+            "release" => $release
+        ];
     }
 }
