@@ -1,7 +1,7 @@
 Valiknet\MusicBundle\Entity\Article:
   article{1..40}:
     name: <word(5)>
-    text: <text()>
+    text: <realText()>
     createdAt: <dateTimeBetween('-30 years', 'now')>
     groups: 3x @group*
     users: 3x @user*
