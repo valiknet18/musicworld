@@ -9,7 +9,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class GroupController extends Controller
 {
     /**
-     * @description This method render list of groups
+     * This method render list of groups
      *
      * @param Response $request
      * @return array
@@ -36,7 +36,7 @@ class GroupController extends Controller
     }
 
     /**
-     * @description This method render info about group
+     * This method render info about group
      *
      * @param $slug
      * @return array
@@ -60,7 +60,7 @@ class GroupController extends Controller
     }
 
     /**
-     * @description This method render list of clips
+     * This method render list of clips
      *
      * @param $slugGroup
      * @return array
@@ -84,7 +84,7 @@ class GroupController extends Controller
     }
 
     /**
-     * @description This method render target clip
+     * This method render target clip
      *
      * @param $slugGroup
      * @param $slugClip
@@ -109,7 +109,7 @@ class GroupController extends Controller
     }
 
     /**
-     * @description This method render list of all releases group
+     * This method render list of all releases group
      *
      * @param $slug
      * @return array
@@ -133,7 +133,7 @@ class GroupController extends Controller
     }
 
     /**
-     * @description This method render target release
+     * This method render target release
      *
      * @param $slugGroup
      * @param $slugRelease

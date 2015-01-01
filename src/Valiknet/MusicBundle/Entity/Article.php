@@ -56,7 +56,7 @@ class Article
     protected $groups;
 
     /**
-     * @ORM\ManyToMany(targetEntity="User", inversedBy="news")
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="news")
      */
     protected $users;
     /**

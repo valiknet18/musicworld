@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class ClipController extends Controller
 {
     /**
-     * @description This method render clip by group id and slug
+     * This method render clip by group id and slug
      *
      * @param $slugClip
      * @param $groupId

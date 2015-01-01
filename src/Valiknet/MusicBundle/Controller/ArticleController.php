@@ -9,7 +9,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class ArticleController extends Controller
 {
     /**
-     * @description This method render list of all articles
+     * This method render list of all articles
      *
      * @param Request $request
      * @return array
@@ -36,7 +36,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * @description This method render article by slug
+     * This method render article by slug
      *
      * @param $slug
      * @return array

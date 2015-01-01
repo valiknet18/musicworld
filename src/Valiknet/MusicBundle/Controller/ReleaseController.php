@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class ReleaseController extends Controller
 {
     /**
-     * @description This method render all release by slug and group id
+     * This method render all release by slug and group id
      *
      * @param $slugRelease
      * @param $groupId

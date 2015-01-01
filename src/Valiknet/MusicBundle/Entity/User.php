@@ -77,6 +77,7 @@ class User
      * @ORM\OneToMany(targetEntity="GroupUser", mappedBy="user")
      */
     protected $groups;
+
     /**
      * Constructor
      */
