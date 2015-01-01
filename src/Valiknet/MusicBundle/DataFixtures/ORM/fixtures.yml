@@ -24,12 +24,13 @@ Valiknet\MusicBundle\Entity\Group:
     createdAt: <dateTimeBetween('-30 years', 'now')>
     country: @country*
     styles: 4x @style*
+    officialPage: <url()>
 
 Valiknet\MusicBundle\Entity\GroupUser:
   Group_user{1..30}:
     group: @group*
     user: @user*
-    role: <numberBetween(1,10)>
+    role: <numberBetween(1,5)>
     joinedAt: <dateTimeBetween('-30 years', 'now')>
 
 Valiknet\MusicBundle\Entity\Release:
@@ -58,3 +59,4 @@ Valiknet\MusicBundle\Entity\User:
     history: <text()>
     birthedAt: <dateTimeBetween('-30 years', 'now')>
     country: @country*
+    officialPage: <url()>

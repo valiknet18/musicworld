@@ -63,6 +63,34 @@ class User
     protected $photo;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $officialSite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $officialVkPage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $officialFacebookPage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $officialTwitterPage;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Country", inversedBy="users")
      */
     protected $country;
@@ -321,5 +349,97 @@ class User
     public function getGroups()
     {
         return $this->groups;
+    }
+
+    /**
+     * Set officialSite
+     *
+     * @param string $officialSite
+     * @return User
+     */
+    public function setOfficialSite($officialSite)
+    {
+        $this->officialSite = $officialSite;
+
+        return $this;
+    }
+
+    /**
+     * Get officialSite
+     *
+     * @return string 
+     */
+    public function getOfficialSite()
+    {
+        return $this->officialSite;
+    }
+
+    /**
+     * Set officialVkPage
+     *
+     * @param string $officialVkPage
+     * @return User
+     */
+    public function setOfficialVkPage($officialVkPage)
+    {
+        $this->officialVkPage = $officialVkPage;
+
+        return $this;
+    }
+
+    /**
+     * Get officialVkPage
+     *
+     * @return string 
+     */
+    public function getOfficialVkPage()
+    {
+        return $this->officialVkPage;
+    }
+
+    /**
+     * Set officialFacebookPage
+     *
+     * @param string $officialFacebookPage
+     * @return User
+     */
+    public function setOfficialFacebookPage($officialFacebookPage)
+    {
+        $this->officialFacebookPage = $officialFacebookPage;
+
+        return $this;
+    }
+
+    /**
+     * Get officialFacebookPage
+     *
+     * @return string 
+     */
+    public function getOfficialFacebookPage()
+    {
+        return $this->officialFacebookPage;
+    }
+
+    /**
+     * Set officialTwitterPage
+     *
+     * @param string $officialTwitterPage
+     * @return User
+     */
+    public function setOfficialTwitterPage($officialTwitterPage)
+    {
+        $this->officialTwitterPage = $officialTwitterPage;
+
+        return $this;
+    }
+
+    /**
+     * Get officialTwitterPage
+     *
+     * @return string 
+     */
+    public function getOfficialTwitterPage()
+    {
+        return $this->officialTwitterPage;
     }
 }
