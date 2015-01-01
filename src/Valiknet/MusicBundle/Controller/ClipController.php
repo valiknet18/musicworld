@@ -4,30 +4,20 @@ namespace Valiknet\MusicBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Valiknet\MusicBundle\Entity\Clip;
 
 class ClipController extends Controller
 {
     /**
-     * This method render clip by group id and slug
+     * This method render clip by Clip
      *
-     * @param $slugClip
-     * @param $groupId
+     * @param Clip $clip
      * @return array
-     * @throws NotFoundHttpException
      *
      * @Template()
      */
-    public function showAction($slugClip, $groupId)
+    public function showAction(Clip $clip)
     {
-        $clip = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('ValiknetMusicBundle:Clip')
-            ->findOneBy(["slug" => $slugClip, "group_id" => $groupId]);
-
-        if (!$clip) {
-            throw new NotFoundHttpException('Такого кліпу немає в цій базі');
-        }
-
         return [
             "clip" => $clip
         ];
