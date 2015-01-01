@@ -2,12 +2,47 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %} | Music world</title>
+        <link href="{{ asset('/bundles/valiknetmusic/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet"/>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="container">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+                    <span class="navbar-brand">
+                        Music World
+                    </span>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{{ path('valiknet_group_list') }}">
+                            <div>
+                                Групи
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ path('valiknet_user_list') }}">
+                            <div>
+                                Люди
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <div>
+                                Стилі
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            {% block content %}{% endblock %}
+        </div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
