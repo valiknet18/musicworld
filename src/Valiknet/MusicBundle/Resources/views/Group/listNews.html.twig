@@ -1,0 +1,35 @@
+{% extends 'ValiknetMusicBundle:Group:group_webber.html.twig' %}
+
+{% block title %}
+    Список кліпів групи {{ group.name }}
+{% endblock %}
+
+{% block links %}
+    <a href="{{ path('valiknet_group_list') }}">Групи</a>><a href="{{ path("valiknet_group_view", { "slug" : group.slug }) }}">{{ group.name }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">Новини</a>
+{% endblock %}
+
+{% block group_content %}
+    <div class="col-lg-12">
+        {% for article in group.news %}
+            <div class="col-lg-6 thumbnail">
+                <h3 class="col-lg-12">
+                    {{ article.name }}
+                </h3>
+
+                <div class="col-lg-12">
+                    <p>
+                        {{ article.text|slice(0, 70) }}
+                    </p>
+                </div>
+
+                <div class="col-lg-12">
+                    <a href="{{ path('valiknet_article_view', {"slug" : article.slug}) }}" class="btn btn-success">
+                        Перейти
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            <h4>В цій групі немає ні одного кліпу</h4>
+        {% endfor %}
+    </div>
+{% endblock %}
