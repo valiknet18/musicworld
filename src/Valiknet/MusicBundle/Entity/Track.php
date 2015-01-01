@@ -1,8 +1,6 @@
 <?php
 namespace Valiknet\MusicBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,7 +40,7 @@ class Track
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -52,7 +50,7 @@ class Track
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return Track
      */
     public function setName($name)
@@ -65,7 +63,7 @@ class Track
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -75,7 +73,7 @@ class Track
     /**
      * Set timeline
      *
-     * @param string $timeline
+     * @param  string $timeline
      * @return Track
      */
     public function setTimeline($timeline)
@@ -88,7 +86,7 @@ class Track
     /**
      * Get timeline
      *
-     * @return string 
+     * @return string
      */
     public function getTimeline()
     {
@@ -98,7 +96,7 @@ class Track
     /**
      * Set release
      *
-     * @param \Valiknet\MusicBundle\Entity\Release $release
+     * @param  \Valiknet\MusicBundle\Entity\Release $release
      * @return Track
      */
     public function setRelease(\Valiknet\MusicBundle\Entity\Release $release = null)
@@ -111,7 +109,7 @@ class Track
     /**
      * Get release
      *
-     * @return \Valiknet\MusicBundle\Entity\Release 
+     * @return \Valiknet\MusicBundle\Entity\Release
      */
     public function getRelease()
     {

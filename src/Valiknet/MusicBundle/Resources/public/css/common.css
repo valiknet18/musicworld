@@ -1,0 +1,19 @@
+.characters > div{
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.mini-poster {
+    width: 140px;
+    height: 180px;
+}
+
+.poster {
+    width: 280px;
+    height: 360px;
+}
+
+.arrow-navigator {
+    margin-bottom: 20px;
+}

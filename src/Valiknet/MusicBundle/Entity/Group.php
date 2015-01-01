@@ -1,7 +1,6 @@
 <?php
 namespace Valiknet\MusicBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -33,6 +32,34 @@ class Group
      * @ORM\Column(type="text")
      */
     protected $history;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $officialSite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $officialVkPage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $officialFacebookPage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $officialTwitterPage;
 
     /**
      * @var datetime
@@ -84,6 +111,7 @@ class Group
      * @ORM\ManyToMany(targetEntity="Article", mappedBy="groups")
      */
     protected $news;
+
     /**
      * Constructor
      */
@@ -99,7 +127,7 @@ class Group
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -109,7 +137,7 @@ class Group
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return Group
      */
     public function setName($name)
@@ -122,7 +150,7 @@ class Group
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -132,7 +160,7 @@ class Group
     /**
      * Set history
      *
-     * @param string $history
+     * @param  string $history
      * @return Group
      */
     public function setHistory($history)
@@ -145,7 +173,7 @@ class Group
     /**
      * Get history
      *
-     * @return string 
+     * @return string
      */
     public function getHistory()
     {
@@ -155,7 +183,7 @@ class Group
     /**
      * Set createdAt
      *
-     * @param \DateTime $createdAt
+     * @param  \DateTime $createdAt
      * @return Group
      */
     public function setCreatedAt($createdAt)
@@ -168,7 +196,7 @@ class Group
     /**
      * Get createdAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -178,7 +206,7 @@ class Group
     /**
      * Set poster
      *
-     * @param string $poster
+     * @param  string $poster
      * @return Group
      */
     public function setPoster($poster)
@@ -191,7 +219,7 @@ class Group
     /**
      * Get poster
      *
-     * @return string 
+     * @return string
      */
     public function getPoster()
     {
@@ -201,7 +229,7 @@ class Group
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return Group
      */
     public function setSlug($slug)
@@ -214,7 +242,7 @@ class Group
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -224,7 +252,7 @@ class Group
     /**
      * Set country
      *
-     * @param \Valiknet\MusicBundle\Entity\Country $country
+     * @param  \Valiknet\MusicBundle\Entity\Country $country
      * @return Group
      */
     public function setCountry(\Valiknet\MusicBundle\Entity\Country $country = null)
@@ -237,7 +265,7 @@ class Group
     /**
      * Get country
      *
-     * @return \Valiknet\MusicBundle\Entity\Country 
+     * @return \Valiknet\MusicBundle\Entity\Country
      */
     public function getCountry()
     {
@@ -247,7 +275,7 @@ class Group
     /**
      * Add users
      *
-     * @param \Valiknet\MusicBundle\Entity\GroupUser $users
+     * @param  \Valiknet\MusicBundle\Entity\GroupUser $users
      * @return Group
      */
     public function addUser(\Valiknet\MusicBundle\Entity\GroupUser $users)
@@ -270,7 +298,7 @@ class Group
     /**
      * Get users
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUsers()
     {
@@ -280,7 +308,7 @@ class Group
     /**
      * Add styles
      *
-     * @param \Valiknet\MusicBundle\Entity\Style $styles
+     * @param  \Valiknet\MusicBundle\Entity\Style $styles
      * @return Group
      */
     public function addStyle(\Valiknet\MusicBundle\Entity\Style $styles)
@@ -303,7 +331,7 @@ class Group
     /**
      * Get styles
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getStyles()
     {
@@ -313,7 +341,7 @@ class Group
     /**
      * Add clips
      *
-     * @param \Valiknet\MusicBundle\Entity\Clip $clips
+     * @param  \Valiknet\MusicBundle\Entity\Clip $clips
      * @return Group
      */
     public function addClip(\Valiknet\MusicBundle\Entity\Clip $clips)
@@ -336,7 +364,7 @@ class Group
     /**
      * Get clips
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getClips()
     {
@@ -346,7 +374,7 @@ class Group
     /**
      * Add releases
      *
-     * @param \Valiknet\MusicBundle\Entity\Release $releases
+     * @param  \Valiknet\MusicBundle\Entity\Release $releases
      * @return Group
      */
     public function addRelease(\Valiknet\MusicBundle\Entity\Release $releases)
@@ -369,7 +397,7 @@ class Group
     /**
      * Get releases
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getReleases()
     {
@@ -379,7 +407,7 @@ class Group
     /**
      * Add news
      *
-     * @param \Valiknet\MusicBundle\Entity\Article $news
+     * @param  \Valiknet\MusicBundle\Entity\Article $news
      * @return Group
      */
     public function addNews(\Valiknet\MusicBundle\Entity\Article $news)
@@ -402,10 +430,102 @@ class Group
     /**
      * Get news
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getNews()
     {
         return $this->news;
+    }
+
+    /**
+     * Set officialSite
+     *
+     * @param string $officialSite
+     * @return Group
+     */
+    public function setOfficialSite($officialSite)
+    {
+        $this->officialSite = $officialSite;
+
+        return $this;
+    }
+
+    /**
+     * Get officialSite
+     *
+     * @return string 
+     */
+    public function getOfficialSite()
+    {
+        return $this->officialSite;
+    }
+
+    /**
+     * Set officialVkPage
+     *
+     * @param string $officialVkPage
+     * @return Group
+     */
+    public function setOfficialVkPage($officialVkPage)
+    {
+        $this->officialVkPage = $officialVkPage;
+
+        return $this;
+    }
+
+    /**
+     * Get officialVkPage
+     *
+     * @return string 
+     */
+    public function getOfficialVkPage()
+    {
+        return $this->officialVkPage;
+    }
+
+    /**
+     * Set officialFacebookPage
+     *
+     * @param string $officialFacebookPage
+     * @return Group
+     */
+    public function setOfficialFacebookPage($officialFacebookPage)
+    {
+        $this->officialFacebookPage = $officialFacebookPage;
+
+        return $this;
+    }
+
+    /**
+     * Get officialFacebookPage
+     *
+     * @return string 
+     */
+    public function getOfficialFacebookPage()
+    {
+        return $this->officialFacebookPage;
+    }
+
+    /**
+     * Set officialTwitterPage
+     *
+     * @param string $officialTwitterPage
+     * @return Group
+     */
+    public function setOfficialTwitterPage($officialTwitterPage)
+    {
+        $this->officialTwitterPage = $officialTwitterPage;
+
+        return $this;
+    }
+
+    /**
+     * Get officialTwitterPage
+     *
+     * @return string 
+     */
+    public function getOfficialTwitterPage()
+    {
+        return $this->officialTwitterPage;
     }
 }

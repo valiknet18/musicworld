@@ -1,0 +1,42 @@
+{% extends 'ValiknetMusicBundle:Group:group_webber.html.twig' %}
+
+{% block title %}
+    Група {{ group.name }}
+{% endblock %}
+
+{% block links %}
+    <a href="{{ path('valiknet_group_list') }}">Групи</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ group.name }}</a>
+{% endblock %}
+
+{% block group_content %}
+    <div class="col-lg-12">
+        <div class="col-lg-4">
+            <img src="#" class="poster"/>
+        </div>
+
+        <div class="col-lg-8 characters">
+            <div class="col-lg-12">
+                Країна: <a href="{{ path('valiknet_country_group_view', {"slug" : group.country.slug}) }}">{{ group.country.name }}</a>
+            </div>
+
+            <div class="col-lg-12">
+                Стилі:
+
+                {% for style in group.styles %}
+                    <a href="#">{{ style.name }}</a>
+                {% endfor %}
+            </div>
+
+            <div class="col-lg-12">
+                Дата створення: {{ group.createdAt|date('d.m.Y') }}
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <h4>Коротка історія:</h4>
+            <p>
+                {{ group.history }}
+            </p>
+        </div>
+    </div>
+{% endblock %}

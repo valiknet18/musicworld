@@ -1,7 +1,7 @@
 Valiknet\MusicBundle\Entity\Article:
   article{1..40}:
     name: <word(5)>
-    text: <text()>
+    text: <realText()>
     createdAt: <dateTimeBetween('-30 years', 'now')>
     groups: 3x @group*
     users: 3x @user*
@@ -24,12 +24,13 @@ Valiknet\MusicBundle\Entity\Group:
     createdAt: <dateTimeBetween('-30 years', 'now')>
     country: @country*
     styles: 4x @style*
+    officialPage: <url()>
 
 Valiknet\MusicBundle\Entity\GroupUser:
   Group_user{1..30}:
     group: @group*
     user: @user*
-    role: <numberBetween(1,10)>
+    role: <numberBetween(1,5)>
     joinedAt: <dateTimeBetween('-30 years', 'now')>
 
 Valiknet\MusicBundle\Entity\Release:
@@ -43,6 +44,7 @@ Valiknet\MusicBundle\Entity\Release:
 Valiknet\MusicBundle\Entity\Style:
   style{1..20}:
     name: <word(4)>
+    parent: @style*
 
 Valiknet\MusicBundle\Entity\Track:
   track{1..100}:
@@ -57,3 +59,4 @@ Valiknet\MusicBundle\Entity\User:
     history: <text()>
     birthedAt: <dateTimeBetween('-30 years', 'now')>
     country: @country*
+    officialPage: <url()>

@@ -3,7 +3,7 @@ namespace Valiknet\MusicBundle\DataFixtures\ORM;
 
 use Hautelook\AliceBundle\Alice\DataFixtureLoader;
 
-class AppFixtures extends DataFixtureLoader
+class AppFixture extends DataFixtureLoader
 {
     /**
      * {@inheritDoc}

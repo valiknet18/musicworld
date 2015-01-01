@@ -9,9 +9,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class UserController extends Controller
 {
     /**
-     * @description This method render list of all users
+     * This method render list of all users
      *
-     * @param Request $request
+     * @param  Request $request
      * @return array
      *
      * @Template()
@@ -36,7 +36,7 @@ class UserController extends Controller
     }
 
     /**
-     * @description This method render user by slug
+     * This method render user by slug
      *
      * @param $slug
      * @return array

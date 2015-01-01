@@ -8,10 +8,10 @@ use Symfony\Component\HttpFoundation\Request;
 class CountryController extends Controller
 {
     /**
-     * @description This method render all group by city
+     * This method render all group by city
      *
      * @param $slug
-     * @param Request $request
+     * @param  Request $request
      * @return array
      *
      * @Template()
@@ -36,10 +36,10 @@ class CountryController extends Controller
     }
 
     /**
-     * @description This method render all user by country
+     * This method render all user by country
      *
      * @param $slug
-     * @param Request $request
+     * @param  Request $request
      * @return array
      *
      * @Template()

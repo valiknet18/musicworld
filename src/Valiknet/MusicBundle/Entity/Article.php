@@ -1,7 +1,6 @@
 <?php
 namespace Valiknet\MusicBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -71,7 +70,7 @@ class Article
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -81,7 +80,7 @@ class Article
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string  $name
      * @return Article
      */
     public function setName($name)
@@ -94,7 +93,7 @@ class Article
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -104,7 +103,7 @@ class Article
     /**
      * Set text
      *
-     * @param string $text
+     * @param  string  $text
      * @return Article
      */
     public function setText($text)
@@ -117,7 +116,7 @@ class Article
     /**
      * Get text
      *
-     * @return string 
+     * @return string
      */
     public function getText()
     {
@@ -127,7 +126,7 @@ class Article
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string  $slug
      * @return Article
      */
     public function setSlug($slug)
@@ -140,7 +139,7 @@ class Article
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -150,7 +149,7 @@ class Article
     /**
      * Set createdAt
      *
-     * @param \DateTime $createdAt
+     * @param  \DateTime $createdAt
      * @return Article
      */
     public function setCreatedAt($createdAt)
@@ -163,7 +162,7 @@ class Article
     /**
      * Get createdAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -173,7 +172,7 @@ class Article
     /**
      * Add groups
      *
-     * @param \Valiknet\MusicBundle\Entity\Group $groups
+     * @param  \Valiknet\MusicBundle\Entity\Group $groups
      * @return Article
      */
     public function addGroup(\Valiknet\MusicBundle\Entity\Group $groups)
@@ -196,7 +195,7 @@ class Article
     /**
      * Get groups
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getGroups()
     {
@@ -206,7 +205,7 @@ class Article
     /**
      * Add users
      *
-     * @param \Valiknet\MusicBundle\Entity\User $users
+     * @param  \Valiknet\MusicBundle\Entity\User $users
      * @return Article
      */
     public function addUser(\Valiknet\MusicBundle\Entity\User $users)
@@ -229,7 +228,7 @@ class Article
     /**
      * Get users
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUsers()
     {

@@ -1,7 +1,6 @@
 <?php
 namespace Valiknet\MusicBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -83,7 +82,7 @@ class Release
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -93,7 +92,7 @@ class Release
     /**
      * Set type
      *
-     * @param integer $type
+     * @param  integer $type
      * @return Release
      */
     public function setType($type)
@@ -106,7 +105,7 @@ class Release
     /**
      * Get type
      *
-     * @return integer 
+     * @return integer
      */
     public function getType()
     {
@@ -116,7 +115,7 @@ class Release
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string  $name
      * @return Release
      */
     public function setName($name)
@@ -129,7 +128,7 @@ class Release
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -139,7 +138,7 @@ class Release
     /**
      * Set poster
      *
-     * @param string $poster
+     * @param  string  $poster
      * @return Release
      */
     public function setPoster($poster)
@@ -152,7 +151,7 @@ class Release
     /**
      * Get poster
      *
-     * @return string 
+     * @return string
      */
     public function getPoster()
     {
@@ -162,7 +161,7 @@ class Release
     /**
      * Set text
      *
-     * @param string $text
+     * @param  string  $text
      * @return Release
      */
     public function setText($text)
@@ -175,7 +174,7 @@ class Release
     /**
      * Get text
      *
-     * @return string 
+     * @return string
      */
     public function getText()
     {
@@ -185,7 +184,7 @@ class Release
     /**
      * Set releasedAt
      *
-     * @param \DateTime $releasedAt
+     * @param  \DateTime $releasedAt
      * @return Release
      */
     public function setReleasedAt($releasedAt)
@@ -198,7 +197,7 @@ class Release
     /**
      * Get releasedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getReleasedAt()
     {
@@ -208,7 +207,7 @@ class Release
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string  $slug
      * @return Release
      */
     public function setSlug($slug)
@@ -221,7 +220,7 @@ class Release
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -231,7 +230,7 @@ class Release
     /**
      * Set group
      *
-     * @param \Valiknet\MusicBundle\Entity\Group $group
+     * @param  \Valiknet\MusicBundle\Entity\Group $group
      * @return Release
      */
     public function setGroup(\Valiknet\MusicBundle\Entity\Group $group = null)
@@ -244,7 +243,7 @@ class Release
     /**
      * Get group
      *
-     * @return \Valiknet\MusicBundle\Entity\Group 
+     * @return \Valiknet\MusicBundle\Entity\Group
      */
     public function getGroup()
     {
@@ -254,7 +253,7 @@ class Release
     /**
      * Add tracks
      *
-     * @param \Valiknet\MusicBundle\Entity\Track $tracks
+     * @param  \Valiknet\MusicBundle\Entity\Track $tracks
      * @return Release
      */
     public function addTrack(\Valiknet\MusicBundle\Entity\Track $tracks)
@@ -277,7 +276,7 @@ class Release
     /**
      * Get tracks
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getTracks()
     {

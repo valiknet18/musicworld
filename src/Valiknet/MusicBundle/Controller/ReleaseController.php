@@ -4,31 +4,22 @@ namespace Valiknet\MusicBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Valiknet\MusicBundle\Entity\Release;
 
 class ReleaseController extends Controller
 {
     /**
-     * @description This method render all release by slug and group id
+     * This method render all release by slug and group id
      *
-     * @param $slugRelease
-     * @param $groupId
+     * @param Release $release
      * @return array
      *
      * @Template()
      */
-    public function showAction($slugRelease, $groupId)
+    public function showAction(Release $release)
     {
-        $clip = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('ValiknetMusicBundle:Clip')
-            ->findOneBy(["slug" => $slugRelease, "group_id" => $groupId]);
-
-        if (!$clip) {
-            throw new NotFoundHttpException('Такого релізу немає в цієй базі');
-        }
-
         return [
-            "clip" => $clip
+            "release" => $release
         ];
     }
 }

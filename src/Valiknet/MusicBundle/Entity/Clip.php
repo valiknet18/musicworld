@@ -1,7 +1,6 @@
 <?php
 namespace Valiknet\MusicBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -55,7 +54,7 @@ class Clip
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -65,7 +64,7 @@ class Clip
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return Clip
      */
     public function setName($name)
@@ -78,7 +77,7 @@ class Clip
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -88,7 +87,7 @@ class Clip
     /**
      * Set text
      *
-     * @param string $text
+     * @param  string $text
      * @return Clip
      */
     public function setText($text)
@@ -101,7 +100,7 @@ class Clip
     /**
      * Get text
      *
-     * @return string 
+     * @return string
      */
     public function getText()
     {
@@ -111,7 +110,7 @@ class Clip
     /**
      * Set video
      *
-     * @param string $video
+     * @param  string $video
      * @return Clip
      */
     public function setVideo($video)
@@ -124,7 +123,7 @@ class Clip
     /**
      * Get video
      *
-     * @return string 
+     * @return string
      */
     public function getVideo()
     {
@@ -134,7 +133,7 @@ class Clip
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return Clip
      */
     public function setSlug($slug)
@@ -147,7 +146,7 @@ class Clip
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -157,7 +156,7 @@ class Clip
     /**
      * Set group
      *
-     * @param \Valiknet\MusicBundle\Entity\Group $group
+     * @param  \Valiknet\MusicBundle\Entity\Group $group
      * @return Clip
      */
     public function setGroup(\Valiknet\MusicBundle\Entity\Group $group = null)
@@ -170,7 +169,7 @@ class Clip
     /**
      * Get group
      *
-     * @return \Valiknet\MusicBundle\Entity\Group 
+     * @return \Valiknet\MusicBundle\Entity\Group
      */
     public function getGroup()
     {

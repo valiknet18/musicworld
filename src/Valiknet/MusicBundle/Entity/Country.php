@@ -1,7 +1,6 @@
 <?php
 namespace Valiknet\MusicBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -62,7 +61,7 @@ class Country
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -72,7 +71,7 @@ class Country
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string  $name
      * @return Country
      */
     public function setName($name)
@@ -85,7 +84,7 @@ class Country
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -95,7 +94,7 @@ class Country
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string  $slug
      * @return Country
      */
     public function setSlug($slug)
@@ -108,7 +107,7 @@ class Country
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -118,7 +117,7 @@ class Country
     /**
      * Add groups
      *
-     * @param \Valiknet\MusicBundle\Entity\Group $groups
+     * @param  \Valiknet\MusicBundle\Entity\Group $groups
      * @return Country
      */
     public function addGroup(\Valiknet\MusicBundle\Entity\Group $groups)
@@ -141,7 +140,7 @@ class Country
     /**
      * Get groups
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getGroups()
     {
@@ -151,7 +150,7 @@ class Country
     /**
      * Add users
      *
-     * @param \Valiknet\MusicBundle\Entity\User $users
+     * @param  \Valiknet\MusicBundle\Entity\User $users
      * @return Country
      */
     public function addUser(\Valiknet\MusicBundle\Entity\User $users)
@@ -174,7 +173,7 @@ class Country
     /**
      * Get users
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUsers()
     {

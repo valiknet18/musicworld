@@ -1,7 +1,6 @@
 <?php
 namespace Valiknet\MusicBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -63,7 +62,7 @@ class Style
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -73,7 +72,7 @@ class Style
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return Style
      */
     public function setName($name)
@@ -86,7 +85,7 @@ class Style
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -96,7 +95,7 @@ class Style
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return Style
      */
     public function setSlug($slug)
@@ -109,7 +108,7 @@ class Style
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -119,7 +118,7 @@ class Style
     /**
      * Add children
      *
-     * @param \Valiknet\MusicBundle\Entity\Style $children
+     * @param  \Valiknet\MusicBundle\Entity\Style $children
      * @return Style
      */
     public function addChild(\Valiknet\MusicBundle\Entity\Style $children)
@@ -142,7 +141,7 @@ class Style
     /**
      * Get children
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getChildren()
     {
@@ -152,7 +151,7 @@ class Style
     /**
      * Set parent
      *
-     * @param \Valiknet\MusicBundle\Entity\Style $parent
+     * @param  \Valiknet\MusicBundle\Entity\Style $parent
      * @return Style
      */
     public function setParent(\Valiknet\MusicBundle\Entity\Style $parent = null)
@@ -165,7 +164,7 @@ class Style
     /**
      * Get parent
      *
-     * @return \Valiknet\MusicBundle\Entity\Style 
+     * @return \Valiknet\MusicBundle\Entity\Style
      */
     public function getParent()
     {
@@ -175,7 +174,7 @@ class Style
     /**
      * Add groups
      *
-     * @param \Valiknet\MusicBundle\Entity\Group $groups
+     * @param  \Valiknet\MusicBundle\Entity\Group $groups
      * @return Style
      */
     public function addGroup(\Valiknet\MusicBundle\Entity\Group $groups)
@@ -198,7 +197,7 @@ class Style
     /**
      * Get groups
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getGroups()
     {
