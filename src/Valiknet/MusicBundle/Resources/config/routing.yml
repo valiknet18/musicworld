@@ -1,3 +1,15 @@
-valiknet_music_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: ValiknetMusicBundle:Default:index }
+valiknet_group:
+  resource: "@ValiknetMusicBundle/Resources/config/group_routing.yml"
+  prefix: /group
+
+valiknet_article:
+  resource: "@ValiknetMusicBundle/Resources/config/article_routing.yml"
+  prefix: /article
+
+valiknet_user:
+  resource: "@ValiknetMusicBundle/Resources/config/user_routing.yml"
+  prefix: /user
+
+valiknet_country:
+  resource: "@ValiknetMusicBundle/Resources/config/country_routing.yml"
+  prefix: /country

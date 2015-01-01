@@ -1,0 +1,7 @@
+valiknet_user_list:
+  path: /list
+  defaults: { _controller: ValiknetMusicBundle:User:list }
+
+valiknet_user_view:
+  path: /{slug}/view
+  defaults: { _controller: ValiknetMusicBundle:User:show }
