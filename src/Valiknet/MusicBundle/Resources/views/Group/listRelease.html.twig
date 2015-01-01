@@ -14,6 +14,8 @@
             <div class="col-lg-12">
                 <a href="{{ path('valiknet_group_release_view', { "slugGroup" : group.slug, "slugRelease" : release.slug }) }}">{{ release.name }}</a>
             </div>
+        {% else %}
+            <h4>В цій групі немає ні одного релізу</h4>
         {% endfor %}
     </div>
 {% endblock %}

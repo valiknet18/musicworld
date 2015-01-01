@@ -25,3 +25,7 @@ valiknet_group_release_view:
 valiknet_group_player_list:
   path: /{slug}/players
   defaults: { _controller: ValiknetMusicBundle:Group:players }
+
+valiknet_group_contacts:
+  path: /{slug}/contacts
+  defaults: { _controller: ValiknetMusicBundle:Group:contacts }

@@ -199,4 +199,28 @@ class GroupController extends Controller
             'group' => $group
         ];
     }
+
+    /**
+     * This method render contact page
+     *
+     * @param $slug
+     * @return array
+     *
+     * @Template()
+     */
+    public function contactsAction($slug)
+    {
+        $group = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('ValiknetMusicBundle:Group')
+                    ->findOneBySlug($slug);
+
+        if (!$group) {
+            throw new NotFoundHttpException('Такої групи немає в базі');
+        }
+
+        return [
+            "group" => $group
+        ];
+    }
 }
