@@ -26,11 +26,17 @@ before_script:
     - echo 'date.timezone = "Europe/Kiev"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
     # Update composer
-    - composer install
+    - composer self-update
+    - composer install --dev --prefer-dist
 
     # Make symfony2 preparation steps
+    - mkdir -p web/upload/media
+    - app/console do:da:cr -e=test > /dev/null
+    - app/console do:sc:cr -e=test > /dev/null
     - php app/console assets:install --symlink
     - php app/console assetic:dump
+    - sudo chmod -R 777 app/cache app/logs
+    - app/console --env=test cache:warmup
     - sudo chmod -R 777 app/cache app/logs
 
     # Check
