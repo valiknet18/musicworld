@@ -11,7 +11,7 @@ class UserController extends Controller
     /**
      * This method render list of all users
      *
-     * @param Request $request
+     * @param  Request $request
      * @return array
      *
      * @Template()

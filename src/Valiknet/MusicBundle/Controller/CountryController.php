@@ -11,7 +11,7 @@ class CountryController extends Controller
      * This method render all group by city
      *
      * @param $slug
-     * @param Request $request
+     * @param  Request $request
      * @return array
      *
      * @Template()
@@ -39,7 +39,7 @@ class CountryController extends Controller
      * This method render all user by country
      *
      * @param $slug
-     * @param Request $request
+     * @param  Request $request
      * @return array
      *
      * @Template()

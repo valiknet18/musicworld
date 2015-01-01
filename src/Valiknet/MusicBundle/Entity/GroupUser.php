@@ -1,8 +1,6 @@
 <?php
 namespace Valiknet\MusicBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -47,7 +45,7 @@ class GroupUser
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -57,7 +55,7 @@ class GroupUser
     /**
      * Set role
      *
-     * @param string $role
+     * @param  string    $role
      * @return GroupUser
      */
     public function setRole($role)
@@ -70,7 +68,7 @@ class GroupUser
     /**
      * Get role
      *
-     * @return string 
+     * @return string
      */
     public function getRole()
     {
@@ -80,7 +78,7 @@ class GroupUser
     /**
      * Set joinedAt
      *
-     * @param \DateTime $joinedAt
+     * @param  \DateTime $joinedAt
      * @return GroupUser
      */
     public function setJoinedAt($joinedAt)
@@ -93,7 +91,7 @@ class GroupUser
     /**
      * Get joinedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getJoinedAt()
     {
@@ -103,7 +101,7 @@ class GroupUser
     /**
      * Set group
      *
-     * @param \Valiknet\MusicBundle\Entity\Group $group
+     * @param  \Valiknet\MusicBundle\Entity\Group $group
      * @return GroupUser
      */
     public function setGroup(\Valiknet\MusicBundle\Entity\Group $group = null)
@@ -116,7 +114,7 @@ class GroupUser
     /**
      * Get group
      *
-     * @return \Valiknet\MusicBundle\Entity\Group 
+     * @return \Valiknet\MusicBundle\Entity\Group
      */
     public function getGroup()
     {
@@ -126,7 +124,7 @@ class GroupUser
     /**
      * Set user
      *
-     * @param \Valiknet\MusicBundle\Entity\User $user
+     * @param  \Valiknet\MusicBundle\Entity\User $user
      * @return GroupUser
      */
     public function setUser(\Valiknet\MusicBundle\Entity\User $user = null)
@@ -139,7 +137,7 @@ class GroupUser
     /**
      * Get user
      *
-     * @return \Valiknet\MusicBundle\Entity\User 
+     * @return \Valiknet\MusicBundle\Entity\User
      */
     public function getUser()
     {

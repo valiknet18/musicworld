@@ -11,7 +11,7 @@ class GroupController extends Controller
     /**
      * This method render list of groups
      *
-     * @param Response $request
+     * @param  Response $request
      * @return array
      *
      * @Template()

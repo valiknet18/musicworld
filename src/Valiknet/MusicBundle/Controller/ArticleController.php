@@ -11,7 +11,7 @@ class ArticleController extends Controller
     /**
      * This method render list of all articles
      *
-     * @param Request $request
+     * @param  Request $request
      * @return array
      *
      * @Template()

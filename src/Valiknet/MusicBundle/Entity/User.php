@@ -1,7 +1,6 @@
 <?php
 namespace Valiknet\MusicBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -90,7 +89,7 @@ class User
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -100,7 +99,7 @@ class User
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return User
      */
     public function setName($name)
@@ -113,7 +112,7 @@ class User
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -123,7 +122,7 @@ class User
     /**
      * Set lastname
      *
-     * @param string $lastname
+     * @param  string $lastname
      * @return User
      */
     public function setLastname($lastname)
@@ -136,7 +135,7 @@ class User
     /**
      * Get lastname
      *
-     * @return string 
+     * @return string
      */
     public function getLastname()
     {
@@ -146,7 +145,7 @@ class User
     /**
      * Set history
      *
-     * @param string $history
+     * @param  string $history
      * @return User
      */
     public function setHistory($history)
@@ -159,7 +158,7 @@ class User
     /**
      * Get history
      *
-     * @return string 
+     * @return string
      */
     public function getHistory()
     {
@@ -169,7 +168,7 @@ class User
     /**
      * Set birthedAt
      *
-     * @param \DateTime $birthedAt
+     * @param  \DateTime $birthedAt
      * @return User
      */
     public function setBirthedAt($birthedAt)
@@ -182,7 +181,7 @@ class User
     /**
      * Get birthedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getBirthedAt()
     {
@@ -192,7 +191,7 @@ class User
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return User
      */
     public function setSlug($slug)
@@ -205,7 +204,7 @@ class User
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -215,7 +214,7 @@ class User
     /**
      * Set photo
      *
-     * @param string $photo
+     * @param  string $photo
      * @return User
      */
     public function setPhoto($photo)
@@ -228,7 +227,7 @@ class User
     /**
      * Get photo
      *
-     * @return string 
+     * @return string
      */
     public function getPhoto()
     {
@@ -238,7 +237,7 @@ class User
     /**
      * Set country
      *
-     * @param \Valiknet\MusicBundle\Entity\Country $country
+     * @param  \Valiknet\MusicBundle\Entity\Country $country
      * @return User
      */
     public function setCountry(\Valiknet\MusicBundle\Entity\Country $country = null)
@@ -251,7 +250,7 @@ class User
     /**
      * Get country
      *
-     * @return \Valiknet\MusicBundle\Entity\Country 
+     * @return \Valiknet\MusicBundle\Entity\Country
      */
     public function getCountry()
     {
@@ -261,7 +260,7 @@ class User
     /**
      * Add news
      *
-     * @param \Valiknet\MusicBundle\Entity\Article $news
+     * @param  \Valiknet\MusicBundle\Entity\Article $news
      * @return User
      */
     public function addNews(\Valiknet\MusicBundle\Entity\Article $news)
@@ -284,7 +283,7 @@ class User
     /**
      * Get news
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getNews()
     {
@@ -294,7 +293,7 @@ class User
     /**
      * Add groups
      *
-     * @param \Valiknet\MusicBundle\Entity\GroupUser $groups
+     * @param  \Valiknet\MusicBundle\Entity\GroupUser $groups
      * @return User
      */
     public function addGroup(\Valiknet\MusicBundle\Entity\GroupUser $groups)
@@ -317,7 +316,7 @@ class User
     /**
      * Get groups
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getGroups()
     {
