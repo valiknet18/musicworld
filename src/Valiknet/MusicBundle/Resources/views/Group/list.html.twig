@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <div class="row col-lg-12">
+        {% for group in groups %}
+            <div class="col-lg-6 thumbnail">
+                <h4 class="col-lg-12">
+                    {{ group.name }}
+                </h4>
+
+                <div class="col-lg-4">
+                    <img src="#" class="mini-poster" />
+                </div>
+
+                <div class="col-lg-8 characters">
+                    <div class="col-lg-12">
+                        Країна: <a href="{{ path('valiknet_country_group_view', {"slug" : group.country.slug}) }}">{{ group.country.name }}</a>
+                    </div>
+
+                    <div class="col-lg-12">
+                        Стилі:
+
+                        {% for style in group.styles %}
+                            <a href="#">{{ style.name }}</a>
+                        {% endfor %}
+                    </div>
+
+                    <div class="col-lg-12">
+                        Дата створення: {{ group.createdAt|date('d.m.Y') }}
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <a href="{{ path('valiknet_group_view', {"slug" : group.slug}) }}" class="btn btn-success">
+                        Перейти
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="col-lg-12">
+            {{ knp_pagination_render(groups) }}
+        </div>
+    </div>
+{% endblock %}

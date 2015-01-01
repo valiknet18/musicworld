@@ -43,6 +43,7 @@ Valiknet\MusicBundle\Entity\Release:
 Valiknet\MusicBundle\Entity\Style:
   style{1..20}:
     name: <word(4)>
+    parent: @style*
 
 Valiknet\MusicBundle\Entity\Track:
   track{1..100}:
