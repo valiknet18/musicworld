@@ -354,7 +354,7 @@ class User
     /**
      * Set officialSite
      *
-     * @param string $officialSite
+     * @param  string $officialSite
      * @return User
      */
     public function setOfficialSite($officialSite)
@@ -367,7 +367,7 @@ class User
     /**
      * Get officialSite
      *
-     * @return string 
+     * @return string
      */
     public function getOfficialSite()
     {
@@ -377,7 +377,7 @@ class User
     /**
      * Set officialVkPage
      *
-     * @param string $officialVkPage
+     * @param  string $officialVkPage
      * @return User
      */
     public function setOfficialVkPage($officialVkPage)
@@ -390,7 +390,7 @@ class User
     /**
      * Get officialVkPage
      *
-     * @return string 
+     * @return string
      */
     public function getOfficialVkPage()
     {
@@ -400,7 +400,7 @@ class User
     /**
      * Set officialFacebookPage
      *
-     * @param string $officialFacebookPage
+     * @param  string $officialFacebookPage
      * @return User
      */
     public function setOfficialFacebookPage($officialFacebookPage)
@@ -413,7 +413,7 @@ class User
     /**
      * Get officialFacebookPage
      *
-     * @return string 
+     * @return string
      */
     public function getOfficialFacebookPage()
     {
@@ -423,7 +423,7 @@ class User
     /**
      * Set officialTwitterPage
      *
-     * @param string $officialTwitterPage
+     * @param  string $officialTwitterPage
      * @return User
      */
     public function setOfficialTwitterPage($officialTwitterPage)
@@ -436,7 +436,7 @@ class User
     /**
      * Get officialTwitterPage
      *
-     * @return string 
+     * @return string
      */
     public function getOfficialTwitterPage()
     {

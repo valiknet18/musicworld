@@ -440,7 +440,7 @@ class Group
     /**
      * Set officialSite
      *
-     * @param string $officialSite
+     * @param  string $officialSite
      * @return Group
      */
     public function setOfficialSite($officialSite)
@@ -453,7 +453,7 @@ class Group
     /**
      * Get officialSite
      *
-     * @return string 
+     * @return string
      */
     public function getOfficialSite()
     {
@@ -463,7 +463,7 @@ class Group
     /**
      * Set officialVkPage
      *
-     * @param string $officialVkPage
+     * @param  string $officialVkPage
      * @return Group
      */
     public function setOfficialVkPage($officialVkPage)
@@ -476,7 +476,7 @@ class Group
     /**
      * Get officialVkPage
      *
-     * @return string 
+     * @return string
      */
     public function getOfficialVkPage()
     {
@@ -486,7 +486,7 @@ class Group
     /**
      * Set officialFacebookPage
      *
-     * @param string $officialFacebookPage
+     * @param  string $officialFacebookPage
      * @return Group
      */
     public function setOfficialFacebookPage($officialFacebookPage)
@@ -499,7 +499,7 @@ class Group
     /**
      * Get officialFacebookPage
      *
-     * @return string 
+     * @return string
      */
     public function getOfficialFacebookPage()
     {
@@ -509,7 +509,7 @@ class Group
     /**
      * Set officialTwitterPage
      *
-     * @param string $officialTwitterPage
+     * @param  string $officialTwitterPage
      * @return Group
      */
     public function setOfficialTwitterPage($officialTwitterPage)
@@ -522,7 +522,7 @@ class Group
     /**
      * Get officialTwitterPage
      *
-     * @return string 
+     * @return string
      */
     public function getOfficialTwitterPage()
     {
