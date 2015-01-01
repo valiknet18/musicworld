@@ -4,4 +4,8 @@ valiknet_group:
 
 valiknet_article:
   resource: "@ValiknetMusicBundle/Resources/config/article_routing.yml"
-   prefix: /article
+  prefix: /article
+
+valiknet_user:
+  resource: "@ValiknetMusicBundle/Resources/config/user_routing.yml"
+  prefix: /user
