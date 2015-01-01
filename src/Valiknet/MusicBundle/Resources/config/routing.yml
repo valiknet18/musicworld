@@ -9,3 +9,7 @@ valiknet_article:
 valiknet_user:
   resource: "@ValiknetMusicBundle/Resources/config/user_routing.yml"
   prefix: /user
+
+valiknet_country:
+  resource: "@ValiknetMusicBundle/Resources/config/country_routing.yml"
+  prefix: /country
