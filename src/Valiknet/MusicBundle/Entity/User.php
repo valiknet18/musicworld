@@ -69,7 +69,7 @@ class User
     protected $country;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Article", inversedBy="users")
+     * @ORM\ManyToMany(targetEntity="Article", mappedBy="users")
      */
     protected $news;
 
