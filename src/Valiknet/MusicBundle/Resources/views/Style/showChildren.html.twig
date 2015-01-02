@@ -4,6 +4,10 @@
     Піджанри жанру {{ style.name }}
 {% endblock %}
 
+{% block links %}
+    <a href="{{ path('valiknet_style_list') }}">Жанри</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">Піджанри</a>
+{% endblock %}
+
 {% block style_content %}
     <div class="col-lg-12">
         {% if style.children|length > 0 %}

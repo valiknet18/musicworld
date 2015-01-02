@@ -1,10 +1,14 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-
+    Список жанрів
 {% endblock %}
 
 {% block content %}
+    <div class="col-lg-12 arrow-navigator">
+        <a href="{{ path('valiknet_style_list') }}">Жанри</a>
+    </div>
+
     <div class="row col-lg-12">
         <ul>
             {% for style in styles %}
