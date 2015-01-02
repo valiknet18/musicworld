@@ -10,33 +10,26 @@
 
 {% block user_content %}
     <div class="col-lg-12">
+        <h3>{{ user.name }} {{ user.lastname }}</h3>
         <div class="col-lg-4">
             <img src="#" class="poster"/>
         </div>
 
-        {#<div class="col-lg-8 characters">#}
-            {#<div class="col-lg-12">#}
-                {#Країна: <a href="{{ path('valiknet_country_group_view', {"slug" : group.country.slug}) }}">{{ group.country.name }}</a>#}
-            {#</div>#}
+        <div class="col-lg-8 characters">
+            <div class="col-lg-12">
+                Країна: <a href="{{ path('valiknet_country_user_view', {"slug" : user.country.slug}) }}">{{ user.country.name }}</a>
+            </div>
 
-            {#<div class="col-lg-12">#}
-                {#Стилі:#}
+            <div class="col-lg-12">
+                Дата народження: {{ user.birthedAt|date('d.m.Y') }}
+            </div>
+        </div>
 
-                {#{% for style in group.styles %}#}
-                    {#<a href="#">{{ style.name }}</a>#}
-                {#{% endfor %}#}
-            {#</div>#}
-
-            {#<div class="col-lg-12">#}
-                {#Дата створення: {{ group.createdAt|date('d.m.Y') }}#}
-            {#</div>#}
-        {#</div>#}
-
-        {#<div class="col-lg-8">#}
-            {#<h4>Коротка історія:</h4>#}
-            {#<p>#}
-                {#{{ group.history }}#}
-            {#</p>#}
-        {#</div>#}
+        <div class="col-lg-8">
+            <h4>Коротка історія:</h4>
+            <p>
+                {{ user.history }}
+            </p>
+        </div>
     </div>
 {% endblock %}
