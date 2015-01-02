@@ -24,7 +24,7 @@ Valiknet\MusicBundle\Entity\Group:
     createdAt: <dateTimeBetween('-30 years', 'now')>
     country: @country*
     styles: 4x @style*
-    officialPage: <url()>
+    officialSite: <url()>
 
 Valiknet\MusicBundle\Entity\GroupUser:
   Group_user{1..30}:
@@ -44,7 +44,7 @@ Valiknet\MusicBundle\Entity\Release:
 Valiknet\MusicBundle\Entity\Style:
   style{1..20}:
     name: <word(4)>
-    parent: @style*
+    parent: 50%? @style*
 
 Valiknet\MusicBundle\Entity\Track:
   track{1..100}:
@@ -59,4 +59,4 @@ Valiknet\MusicBundle\Entity\User:
     history: <text()>
     birthedAt: <dateTimeBetween('-30 years', 'now')>
     country: @country*
-    officialPage: <url()>
+    officialSite: <url()>
