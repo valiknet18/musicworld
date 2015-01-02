@@ -27,7 +27,7 @@ before_script:
 
     # Update composer
     - composer self-update
-    - composer install --dev --prefer-dist
+    - composer install --dev --prefer-source
 
     # Make symfony2 preparation steps
     - mkdir -p web/upload/media
