@@ -58,4 +58,76 @@ class UserController extends Controller
             "user" => $user
         ];
     }
+
+    /**
+     * This method render list groups user
+     *
+     * @param $slug
+     * @return array
+     *
+     * @Template()
+     */
+    public function listGroupsAction($slug)
+    {
+        $user = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('ValiknetMusicBundle:User')
+                    ->findOneBy(["slug" => $slug]);
+
+        if (!$user) {
+            throw new NotFoundHttpException('Такой людини немає в базі');
+        }
+
+        return [
+            "user" => $user
+        ];
+    }
+
+    /**
+     * This method render list news user
+     *
+     * @param $slug
+     * @return array
+     *
+     * @Template()
+     */
+    public function listNewsAction($slug)
+    {
+        $user = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ValiknetMusicBundle:User')
+            ->findOneBy(["slug" => $slug]);
+
+        if (!$user) {
+            throw new NotFoundHttpException('Такой людини немає в базі');
+        }
+
+        return [
+            "user" => $user
+        ];
+    }
+
+    /**
+     * This method render contact list
+     *
+     * @param $slug
+     * @return array
+     *
+     * @Template()
+     */
+    public function contactsAction($slug)
+    {
+        $user = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ValiknetMusicBundle:User')
+            ->findOneBy(["slug" => $slug]);
+
+        if (!$user) {
+            throw new NotFoundHttpException('Такой людини немає в базі');
+        }
+
+        return [
+            "user" => $user
+        ];
+    }
 }

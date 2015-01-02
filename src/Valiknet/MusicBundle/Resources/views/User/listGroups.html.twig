@@ -1,0 +1,53 @@
+{% extends '@ValiknetMusic/User/user_webber.html.twig' %}
+
+{% block title %}
+    Групи в яких приймає участь {{ user.name }} {{ user.lastname }}
+{% endblock %}
+
+{% block links %}
+    <a href="{{ path('valiknet_user_list') }}">Люди</a>><a href="{{ path("valiknet_user_view", { "slug" : user.slug }) }}">{{ user.name }} {{ user.lastname }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">Групи</a>
+{% endblock %}
+
+{% block user_content %}
+    {% for groupuser in user.groups %}
+        <div class="col-lg-6 thumbnail">
+            <h4 class="col-lg-12">
+                {{ groupuser.group.name }}
+            </h4>
+
+            <div class="col-lg-4">
+                <img src="#" class="mini-poster" />
+            </div>
+
+            <div class="col-lg-8 characters">
+                <div class="col-lg-12">
+                    Країна: <a href="{{ path('valiknet_country_group_view', {"slug" : groupuser.group.country.slug}) }}">{{ groupuser.group.country.name }}</a>
+                </div>
+
+                <div class="col-lg-12">
+                    Стилі:
+
+                    {% for style in groupuser.group.styles %}
+                        <a href="#">{{ style.name }}</a>
+                    {% endfor %}
+                </div>
+
+                <div class="col-lg-12">
+                    Дата створення: {{ groupuser.group.createdAt|date('d.m.Y') }}
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <a href="{{ path('valiknet_group_view', {"slug" : groupuser.group.slug}) }}" class="btn btn-success">
+                    Перейти
+                </a>
+            </div>
+        </div>
+    {% else %}
+        <div class="col-lg-12">
+            <h4>
+                Ця людина не участвує ні в одній музичній групі
+            </h4>
+        </div>
+    {% endfor %}
+{% endblock %}

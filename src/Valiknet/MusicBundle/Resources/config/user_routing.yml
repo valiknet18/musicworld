@@ -5,3 +5,15 @@ valiknet_user_list:
 valiknet_user_view:
   path: /{slug}/view
   defaults: { _controller: ValiknetMusicBundle:User:show }
+
+valiknet_user_groups_list:
+  path: /{slug}/groups
+  defaults: { _controller: ValiknetMusicBundle:User:listGroups }
+
+valiknet_user_news_list:
+  path: /{slug}/news
+  defaults: { _controller: ValiknetMusicBundle:User:listNews }
+
+valiknet_user_contacts:
+  path: /{slug}/contacts
+  defaults: { _controller: ValiknetMusicBundle:User:contacts }

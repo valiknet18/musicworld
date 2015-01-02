@@ -29,3 +29,7 @@ valiknet_group_player_list:
 valiknet_group_contacts:
   path: /{slug}/contacts
   defaults: { _controller: ValiknetMusicBundle:Group:contacts }
+
+valiknet_group_news:
+  path: /{slug}/news
+  defaults: { _controller: ValiknetMusicBundle:Group:listNews }
