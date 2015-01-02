@@ -13,3 +13,7 @@ valiknet_user:
 valiknet_country:
   resource: "@ValiknetMusicBundle/Resources/config/country_routing.yml"
   prefix: /country
+
+valiknet_style:
+  resource: "@ValiknetMusicBundle/Resources/config/style_routing.yml"
+  prefix: /genre
