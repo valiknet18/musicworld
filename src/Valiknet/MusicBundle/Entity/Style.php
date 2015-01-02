@@ -5,7 +5,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Valiknet\MusicBundle\Entity\StyleRepository")
  * @ORM\Table(name="`style`")
  */
 class Style
