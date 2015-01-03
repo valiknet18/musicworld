@@ -12,13 +12,13 @@
 
                 <li>
                     <a href="{{ path('valiknet_user_groups_list', {"slug" : user.slug}) }}">
-                        Групи
+                        Групи <span class="badge">{{ user.groups|length }}</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ path('valiknet_user_news_list', {"slug" : user.slug}) }}">
-                        Новини
+                        Новини <span class="badge">{{ user.news|length }}</span>
                     </a>
                 </li>
 

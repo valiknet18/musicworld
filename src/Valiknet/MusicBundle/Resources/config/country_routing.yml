@@ -5,3 +5,7 @@ valiknet_country_group_view:
 valiknet_country_user_view:
   path: /{slug}/view/user
   defaults: { _controller: ValiknetMusicBundle:Country:showUser }
+
+valiknet_country_list:
+  path: /list
+  defaults: { _controller: ValiknetMusicBundle:Country:list }
