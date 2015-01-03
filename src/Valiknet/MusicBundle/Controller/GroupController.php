@@ -5,7 +5,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Valiknet\MusicBundle\Entity\Clip;
 use Valiknet\MusicBundle\Entity\Group;
 use Valiknet\MusicBundle\Entity\Release;
@@ -72,8 +71,8 @@ class GroupController extends Controller
     /**
      * This method render target clip
      *
-     * @param Group $group
-     * @param Clip $clip
+     * @param  Group $group
+     * @param  Clip  $clip
      * @return array
      *
      * @Template()
@@ -105,8 +104,8 @@ class GroupController extends Controller
     /**
      * This method render target release
      *
-     * @param Group $group
-     * @param Release $release
+     * @param  Group   $group
+     * @param  Release $release
      * @return array
      *
      * @Template()
