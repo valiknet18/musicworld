@@ -4,7 +4,6 @@ namespace Valiknet\MusicBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Valiknet\MusicBundle\Entity\User;
 
 class UserController extends Controller
@@ -39,7 +38,7 @@ class UserController extends Controller
     /**
      * This method render user by slug
      *
-     * @param  User $user
+     * @param  User  $user
      * @return array
      *
      * @Template()
@@ -54,7 +53,7 @@ class UserController extends Controller
     /**
      * This method render list groups user
      *
-     * @param  User $user
+     * @param  User  $user
      * @return array
      *
      * @Template()
@@ -69,7 +68,7 @@ class UserController extends Controller
     /**
      * This method render list news user
      *
-     * @param  User $user
+     * @param  User  $user
      * @return array
      *
      * @Template()
@@ -84,7 +83,7 @@ class UserController extends Controller
     /**
      * This method render contact list
      *
-     * @param  User $user
+     * @param  User  $user
      * @return array
      *
      * @Template()
