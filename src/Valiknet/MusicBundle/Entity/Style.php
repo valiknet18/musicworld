@@ -203,4 +203,18 @@ class Style
     {
         return $this->groups;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        if (!$this->parent) {
+            return "-".$this->name;
+        } elseif (!$this->parent->parent) {
+            return "--".$this->name;
+        } else {
+            return "---".$this->name;
+        }
+    }
 }
