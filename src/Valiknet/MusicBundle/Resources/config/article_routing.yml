@@ -1,3 +1,11 @@
 valiknet_article_view:
   path: /{slug}/view
   defaults: { _controller: ValiknetMusicBundle:Article:view }
+
+valiknet_article_group_list:
+  path: /{slug}/group/list
+  defaults: { _controller: ValiknetMusicBundle:Article:listGroup }
+
+valiknet_article_user_list:
+  path: /{slug}/user/list
+  defaults: { _controller: ValiknetMusicBundle:Article:listUser }

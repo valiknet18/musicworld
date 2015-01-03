@@ -6,6 +6,9 @@
 
 {% block content %}
     <div class="row">
+        <div class="col-lg-12 arrow-navigator">
+            <a href="{{ path('valiknet_home') }}">Статі</a>
+        </div>
         <div class="col-lg-12">
             {% for article in articles %}
                 <div class="col-lg-6 thumbnail">

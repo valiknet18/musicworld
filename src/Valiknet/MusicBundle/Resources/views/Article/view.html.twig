@@ -1,49 +1,27 @@
-{% extends '::base.html.twig' %}
+{% extends 'ValiknetMusicBundle:Article:article_webber.html.twig' %}
 
 {% block title %}
     Стаття {{ article.name }}
 {% endblock %}
 
-{% block content %}
-    <div class="row col-lg-9 col-lg-offset-1">
+{% block links %}
+    <a href="{{ path('valiknet_home') }}">Статі</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ article.name }}</a>
+{% endblock %}
+
+{% block article_content %}
+    <div class="col-lg-12">
+        <h3 class="col-lg-12">
+            {{ article.name }}
+        </h3>
+
         <div class="col-lg-12">
-            <h3 class="col-lg-12">
-                {{ article.name }}
-            </h3>
+            Дата створення: {{ article.createdAt|date('H:m:i d.m.Y') }}
+        </div>
 
-            <div class="col-lg-12">
-                Дата створення: {{ article.createdAt|date('H:m:i d.m.Y') }}
-            </div>
-
-            <div class="col-lg-12">
-                <p>
-                    {{ article.text }}
-                </p>
-            </div>
-
-            {% if article.groups %}
-                <div class="col-lg-12">
-                    <h4>
-                        Групи:
-                    </h4>
-
-                    {% for group in article.groups %}
-                        <a href="">{{ group.name }}</a>
-                    {% endfor %}
-                </div>
-            {% endif %}
-
-            {% if article.users %}
-                <div class="col-lg-12">
-                    <h4>
-                        Люди:
-                    </h4>
-
-                    {% for user in article.users %}
-                        <a href="">{{ user.name }} {{ user.lastname }}</a>
-                    {% endfor %}
-                </div>
-            {% endif %}
+        <div class="col-lg-12">
+            <p>
+                {{ article.text }}
+            </p>
         </div>
     </div>
 {% endblock %}

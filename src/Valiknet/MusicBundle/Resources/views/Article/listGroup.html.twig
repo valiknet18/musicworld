@@ -1,16 +1,16 @@
-{% extends 'ValiknetMusicBundle:Style:style_webber.html.twig' %}
+{% extends 'ValiknetMusicBundle:Article:article_webber.html.twig' %}
 
 {% block title %}
-    Групи з жанром {{ style.name }}
+    Групи які прив’язані до статі {{ article.name }}
 {% endblock %}
 
 {% block links %}
-    <a href="{{ path('valiknet_style_list') }}">Жанри</a>><a href="{{ path('valiknet_style_children_list', {"slug" : style.slug}) }}">{{ style.name }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">Піджанри</a>
+    <a href="{{ path('valiknet_home') }}">Статі</a>><a href="{{ path('valiknet_article_view', {"slug" : article.slug}) }}">{{ article.name }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">Групи</a>
 {% endblock %}
 
-{% block style_content %}
+{% block article_content %}
     <div class="col-lg-12">
-        {% for group in style.groups %}
+        {% for group in article.groups %}
             <div class="col-lg-6 thumbnail">
                 <h4 class="col-lg-12">
                     {{ group.name }}
@@ -47,7 +47,7 @@
         {% else %}
             <div>
                 <h4>
-                    В базі немає ні однієї групи з таким жанром
+                    До цієї статі не прив’язана ні одна группа
                 </h4>
             </div>
         {% endfor %}
