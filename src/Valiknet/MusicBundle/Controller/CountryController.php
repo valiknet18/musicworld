@@ -4,7 +4,6 @@ namespace Valiknet\MusicBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Valiknet\MusicBundle\Entity\Country;
 
 class CountryController extends Controller

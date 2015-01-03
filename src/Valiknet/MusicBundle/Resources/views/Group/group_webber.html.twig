@@ -17,13 +17,13 @@
                 </li>
 
                 <li>
-                    <a href="{{ path('valiknet_group_clip_list', {"slugGroup" : group.slug}) }}">
+                    <a href="{{ path('valiknet_group_clip_list', {"slug" : group.slug}) }}">
                         Кліпи <span class="badge">{{ group.clips|length }}</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ path('valiknet_group_release_list', {"slugGroup" : group.slug}) }}">
+                    <a href="{{ path('valiknet_group_release_list', {"slug" : group.slug}) }}">
                         Релізи <span class="badge">{{ group.releases|length }}</span>
                     </a>
                 </li>
