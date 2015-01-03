@@ -3,7 +3,6 @@ namespace Valiknet\MusicBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Valiknet\MusicBundle\Entity\Style;
 
 class StyleController extends Controller
