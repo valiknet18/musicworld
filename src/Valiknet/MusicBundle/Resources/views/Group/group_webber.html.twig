@@ -12,31 +12,31 @@
 
                 <li>
                     <a href="{{ path('valiknet_group_player_list', {"slug" : group.slug}) }}">
-                        Учасники
+                        Учасники <span class="badge">{{ group.users|length }}</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ path('valiknet_group_clip_list', {"slugGroup" : group.slug}) }}">
-                        Кліпи
+                        Кліпи <span class="badge">{{ group.clips|length }}</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ path('valiknet_group_release_list', {"slugGroup" : group.slug}) }}">
-                        Релізи
+                        Релізи <span class="badge">{{ group.releases|length }}</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ path('valiknet_group_news', {"slug" : group.slug}) }}">
+                        Новини <span class="badge">{{ group.news|length }}</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ path('valiknet_group_contacts', {"slug" : group.slug}) }}">
                         Контакти
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ path('valiknet_group_news', {"slug" : group.slug}) }}">
-                        Новини
                     </a>
                 </li>
             </ul>

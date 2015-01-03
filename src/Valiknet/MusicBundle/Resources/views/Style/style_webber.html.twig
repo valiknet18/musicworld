@@ -6,13 +6,13 @@
             <ul class="nav navbar-nav">
                 <li>
                     <a href="{{ path('valiknet_style_children_list', {"slug" : style.slug}) }}">
-                        Дочірні категорії
+                        Дочірні категорії <span class="badge">{{ style.children|length }}</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ path('valiknet_style_group_list', {"slug" : style.slug}) }}">
-                        Групи
+                        Групи <span class="badge">{{ style.groups|length }}</span>
                     </a>
                 </li>
             </ul>
