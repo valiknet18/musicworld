@@ -58,4 +58,52 @@ class ArticleController extends Controller
             "article" => $article
         ];
     }
+
+    /**
+     * This method render list groups
+     *
+     * @param $slug
+     * @return array
+     *
+     * @Template()
+     */
+    public function listGroupAction($slug)
+    {
+        $article = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ValiknetMusicBundle:Article')
+            ->findOneBySlug($slug);
+
+        if (!$article) {
+            throw new NotFoundHttpException('Такой статі немає в базі');
+        }
+
+        return [
+            "article" => $article
+        ];
+    }
+
+    /**
+     * This method render list users
+     *
+     * @param $slug
+     * @return array
+     *
+     * @Template()
+     */
+    public function listUserAction($slug)
+    {
+        $article = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ValiknetMusicBundle:Article')
+            ->findOneBySlug($slug);
+
+        if (!$article) {
+            throw new NotFoundHttpException('Такой статі немає в базі');
+        }
+
+        return [
+            "article" => $article
+        ];
+    }
 }

@@ -1,0 +1,11 @@
+valiknet_style_list:
+  path: /list
+  defaults: { _controller: ValiknetMusicBundle:Style:list }
+
+valiknet_style_children_list:
+  path: /{slug}/childrens
+  defaults: { _controller: ValiknetMusicBundle:Style:showChildren }
+
+valiknet_style_group_list:
+  path: /{slug}/groups
+  defaults: { _controller: ValiknetMusicBundle:Style:showGroup }

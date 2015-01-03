@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Список жанрів
+{% endblock %}
+
+{% block content %}
+    <div class="col-lg-12 arrow-navigator">
+        <a href="{{ path('valiknet_style_list') }}">Жанри</a>
+    </div>
+
+    <div class="row col-lg-12">
+        <ul>
+            {% for style in styles %}
+                <li>
+                    <div>
+                        <a href="#" class="parent-div">+</a> <a href="{{ path('valiknet_style_children_list', {"slug" : style.slug}) }}">{{ style.name }}</a>
+                    </div>
+
+                    {% if style.children %}
+                        <ul class="children-list">
+                            {% for style in style.children %}
+                                <li>
+                                    <div>
+                                        <a href="#" class="parent-div">+</a> <a href="{{ path('valiknet_style_children_list', {"slug" : style.slug}) }}">{{ style.name }}</a>
+                                    </div>
+
+                                    {% if style.children %}
+                                        <ul class="children-list">
+                                            {% for style in style.children %}
+                                                <li>
+                                                    <div>
+                                                        <a href="{{ path('valiknet_style_children_list', {"slug" : style.slug}) }}">{{ style.name }}</a>
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
