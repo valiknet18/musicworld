@@ -1,0 +1,55 @@
+{% extends 'ValiknetMusicBundle:Country:country_webber.html.twig' %}
+
+{% block title %}
+    Групи з країни {{ country.name }}
+{% endblock %}
+
+{% block links %}
+    <a href="{{ path('valiknet_group_list') }}">Країни</a>>{{ country.name }}><a href="{{ path('valiknet_country_group_view', {"slug" : country.slug}) }}">Групи</a>
+{% endblock %}
+
+{% block country_content %}
+    <div class="col-lg-12">
+        {% for group in country.groups %}
+            <div class="col-lg-6 thumbnail">
+                <h4 class="col-lg-12">
+                    {{ group.name }}
+                </h4>
+
+                <div class="col-lg-4">
+                    <img src="#" class="mini-poster" />
+                </div>
+
+                <div class="col-lg-8 characters">
+                    <div class="col-lg-12">
+                        Країна: <a href="{{ path('valiknet_country_group_view', {"slug" : group.country.slug}) }}">{{ group.country.name }}</a>
+                    </div>
+
+                    <div class="col-lg-12">
+                        Стилі:
+
+                        {% for style in group.styles %}
+                            <a href="#">{{ style.name }}</a>
+                        {% endfor %}
+                    </div>
+
+                    <div class="col-lg-12">
+                        Дата створення: {{ group.createdAt|date('d.m.Y') }}
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <a href="{{ path('valiknet_group_view', {"slug" : group.slug}) }}" class="btn btn-success">
+                        Перейти
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-lg-12">
+                <h4>
+                    В цьому жанрі немає ні одного піджанру.
+                </h4>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
