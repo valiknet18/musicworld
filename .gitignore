@@ -15,3 +15,4 @@
 /src/Acme/*
 UPGRADE.md
 UPGRADE-*
+/web/uploads/*
