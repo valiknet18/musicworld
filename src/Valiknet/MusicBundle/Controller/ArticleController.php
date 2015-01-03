@@ -5,6 +5,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Valiknet\MusicBundle\Entity\Article;
 
 class ArticleController extends Controller
 {
@@ -38,22 +39,13 @@ class ArticleController extends Controller
     /**
      * This method render article by slug
      *
-     * @param $slug
+     * @param Article $article
      * @return array
      *
      * @Template()
      */
-    public function viewAction($slug)
+    public function viewAction(Article $article)
     {
-        $article = $this->getDoctrine()
-                        ->getManager()
-                        ->getRepository('ValiknetMusicBundle:Article')
-                        ->findOneBySlug($slug);
-
-        if (!$article) {
-            throw new NotFoundHttpException('Такой статі немає в базі');
-        }
-
         return [
             "article" => $article
         ];
@@ -62,22 +54,13 @@ class ArticleController extends Controller
     /**
      * This method render list groups
      *
-     * @param $slug
+     * @param Article $article
      * @return array
      *
      * @Template()
      */
-    public function listGroupAction($slug)
+    public function listGroupAction(Article $article)
     {
-        $article = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('ValiknetMusicBundle:Article')
-            ->findOneBySlug($slug);
-
-        if (!$article) {
-            throw new NotFoundHttpException('Такой статі немає в базі');
-        }
-
         return [
             "article" => $article
         ];
@@ -86,22 +69,13 @@ class ArticleController extends Controller
     /**
      * This method render list users
      *
-     * @param $slug
+     * @param Article $article
      * @return array
      *
      * @Template()
      */
-    public function listUserAction($slug)
+    public function listUserAction(Article $article)
     {
-        $article = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('ValiknetMusicBundle:Article')
-            ->findOneBySlug($slug);
-
-        if (!$article) {
-            throw new NotFoundHttpException('Такой статі немає в базі');
-        }
-
         return [
             "article" => $article
         ];
