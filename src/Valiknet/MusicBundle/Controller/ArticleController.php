@@ -4,7 +4,6 @@ namespace Valiknet\MusicBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Valiknet\MusicBundle\Entity\Article;
 
 class ArticleController extends Controller
@@ -39,7 +38,7 @@ class ArticleController extends Controller
     /**
      * This method render article by slug
      *
-     * @param Article $article
+     * @param  Article $article
      * @return array
      *
      * @Template()
@@ -54,7 +53,7 @@ class ArticleController extends Controller
     /**
      * This method render list groups
      *
-     * @param Article $article
+     * @param  Article $article
      * @return array
      *
      * @Template()
@@ -69,7 +68,7 @@ class ArticleController extends Controller
     /**
      * This method render list users
      *
-     * @param Article $article
+     * @param  Article $article
      * @return array
      *
      * @Template()

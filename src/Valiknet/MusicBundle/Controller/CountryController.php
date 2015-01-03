@@ -5,6 +5,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Valiknet\MusicBundle\Entity\Country;
 
 class CountryController extends Controller
 {
@@ -38,23 +39,14 @@ class CountryController extends Controller
     /**
      * This method render all group by city
      *
-     * @param $slug
+     * @param  Country $country
      * @param  Request $request
      * @return array
      *
      * @Template()
      */
-    public function showGroupAction($slug, Request $request)
+    public function showGroupAction(Country $country, Request $request)
     {
-        $country = $this->getDoctrine()
-                        ->getManager()
-                        ->getRepository('ValiknetMusicBundle:Country')
-                        ->findOneBySlug($slug);
-
-        if (!$country) {
-            throw new NotFoundHttpException('Такой країни немає в базі');
-        }
-
         return [
             "country" => $country
         ];
@@ -63,23 +55,14 @@ class CountryController extends Controller
     /**
      * This method render all user by country
      *
-     * @param $slug
+     * @param  Country $country
      * @param  Request $request
      * @return array
      *
      * @Template()
      */
-    public function showUserAction($slug, Request $request)
+    public function showUserAction(Country $country, Request $request)
     {
-        $country = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('ValiknetMusicBundle:Country')
-            ->findOneBySlug($slug);
-
-        if (!$country) {
-            throw new NotFoundHttpException('Такой країни немає в базі');
-        }
-
         return [
             "country" => $country
         ];
