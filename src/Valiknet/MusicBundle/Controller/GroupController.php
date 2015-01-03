@@ -186,6 +186,8 @@ class GroupController extends Controller
         if ($form->isValid()) {
             $em->persist($group);
             $em->flush();
+
+            return $this->redirectToRoute('valiknet_home');
         }
 
         return [
