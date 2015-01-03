@@ -4,6 +4,7 @@ namespace Valiknet\MusicBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Valiknet\MusicBundle\Entity\Group;
 
 class AddGroupType extends AbstractType
 {
@@ -13,6 +14,7 @@ class AddGroupType extends AbstractType
             ->add('name', 'text', [
                 "label" => "Назва групи"
             ])
+            ->add('poster', 'file')
             ->add('history', 'textarea', [
                 "label" => "Інформація про групу"
             ])
@@ -32,6 +34,7 @@ class AddGroupType extends AbstractType
                 "class" => "ValiknetMusicBundle:Country",
                 "empty_value" => "Виберіть потрібну країну",
             ])
+            ->add('createdAt', 'date')
             ->add('styles');
     }
 
@@ -44,6 +47,6 @@ class AddGroupType extends AbstractType
 
     public function getName()
     {
-        return 'comment';
+        return 'group';
     }
 }
