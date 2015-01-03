@@ -7,19 +7,19 @@ valiknet_group_view:
   defaults: { _controller: ValiknetMusicBundle:Group:view }
 
 valiknet_group_clip_list:
-  path: /{slugGroup}/clip/list
+  path: /{slug}/clip/list
   defaults: { _controller: ValiknetMusicBundle:Group:listClip }
 
 valiknet_group_clip_view:
-  path: /{slugGroup}/clip/{slugClip}/view
+  path: /{slug}/clip/{slugClip}/view
   defaults: { _controller: ValiknetMusicBundle:Group:clip }
 
 valiknet_group_release_list:
-  path: /{slugGroup}/release/list
+  path: /{slug}/release/list
   defaults: { _controller: ValiknetMusicBundle:Group:listRelease }
 
 valiknet_group_release_view:
-  path: /{slugGroup}/release/{slugRelease}/view
+  path: /{slug}/release/{slugRelease}/view
   defaults: { _controller: ValiknetMusicBundle:Group:release }
 
 valiknet_group_player_list:

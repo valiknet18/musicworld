@@ -4,7 +4,7 @@ namespace Valiknet\MusicBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Valiknet\MusicBundle\Entity\User;
 
 class UserController extends Controller
 {
@@ -38,22 +38,13 @@ class UserController extends Controller
     /**
      * This method render user by slug
      *
-     * @param $slug
+     * @param  User  $user
      * @return array
      *
      * @Template()
      */
-    public function showAction($slug)
+    public function showAction(User $user)
     {
-        $user = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ValiknetMusicBundle:User')
-                    ->findOneBySlug($slug);
-
-        if (!$user) {
-            throw new NotFoundHttpException('Такой людини немає в базі');
-        }
-
         return [
             "user" => $user
         ];
@@ -62,22 +53,13 @@ class UserController extends Controller
     /**
      * This method render list groups user
      *
-     * @param $slug
+     * @param  User  $user
      * @return array
      *
      * @Template()
      */
-    public function listGroupsAction($slug)
+    public function listGroupsAction(User $user)
     {
-        $user = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ValiknetMusicBundle:User')
-                    ->findOneBy(["slug" => $slug]);
-
-        if (!$user) {
-            throw new NotFoundHttpException('Такой людини немає в базі');
-        }
-
         return [
             "user" => $user
         ];
@@ -86,22 +68,13 @@ class UserController extends Controller
     /**
      * This method render list news user
      *
-     * @param $slug
+     * @param  User  $user
      * @return array
      *
      * @Template()
      */
-    public function listNewsAction($slug)
+    public function listNewsAction(User $user)
     {
-        $user = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('ValiknetMusicBundle:User')
-            ->findOneBy(["slug" => $slug]);
-
-        if (!$user) {
-            throw new NotFoundHttpException('Такой людини немає в базі');
-        }
-
         return [
             "user" => $user
         ];
@@ -110,22 +83,13 @@ class UserController extends Controller
     /**
      * This method render contact list
      *
-     * @param $slug
+     * @param  User  $user
      * @return array
      *
      * @Template()
      */
-    public function contactsAction($slug)
+    public function contactsAction(User $user)
     {
-        $user = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('ValiknetMusicBundle:User')
-            ->findOneBy(["slug" => $slug]);
-
-        if (!$user) {
-            throw new NotFoundHttpException('Такой людини немає в базі');
-        }
-
         return [
             "user" => $user
         ];

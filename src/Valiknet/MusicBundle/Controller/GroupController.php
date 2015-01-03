@@ -4,14 +4,17 @@ namespace Valiknet\MusicBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Valiknet\MusicBundle\Entity\Clip;
+use Valiknet\MusicBundle\Entity\Group;
+use Valiknet\MusicBundle\Entity\Release;
 
 class GroupController extends Controller
 {
     /**
      * This method render list of groups
      *
-     * @param  Response $request
+     * @param  Request $request
      * @return array
      *
      * @Template()
@@ -38,22 +41,13 @@ class GroupController extends Controller
     /**
      * This method render info about group
      *
-     * @param $slug
+     * @param  Group $group
      * @return array
      *
      * @Template()
      */
-    public function viewAction($slug)
+    public function viewAction(Group $group)
     {
-        $group = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ValiknetMusicBundle:Group')
-                    ->findOneBySlug($slug);
-
-        if (!$group) {
-            throw new NotFoundHttpException('Такой групи немає в базі');
-        }
-
         return [
             "group" => $group
         ];
@@ -62,22 +56,13 @@ class GroupController extends Controller
     /**
      * This method render list of clips
      *
-     * @param $slugGroup
+     * @param  Group $group
      * @return array
      *
      * @Template()
      */
-    public function listClipAction($slugGroup)
+    public function listClipAction(Group $group)
     {
-        $group = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ValiknetMusicBundle:Group')
-                    ->findOneBySlug($slugGroup);
-
-        if (!$group) {
-            throw new NotFoundHttpException('Такой групи немає в базі');
-        }
-
         return [
             "group" => $group
         ];
@@ -86,32 +71,15 @@ class GroupController extends Controller
     /**
      * This method render target clip
      *
-     * @param $slugGroup
-     * @param $slugClip
+     * @param  Group $group
+     * @param  Clip  $clip
      * @return array
      *
      * @Template()
+     * @ParamConverter("clip", options={"mapping": {"slugClip": "slug"}})
      */
-    public function clipAction($slugGroup, $slugClip)
+    public function clipAction(Group $group, Clip $clip)
     {
-        $group = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ValiknetMusicBundle:Group')
-                    ->findOneBySlug($slugGroup);
-
-        if (!$group) {
-            throw new NotFoundHttpException('Такой групи немає в базі');
-        }
-
-        $clip = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ValiknetMusicBundle:Clip')
-                    ->findOneBy(['slug' => $slugClip, 'group' => $group->getId()]);
-
-        if (!$clip) {
-            throw new NotFoundHttpException('В цієї групи такого кліпу немає');
-        }
-
         return [
             "group" => $group,
             "clip" => $clip
@@ -121,22 +89,13 @@ class GroupController extends Controller
     /**
      * This method render list of all releases group
      *
-     * @param $slug
+     * @param  Group $group
      * @return array
      *
      * @Template()
      */
-    public function listReleaseAction($slugGroup)
+    public function listReleaseAction(Group $group)
     {
-        $group = $this->getDoctrine()
-                        ->getManager()
-                        ->getRepository('ValiknetMusicBundle:Group')
-                        ->findOneBySlug($slugGroup);
-
-        if (!$group) {
-            throw new NotFoundHttpException('Такой групи немає в базі');
-        }
-
         return [
             "group" => $group
         ];
@@ -145,31 +104,15 @@ class GroupController extends Controller
     /**
      * This method render target release
      *
-     * @param $slugGroup
-     * @param $slugRelease
+     * @param  Group   $group
+     * @param  Release $release
+     * @return array
      *
      * @Template()
+     * @ParamConverter("release", options={"mapping": {"slugRelease": "slug"}})
      */
-    public function releaseAction($slugGroup, $slugRelease)
+    public function releaseAction(Group $group, Release $release)
     {
-        $group = $this->getDoctrine()
-                        ->getManager()
-                        ->getRepository('ValiknetMusicBundle:Group')
-                        ->findOneBySlug($slugGroup);
-
-        if (!$group) {
-            throw new NotFoundHttpException('Такої групи немає в базі');
-        }
-
-        $release = $this->getDoctrine()
-                        ->getManager()
-                        ->getRepository('ValiknetMusicBundle:Release')
-                        ->findOneBy(['slug' => $slugRelease, 'group' => $group]);
-
-        if (!$release) {
-            throw new NotFoundHttpException('Такого релізу в цієї групи немає');
-        }
-
         return [
             "group" => $group,
             "release" => $release
@@ -179,22 +122,13 @@ class GroupController extends Controller
     /**
      * This method render players list
      *
-     * @param $slug
+     * @param  Group $group
      * @return array
      *
      * @Template()
      */
-    public function playersAction($slug)
+    public function playersAction(Group $group)
     {
-        $group = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ValiknetMusicBundle:Group')
-                    ->findOneBySlug($slug);
-
-        if (!$group) {
-            throw new NotFoundHttpException('Такої групи немає в базі');
-        }
-
         return [
             'group' => $group
         ];
@@ -203,22 +137,13 @@ class GroupController extends Controller
     /**
      * This method render contact page
      *
-     * @param $slug
+     * @param  Group $group
      * @return array
      *
      * @Template()
      */
-    public function contactsAction($slug)
+    public function contactsAction(Group $group)
     {
-        $group = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ValiknetMusicBundle:Group')
-                    ->findOneBySlug($slug);
-
-        if (!$group) {
-            throw new NotFoundHttpException('Такої групи немає в базі');
-        }
-
         return [
             "group" => $group
         ];
@@ -227,22 +152,13 @@ class GroupController extends Controller
     /**
      * This method render list news
      *
-     * @param $slug
+     * @param  Group $group
      * @return array
      *
      * @Template()
      */
-    public function listNewsAction($slug)
+    public function listNewsAction(Group $group)
     {
-        $group = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ValiknetMusicBundle:Group')
-                    ->findOneBySlug($slug);
-
-        if (!$group) {
-            throw new NotFoundHttpException('Такої групи немає в базі');
-        }
-
         return [
             "group" => $group
         ];

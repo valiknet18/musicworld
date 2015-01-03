@@ -3,7 +3,7 @@ namespace Valiknet\MusicBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Valiknet\MusicBundle\Entity\Style;
 
 class StyleController extends Controller
 {
@@ -29,22 +29,13 @@ class StyleController extends Controller
     /**
      * This method return
      *
-     * @param $slug
+     * @param  Style $style
      * @return array
      *
      * @Template()
      */
-    public function showChildrenAction($slug)
+    public function showChildrenAction(Style $style)
     {
-        $style = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ValiknetMusicBundle:Style')
-                    ->findOneBy(["slug" => $slug]);
-
-        if (!$style) {
-            throw new NotFoundHttpException('Такого жанру немає в базі');
-        }
-
         return [
             "style" => $style
         ];
@@ -53,22 +44,13 @@ class StyleController extends Controller
     /**
      * This method render groups target style
      *
-     * @param $slug
+     * @param  Style $style
      * @return array
      *
      * @Template()
      */
-    public function showGroupAction($slug)
+    public function showGroupAction(Style $style)
     {
-        $style = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('ValiknetMusicBundle:Style')
-            ->findOneBy(["slug" => $slug]);
-
-        if (!$style) {
-            throw new NotFoundHttpException('Такого жанру немає в базі');
-        }
-
         return [
             "style" => $style
         ];
