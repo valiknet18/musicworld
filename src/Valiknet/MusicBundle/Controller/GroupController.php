@@ -8,6 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Valiknet\MusicBundle\Entity\Clip;
 use Valiknet\MusicBundle\Entity\Group;
 use Valiknet\MusicBundle\Entity\Release;
+use Valiknet\MusicBundle\Form\Type\AddGroupType;
+use Valiknet\MusicBundle\Form\Type\UpdateGroupType;
 
 class GroupController extends Controller
 {
@@ -161,6 +163,65 @@ class GroupController extends Controller
     {
         return [
             "group" => $group
+        ];
+    }
+
+    /**
+     * This method render form for create group
+     *
+     * @param  Request $request
+     * @return array
+     *
+     * @Template()
+     */
+    public function createGroupAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $group = new Group();
+
+        $form = $this->createForm(new AddGroupType(), $group);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em->persist($group);
+            $em->flush();
+
+            return $this->redirectToRoute('valiknet_home');
+        }
+
+        return [
+            "form" => $form->createView()
+        ];
+    }
+
+    /**
+     * This method render form for update group
+     *
+     * @param  Group   $group
+     * @param  Request $request
+     * @return array
+     *
+     * @Template()
+     */
+    public function updateGroupAction(Group $group, Request $request)
+    {
+        $form = $this->createForm(new UpdateGroupType(), $group);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $this->getDoctrine()
+                ->getManager()
+                ->flush();
+
+            return $this->redirectToRoute('valiknet_home');
+        }
+
+        return [
+            "group" => $group,
+            "form" => $form->createView()
         ];
     }
 }

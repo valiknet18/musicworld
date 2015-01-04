@@ -3,6 +3,7 @@ namespace Valiknet\MusicBundle\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity(repositoryClass="Valiknet\MusicBundle\Entity\StyleRepository")
@@ -35,17 +36,20 @@ class Style
     protected $slug;
 
     /**
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="Style", mappedBy="parent")
      */
     protected $children;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="Style", inversedBy="children")
      * @ORM\JoinColumn(nullable=true)
      */
     protected $parent;
 
     /**
+     * @MaxDepth(1)
      * @ORM\ManyToMany(targetEntity="Group", mappedBy="styles")
      */
     protected $groups;
@@ -202,5 +206,19 @@ class Style
     public function getGroups()
     {
         return $this->groups;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        if (!$this->parent) {
+            return "-".$this->name;
+        } elseif (!$this->parent->parent) {
+            return "--".$this->name;
+        } else {
+            return "---".$this->name;
+        }
     }
 }

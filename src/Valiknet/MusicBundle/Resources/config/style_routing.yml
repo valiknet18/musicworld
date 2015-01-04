@@ -6,6 +6,12 @@ valiknet_style_children_list:
   path: /{slug}/childrens
   defaults: { _controller: ValiknetMusicBundle:Style:showChildren }
 
+valiknet_style_children_list_ajax:
+  path: /{id}/childrens/ajax
+  defaults: { _controller: ValiknetMusicBundle:Style:showChildrenPost }
+  options:
+    expose: true
+
 valiknet_style_group_list:
   path: /{slug}/groups
   defaults: { _controller: ValiknetMusicBundle:Style:showGroup }

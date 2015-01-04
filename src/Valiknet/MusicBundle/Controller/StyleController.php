@@ -1,8 +1,10 @@
 <?php
 namespace Valiknet\MusicBundle\Controller;
 
+use JMS\Serializer\SerializationContext;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Valiknet\MusicBundle\Entity\Style;
 
 class StyleController extends Controller
@@ -39,6 +41,23 @@ class StyleController extends Controller
         return [
             "style" => $style
         ];
+    }
+
+    /**
+     * This method return style by slug
+     *
+     * @param  Style                                             $style
+     * @return \Symfony\Component\HttpFoundation\Response|static
+     */
+    public function showChildrenPostAction(Style $style)
+    {
+        $data = $this->get('jms_serializer')->serialize($style, 'json', SerializationContext::create()->enableMaxDepthChecks());
+
+        return new JsonResponse(
+            [
+                "data" => $data,
+            ]
+        );
     }
 
     /**

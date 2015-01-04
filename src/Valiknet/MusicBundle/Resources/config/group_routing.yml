@@ -33,3 +33,11 @@ valiknet_group_contacts:
 valiknet_group_news:
   path: /{slug}/news
   defaults: { _controller: ValiknetMusicBundle:Group:listNews }
+
+valiknet_group_create:
+  path: /add
+  defaults: { _controller: ValiknetMusicBundle:Group:createGroup }
+
+valiknet_group_update:
+  path: /{slug}/update
+  defaults: { _controller: ValiknetMusicBundle:Group:updateGroup }

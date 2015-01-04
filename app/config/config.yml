@@ -24,6 +24,8 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    serializer:
+            enabled: true
 
 # Twig Configuration
 twig:
@@ -96,3 +98,27 @@ knp_paginator:
 hautelook_alice:
     locale: en_US   # default
     seed: 1         # default
+
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+
+    filter_sets:
+        thumb250:
+            filters:
+                relative_resize: { widen: 250 }
+
+        thumb250_empty:
+            filters:
+                background: { color: '#00FFFF' }
+                thumbnail: { size: [130, 250], mode: inset }
+
+        thumb140:
+            filters:
+                relative_resize: { widen: 140 }
+
+        thumb250_empty:
+            filters:
+                background: { color: '#00FFFF' }
+                thumbnail: { size: [100, 140], mode: inset }

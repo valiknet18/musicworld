@@ -1,3 +1,9 @@
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
 valiknet_home:
   path: /{_locale}
   defaults: { _controller: ValiknetMusicBundle:Article:list, _locale: ua }

@@ -6,7 +6,7 @@
         <link href="{{ asset('/bundles/valiknetmusic/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet"/>
         <link href="{{ asset('/bundles/valiknetmusic/css/common.css') }}" rel="stylesheet"/>
         {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('music.ico') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('standart/favicon/music.ico') }}" />
     </head>
     <body>
         <div class="container">
@@ -60,6 +60,10 @@
             </nav>
             {% block content %}{% endblock %}
         </div>
+
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+        <script src="{{ asset('bundles/valiknetmusic/js/jquery.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

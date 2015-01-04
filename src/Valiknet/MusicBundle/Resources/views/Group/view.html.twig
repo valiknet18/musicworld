@@ -9,9 +9,13 @@
 {% endblock %}
 
 {% block group_content %}
+    <div class="col-lg-2 col-lg-offset-10">
+        <a href="{{ path('valiknet_group_update', {"slug" : group.slug}) }}">Обновити групу</a>
+    </div>
+
     <div class="col-lg-12">
         <div class="col-lg-4">
-            <img src="#" class="poster"/>
+            <img src="{% if group.webPath %} {{ asset(group.webPath|imagine_filter('thumb250')) }} {% else %} {{ asset("standart/group/empty.png"|imagine_filter("thumb250")) }} {% endif %}" class="poster"/>
         </div>
 
         <div class="col-lg-8 characters">
