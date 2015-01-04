@@ -37,3 +37,7 @@ valiknet_group_news:
 valiknet_group_create:
   path: /add
   defaults: { _controller: ValiknetMusicBundle:Group:createGroup }
+
+valiknet_group_update:
+  path: /{slug}/update
+  defaults: { _controller: ValiknetMusicBundle:Group:updateGroup }
