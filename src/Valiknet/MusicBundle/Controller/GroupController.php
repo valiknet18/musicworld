@@ -9,6 +9,7 @@ use Valiknet\MusicBundle\Entity\Clip;
 use Valiknet\MusicBundle\Entity\Group;
 use Valiknet\MusicBundle\Entity\Release;
 use Valiknet\MusicBundle\Form\Type\AddGroupType;
+use Valiknet\MusicBundle\Form\Type\UpdateGroupType;
 
 class GroupController extends Controller
 {
@@ -166,7 +167,7 @@ class GroupController extends Controller
     }
 
     /**
-     * This method form create group
+     * This method render form for create group
      *
      * @param  Request $request
      * @return array
@@ -191,6 +192,35 @@ class GroupController extends Controller
         }
 
         return [
+            "form" => $form->createView()
+        ];
+    }
+
+    /**
+     * This method render form for update group
+     *
+     * @param  Group   $group
+     * @param  Request $request
+     * @return array
+     *
+     * @Template()
+     */
+    public function updateGroupAction(Group $group, Request $request)
+    {
+        $form = $this->createForm(new UpdateGroupType(), $group);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $this->getDoctrine()
+                ->getManager()
+                ->flush();
+
+            return $this->redirectToRoute('valiknet_home');
+        }
+
+        return [
+            "group" => $group,
             "form" => $form->createView()
         ];
     }

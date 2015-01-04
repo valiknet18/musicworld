@@ -653,4 +653,15 @@ class Group
     {
         return $this->pathToPoster;
     }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        $file = $this->getAbsolutePath();
+        if ($file) {
+            unlink($file);
+        }
+    }
 }
