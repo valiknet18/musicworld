@@ -115,4 +115,12 @@ class Track
     {
         return $this->release;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

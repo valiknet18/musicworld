@@ -3,10 +3,13 @@ namespace Valiknet\MusicBundle\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity()
  * @ORM\Table(name="`release`")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Release
 {
@@ -34,11 +37,16 @@ class Release
     protected $name;
 
     /**
+     * @Assert\File(maxSize="6000000")
+     */
+    protected $poster;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="string", nullable=true)
      */
-    protected $poster;
+    protected $pathToPoster;
 
     /**
      * @var text
@@ -68,9 +76,12 @@ class Release
     protected $group;
 
     /**
-     * @ORM\OneToMany(targetEntity="Track", mappedBy="release")
+     * @ORM\OneToMany(targetEntity="Track", mappedBy="release", cascade={"persist"})
      */
     protected $tracks;
+
+    protected $temp;
+
     /**
      * Constructor
      */
@@ -138,14 +149,20 @@ class Release
     /**
      * Set poster
      *
-     * @param  string  $poster
+     * @param  UploadedFile $poster = null
      * @return Release
      */
-    public function setPoster($poster)
+    public function setPoster(UploadedFile $poster = null)
     {
         $this->poster = $poster;
-
-        return $this;
+        // check if we have an old image path
+        if (isset($this->pathToPoster)) {
+            // store the old name to delete after the update
+            $this->temp = $this->pathToPoster;
+            $this->pathToPoster = null;
+        } else {
+            $this->pathToPoster = 'initial';
+        }
     }
 
     /**
@@ -281,5 +298,125 @@ class Release
     public function getTracks()
     {
         return $this->tracks;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAbsolutePath()
+    {
+        return null === $this->pathToPoster
+            ? null
+            : $this->getUploadRootDir().'/'.$this->pathToPoster;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getWebPath()
+    {
+        return null === $this->pathToPoster
+            ? null
+            : $this->getUploadDir().'/'.$this->pathToPoster;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    /**
+     * @return string
+     */
+    protected function getUploadDir()
+    {
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return 'uploads/releases';
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        if (null !== $this->getPoster()) {
+            // do whatever you want to generate a unique name
+            $filename = sha1(uniqid(mt_rand(), true));
+            $this->pathToPoster = $filename.'.'.$this->getPoster()->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
+    {
+        if (null === $this->getPoster()) {
+            return;
+        }
+
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->getPoster()->move($this->getUploadRootDir(), $this->pathToPoster);
+
+        // check if we have an old image
+        if (isset($this->temp)) {
+            // delete the old image
+            unlink($this->getUploadRootDir().'/'.$this->temp);
+            // clear the temp image path
+            $this->temp = null;
+        }
+        $this->poster = null;
+    }
+
+    /**
+     * Set pathToPoster
+     *
+     * @param  string $pathToPoster
+     * @return Group
+     */
+    public function setPathToPoster($pathToPoster)
+    {
+        $this->pathToPoster = $pathToPoster;
+
+        return $this;
+    }
+
+    /**
+     * Get pathToPoster
+     *
+     * @return string
+     */
+    public function getPathToPoster()
+    {
+        return $this->pathToPoster;
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        $file = $this->getAbsolutePath();
+        if ($file) {
+            unlink($file);
+        }
     }
 }
