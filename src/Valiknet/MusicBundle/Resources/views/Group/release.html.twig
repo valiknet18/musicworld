@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block links %}
-    <a href="{{ path('valiknet_group_list') }}">Групи</a>><a href="{{ path("valiknet_group_view", { "slug" : group.slug }) }}">{{ group.name }}</a>><a href="{{ path('valiknet_group_clip_list', {'slugGroup' : group.slug}) }}">Релізи</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ release.name }}</a>
+    <a href="{{ path('valiknet_group_list') }}">Групи</a>><a href="{{ path("valiknet_group_view", { "slug" : group.slug }) }}">{{ group.name }}</a>><a href="{{ path('valiknet_group_clip_list', {'slug' : group.slug}) }}">Релізи</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ release.name }}</a>
 {% endblock %}
 
 {% block group_content %}

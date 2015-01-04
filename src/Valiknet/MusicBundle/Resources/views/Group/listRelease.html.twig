@@ -9,10 +9,14 @@
 {% endblock %}
 
 {% block group_content %}
+    <div class="col-lg-2 col-lg-offset-10">
+        <a href="{{ path('valiknet_group_release_add', {"slug" : group.slug}) }}">Додати реліз</a>
+    </div>
+
     <div class="col-lg-12">
         {% for release in group.releases %}
             <div class="col-lg-12">
-                <a href="{{ path('valiknet_group_release_view', { "slugGroup" : group.slug, "slugRelease" : release.slug }) }}">{{ release.name }}</a>
+                <a href="{{ path('valiknet_group_release_view', { "slug" : group.slug, "slugRelease" : release.slug }) }}">{{ release.name }}</a>
             </div>
         {% else %}
             <h4>В цій групі немає ні одного релізу</h4>
