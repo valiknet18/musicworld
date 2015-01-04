@@ -3,7 +3,7 @@ $('.checkbox input[type=checkbox]').change(function () {
 })
 
 
-$('.checkout').on('click', 'input[type=checkout]', function(){
+$(".checkbox").on('change', 'input[type=checkbox]', function(){
     var targetCheckbox =  $(this);
     if ($(this).is(':checked')) {
         $.ajax({

@@ -14,7 +14,7 @@ class AddGroupType extends AbstractType
         $builder
             ->add('poster', 'file', [
                 "label" => "Постер группи",
-                "required" => true
+                "required" => false
             ])
             ->add('name', 'text', [
                 "label" => "Назва групи",
@@ -58,7 +58,8 @@ class AddGroupType extends AbstractType
                 },
                 "property" => "name",
                 "multiple" => "true",
-                "expanded" => true
+                "expanded" => true,
+                "label" => "Жанри"
             ]);
     }
 
