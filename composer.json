@@ -22,7 +22,8 @@
         "knplabs/knp-paginator-bundle": "~2.4",
         "hautelook/alice-bundle": "~0.2",
         "friendsofsymfony/jsrouting-bundle": "~1.5",
-        "jms/serializer-bundle": "~0.13"
+        "jms/serializer-bundle": "~0.13",
+        "liip/imagine-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
