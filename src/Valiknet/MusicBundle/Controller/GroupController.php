@@ -9,6 +9,7 @@ use Valiknet\MusicBundle\Entity\Clip;
 use Valiknet\MusicBundle\Entity\Group;
 use Valiknet\MusicBundle\Entity\Release;
 use Valiknet\MusicBundle\Form\Type\AddGroupType;
+use Valiknet\MusicBundle\Form\Type\AddReleaseType;
 use Valiknet\MusicBundle\Form\Type\UpdateGroupType;
 
 class GroupController extends Controller
@@ -215,6 +216,47 @@ class GroupController extends Controller
             $this->getDoctrine()
                 ->getManager()
                 ->flush();
+
+            return $this->redirectToRoute('valiknet_home');
+        }
+
+        return [
+            "group" => $group,
+            "form" => $form->createView()
+        ];
+    }
+
+    /**
+     * This method render form for create release
+     *
+     * @param  Group                                                    $group
+     * @param  Request                                                  $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @Template()
+     */
+    public function addReleaseAction(Group $group, Request $request)
+    {
+        $em = $this->getDoctrine()
+                ->getManager();
+
+        $release = new Release();
+
+        $form = $this->createForm(new AddReleaseType(), $release);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $release->setGroup($group);
+
+            $tracks = $form->getData()->getTracks();
+
+            foreach ($tracks as $track) {
+                $track->setRelease($release);
+            }
+
+            $em->persist($release);
+            $em->flush();
 
             return $this->redirectToRoute('valiknet_home');
         }
