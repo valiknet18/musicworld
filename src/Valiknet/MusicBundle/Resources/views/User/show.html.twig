@@ -9,8 +9,8 @@
 {% endblock %}
 
 {% block user_content %}
-    <div class="col-lg-2 col-lg-offset-10">
-        <a href="{{ path('valiknet_user_add') }}">Обновити інформацію</a>
+    <div class="col-lg-3 col-lg-offset-9">
+        <a href="{{ path('valiknet_user_update', {"slug" : user.slug}) }}">Обновити інформацію</a>
     </div>
 
     <div class="col-lg-12">
