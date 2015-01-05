@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Valiknet\MusicBundle\Entity\Clip;
 use Valiknet\MusicBundle\Entity\Group;
 use Valiknet\MusicBundle\Entity\Release;
+use Valiknet\MusicBundle\Form\Type\AddClipType;
 use Valiknet\MusicBundle\Form\Type\AddGroupType;
 use Valiknet\MusicBundle\Form\Type\AddReleaseType;
 use Valiknet\MusicBundle\Form\Type\UpdateGroupType;
@@ -304,6 +305,74 @@ class GroupController extends Controller
             "group" => $group,
             "release" => $release,
             "form" => $form->createView()
+        ];
+    }
+
+    /**
+     * This method render form for add clip to group
+     *
+     * @param  Group                                                    $group
+     * @param  Request                                                  $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @Template()
+     */
+    public function addClipAction(Group $group, Request $request)
+    {
+        $em = $this->getDoctrine()
+                ->getManager();
+
+        $clip = new Clip();
+
+        $form = $this->createForm(new AddClipType(), $clip);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $clip->setGroup($group);
+
+            $em->persist($clip);
+            $em->flush();
+
+            return $this->redirectToRoute('valiknet_home');
+        }
+
+        return [
+            "form" => $form->createView(),
+            "group" => $group
+        ];
+    }
+
+    /**
+     * This method render form for update clip
+     *
+     * @param  Group                                                    $group
+     * @param  Clip                                                     $clip
+     * @param  Request                                                  $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @Template()
+     * @ParamConverter("clip", options={"mapping": {"slugClip": "slug"}})
+     */
+    public function updateClipAction(Group $group, Clip $clip, Request $request)
+    {
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $form = $this->createForm(new AddClipType(), $clip);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em->flush();
+
+            return $this->redirectToRoute('valiknet_home');
+        }
+
+        return [
+            "form" => $form->createView(),
+            "group" => $group,
+            "clip" => $clip
         ];
     }
 }

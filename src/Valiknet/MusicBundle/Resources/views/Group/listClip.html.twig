@@ -9,6 +9,10 @@
 {% endblock %}
 
 {% block group_content %}
+    <div class="col-lg-2 col-lg-offset-10">
+        <a href="{{ path('valiknet_group_clip_add', {"slug" : group.slug}) }}">Додати кліп</a>
+    </div>
+
     <div class="col-lg-12">
         {% for clip in group.clips %}
             <div class="col-lg-12">

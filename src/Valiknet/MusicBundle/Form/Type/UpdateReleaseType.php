@@ -61,6 +61,6 @@ class UpdateReleaseType extends AbstractType
 
     public function getName()
     {
-        return 'add_release';
+        return 'update_release';
     }
 }
