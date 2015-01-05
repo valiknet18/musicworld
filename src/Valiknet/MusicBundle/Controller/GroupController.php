@@ -280,20 +280,24 @@ class GroupController extends Controller
      */
     public function updateReleaseAction(Group $group, Release $release, Request $request)
     {
+        $em = $this->getDoctrine()
+                ->getManager();
+
         $form = $this->createForm(new UpdateReleaseType(), $release);
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $tracks = $form->getData()->getTracks();
+            $tracks = $form->get('tracks')->getData();
 
             foreach ($tracks as $track) {
                 $track->setRelease($release);
+                $em->persist($track);
             }
 
-            $this->getDoctrine()
-                ->getManager()
-                ->flush();
+            $em->flush();
+
+            return $this->redirectToRoute('valiknet_home');
         }
 
         return [

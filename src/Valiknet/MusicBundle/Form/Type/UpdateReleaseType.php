@@ -42,14 +42,14 @@ class UpdateReleaseType extends AbstractType
             ->add('releasedAt', 'date', [
                 "label" => "Дата виходу релізу",
                 "years" => range(1950, 2020)
+            ])
+            ->add('tracks', 'collection', [
+                "type" => new AddTrackType(),
+                "label" => "Список треків",
+                "allow_add" => true,
+                "allow_delete" => true,
+                "mapped" => false
             ]);
-//            ->add('tracks', 'collection', [
-//                "data_class" => 'Valiknet\MusicBundle\Entity\Track',
-//                "type" => new AddTrackType(),
-//                "label" => "Список треків",
-//                "allow_add" => true,
-//                "allow_delete" => true,
-//            ]);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
