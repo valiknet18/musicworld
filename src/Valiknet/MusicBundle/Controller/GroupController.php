@@ -11,6 +11,7 @@ use Valiknet\MusicBundle\Entity\Release;
 use Valiknet\MusicBundle\Form\Type\AddGroupType;
 use Valiknet\MusicBundle\Form\Type\AddReleaseType;
 use Valiknet\MusicBundle\Form\Type\UpdateGroupType;
+use Valiknet\MusicBundle\Form\Type\UpdateReleaseType;
 
 class GroupController extends Controller
 {
@@ -263,6 +264,41 @@ class GroupController extends Controller
 
         return [
             "group" => $group,
+            "form" => $form->createView()
+        ];
+    }
+
+    /**
+     * This method render target release
+     *
+     * @param  Group   $group
+     * @param  Release $release
+     * @return array
+     *
+     * @Template()
+     * @ParamConverter("release", options={"mapping": {"slugRelease": "slug"}})
+     */
+    public function updateReleaseAction(Group $group, Release $release, Request $request)
+    {
+        $form = $this->createForm(new UpdateReleaseType(), $release);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $tracks = $form->getData()->getTracks();
+
+            foreach ($tracks as $track) {
+                $track->setRelease($release);
+            }
+
+            $this->getDoctrine()
+                ->getManager()
+                ->flush();
+        }
+
+        return [
+            "group" => $group,
+            "release" => $release,
             "form" => $form->createView()
         ];
     }
