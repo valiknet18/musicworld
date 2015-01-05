@@ -18,10 +18,6 @@ class UrlTransformer implements DataTransformerInterface
             return "";
         }
 
-        if ($value->getVideo() === null) {
-            return;
-        }
-
         return str_replace("embed/", "watch?v=", $value);
     }
 
