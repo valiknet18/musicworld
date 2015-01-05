@@ -21,3 +21,7 @@ valiknet_user_contacts:
 valiknet_user_add:
   path: /add
   defaults: { _controller: ValiknetMusicBundle:User:addUser }
+
+valiknet_user_update:
+  path: /{slug}/add
+  defaults: { _controller: ValiknetMusicBundle:User:updateUser }
