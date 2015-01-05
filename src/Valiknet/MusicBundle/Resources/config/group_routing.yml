@@ -49,3 +49,7 @@ valiknet_group_release_add:
 valiknet_group_release_update:
   path: /{slug}/release/{slugRelease}/update
   defaults: { _controller: ValiknetMusicBundle:Group:updateRelease }
+
+valiknet_group_clip_add:
+  path: /{slug}/clip/add
+  defaults: { _controller: ValiknetMusicBundle:Group:addClip }
