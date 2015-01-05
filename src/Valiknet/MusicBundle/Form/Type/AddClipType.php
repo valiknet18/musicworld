@@ -4,11 +4,14 @@ namespace Valiknet\MusicBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Valiknet\MusicBundle\Form\DataTransformer\UrlTransformer;
 
 class AddClipType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $transformer = new UrlTransformer();
+
         $builder
             ->add('name', 'text', [
                 "label" => "Назва кліпу",
@@ -16,9 +19,12 @@ class AddClipType extends AbstractType
             ->add('text', 'textarea', [
                 "label" => "Опис кліпу"
             ])
-            ->add('video', 'url', [
-                "label" => "Посилання на кліп в ютубі"
-            ]);
+            ->add(
+                $builder->create('video', 'url', [
+                    "label" => "Посилання на кліп в ютубі"
+                ])
+                    ->addModelTransformer($transformer)
+            );
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
@@ -30,6 +36,6 @@ class AddClipType extends AbstractType
 
     public function getName()
     {
-        return 'add_release';
+        return 'add_clip';
     }
 }
