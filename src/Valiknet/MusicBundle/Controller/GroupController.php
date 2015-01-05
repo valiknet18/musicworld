@@ -9,7 +9,9 @@ use Valiknet\MusicBundle\Entity\Clip;
 use Valiknet\MusicBundle\Entity\Group;
 use Valiknet\MusicBundle\Entity\Release;
 use Valiknet\MusicBundle\Form\Type\AddGroupType;
+use Valiknet\MusicBundle\Form\Type\AddReleaseType;
 use Valiknet\MusicBundle\Form\Type\UpdateGroupType;
+use Valiknet\MusicBundle\Form\Type\UpdateReleaseType;
 
 class GroupController extends Controller
 {
@@ -221,6 +223,86 @@ class GroupController extends Controller
 
         return [
             "group" => $group,
+            "form" => $form->createView()
+        ];
+    }
+
+    /**
+     * This method render form for create release
+     *
+     * @param  Group                                                    $group
+     * @param  Request                                                  $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @Template()
+     */
+    public function addReleaseAction(Group $group, Request $request)
+    {
+        $em = $this->getDoctrine()
+                ->getManager();
+
+        $release = new Release();
+
+        $form = $this->createForm(new AddReleaseType(), $release);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $release->setGroup($group);
+
+            $tracks = $form->getData()->getTracks();
+
+            foreach ($tracks as $track) {
+                $track->setRelease($release);
+            }
+
+            $em->persist($release);
+            $em->flush();
+
+            return $this->redirectToRoute('valiknet_home');
+        }
+
+        return [
+            "group" => $group,
+            "form" => $form->createView()
+        ];
+    }
+
+    /**
+     * This method render target release
+     *
+     * @param  Group   $group
+     * @param  Release $release
+     * @return array
+     *
+     * @Template()
+     * @ParamConverter("release", options={"mapping": {"slugRelease": "slug"}})
+     */
+    public function updateReleaseAction(Group $group, Release $release, Request $request)
+    {
+        $em = $this->getDoctrine()
+                ->getManager();
+
+        $form = $this->createForm(new UpdateReleaseType(), $release);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $tracks = $form->get('tracks')->getData();
+
+            foreach ($tracks as $track) {
+                $track->setRelease($release);
+                $em->persist($track);
+            }
+
+            $em->flush();
+
+            return $this->redirectToRoute('valiknet_home');
+        }
+
+        return [
+            "group" => $group,
+            "release" => $release,
             "form" => $form->createView()
         ];
     }

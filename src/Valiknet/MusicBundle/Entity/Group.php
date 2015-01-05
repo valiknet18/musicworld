@@ -26,6 +26,7 @@ class Group
      * @var string
      *
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
      */
     protected $name;
 
@@ -33,6 +34,7 @@ class Group
      * @var text
      *
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     protected $history;
 
@@ -216,7 +218,7 @@ class Group
     /**
      * Set poster
      *
-     * @param  string $poster
+     * @param  UploadedFile $poster = null
      * @return Group
      */
     public function setPoster(UploadedFile $poster = null)

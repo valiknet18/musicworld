@@ -30,3 +30,25 @@ $(".checkbox").on('change', 'input[type=checkbox]', function(){
         $(this).parent().parent().find('.children').remove();
     }
 });
+
+$(document).on('click', '.delete-track', function(e){
+    e.preventDefault();
+
+    var id = $(this).data('id');
+
+    var thisIs = $(this);
+
+    $.ajax({
+        url: Routing.generate('valiknet_track_remove', {"id" : id}),
+        type: "DELETE",
+        success: function (data, opt, opt2) {
+            console.log(opt2);
+
+            switch (opt2.status) {
+                case 200:
+                    thisIs.parent().parent().remove();
+                    break;
+            }
+        }
+    });
+});

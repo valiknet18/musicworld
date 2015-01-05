@@ -41,3 +41,11 @@ valiknet_group_create:
 valiknet_group_update:
   path: /{slug}/update
   defaults: { _controller: ValiknetMusicBundle:Group:updateGroup }
+
+valiknet_group_release_add:
+  path: /{slug}/release/add
+  defaults: { _controller: ValiknetMusicBundle:Group:addRelease }
+
+valiknet_group_release_update:
+  path: /{slug}/release/{slugRelease}/update
+  defaults: { _controller: ValiknetMusicBundle:Group:updateRelease }

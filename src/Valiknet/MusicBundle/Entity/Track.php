@@ -102,8 +102,6 @@ class Track
     public function setRelease(\Valiknet\MusicBundle\Entity\Release $release = null)
     {
         $this->release = $release;
-
-        return $this;
     }
 
     /**
@@ -114,5 +112,13 @@ class Track
     public function getRelease()
     {
         return $this->release;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->name;
     }
 }
