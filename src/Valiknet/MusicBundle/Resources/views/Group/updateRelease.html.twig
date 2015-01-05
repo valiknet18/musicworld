@@ -1,0 +1,72 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Оновлення релізу {{ release.name }} групи {{ group.name }}
+{% endblock %}
+
+{% block content %}
+    <div class="col-lg-12">
+        <form method="POST" action="#" enctype="multipart/form-data">
+            <div class="col-lg-6">
+                <img src="{{ asset(release.webPath|imagine_filter('thumb250')) }}" />
+            </div>
+
+            <div class="col-lg-6">
+                {{ form_row(form.poster) }}
+            </div>
+
+            <div class="col-lg-6">
+                {{ form_row(form.type) }}
+            </div>
+
+            <div class="col-lg-12">
+                {{ form_row(form.name) }}
+            </div>
+
+            <div class="col-lg-12">
+                {{ form_row(form.text) }}
+            </div>
+
+            <div class="col-lg-12">
+                {{ form_row(form.releasedAt) }}
+            </div>
+
+            <div class="col-lg-12">
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>Назва треку</th>
+                        <th>Час</th>
+                        <th>Видалення</th>
+                    </tr>
+                    {% set counter = 1 %}
+
+                    {% for track in release.tracks %}
+                        <tr>
+                            <td>{{ counter }}</td>
+                            <td>{{ track.name }}</td>
+                            <td>{{ track.timeline }}</td>
+                            <td><button class="delete-track" data-id="{{ track.id }}">Видалити</button></td>
+                        </tr>
+
+                        {% set counter = counter + 1 %}
+                    {% endfor %}
+                </table>
+
+                {#<ul class="tracks" data-prototype="{{ form_widget(form.tracks.vars.prototype)|e }}">#}
+
+                {#</ul>#}
+                {{ form_rest(form) }}
+            </div>
+
+            <div class="col-lg-12">
+                <button type="submit">Обновити</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/valiknetmusic/js/collection_track.js') }}"></script>
+    <script src="{{ asset('bundles/valiknetmusic/js/common.js') }}"></script>
+{% endblock %}
