@@ -10,6 +10,9 @@
 
 {% block group_content %}
     <div class="col-lg-12">
+        <div class="col-lg-2 col-lg-offset-10">
+            <a href="{{ path('valiknet_group_clip_update', {"slug" : group.slug, "slugClip" : clip.slug}) }}">Обновити кліп</a>
+        </div>
         {{ render(controller('ValiknetMusicBundle:Clip:show', {'clip' : clip})) }}
     </div>
 {% endblock %}
