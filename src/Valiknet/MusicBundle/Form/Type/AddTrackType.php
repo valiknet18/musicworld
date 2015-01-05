@@ -1,11 +1,9 @@
 <?php
 namespace Valiknet\MusicBundle\Form\Type;
 
-use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Valiknet\MusicBundle\Entity\Group;
 
 class AddTrackType extends AbstractType
 {
@@ -14,12 +12,12 @@ class AddTrackType extends AbstractType
         $builder
             ->add('name', 'text', [
                 "attr" => [
-                    "class" => "col-lg-6"
+                    "class" => "col-lg-6",
                 ]
             ])
             ->add('timeline', 'text', [
                 "attr" => [
-                    "class" => "col-lg-4"
+                    "class" => "col-lg-4",
                 ]
             ])
             ->add('release', 'hidden', [
