@@ -26,6 +26,7 @@ class User
      * @var string
      *
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
      */
     protected $name;
 
@@ -33,6 +34,7 @@ class User
      * @var string
      *
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
      */
     protected $lastname;
 
@@ -40,6 +42,7 @@ class User
      * @var text
      *
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     protected $history;
 
