@@ -6,7 +6,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Valiknet\MusicBundle\Form\DataTransformer\UrlTransformer;
 
-class AddClipType extends AbstractType
+class ClipType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
