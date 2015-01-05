@@ -17,3 +17,7 @@ valiknet_country:
 valiknet_style:
   resource: "@ValiknetMusicBundle/Resources/config/style_routing.yml"
   prefix: /genre
+
+valiknet_track:
+  resource: "@ValiknetMusicBundle/Resources/config/track_routing.yml"
+  prefix: /track
