@@ -11,6 +11,7 @@ use Valiknet\MusicBundle\Entity\Release;
 use Valiknet\MusicBundle\Form\Type\AddClipType;
 use Valiknet\MusicBundle\Form\Type\AddGroupType;
 use Valiknet\MusicBundle\Form\Type\AddReleaseType;
+use Valiknet\MusicBundle\Form\Type\ClipType;
 use Valiknet\MusicBundle\Form\Type\UpdateGroupType;
 use Valiknet\MusicBundle\Form\Type\UpdateReleaseType;
 
@@ -359,7 +360,7 @@ class GroupController extends Controller
         $em = $this->getDoctrine()
             ->getManager();
 
-        $form = $this->createForm(new AddClipType(), $clip);
+        $form = $this->createForm(new ClipType(), $clip);
 
         $form->handleRequest($request);
 

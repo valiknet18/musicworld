@@ -5,7 +5,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Valiknet\MusicBundle\Entity\User;
-use Valiknet\MusicBundle\Form\Type\AddUserType;
+use Valiknet\MusicBundle\Form\Type\UserType;
 
 class UserController extends Controller
 {
@@ -111,17 +111,49 @@ class UserController extends Controller
 
         $user = new User();
 
-        $form = $this->createForm(new AddUserType(), $user);
+        $form = $this->createForm(new UserType(), $user);
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em->persist($user);
             $em->flush();
+
+            return $this->redirectToRoute('valiknet_home');
         }
 
         return [
             "form" => $form->createView()
+        ];
+    }
+
+    /**
+     * This method render form for update user
+     *
+     * @param  User    $user
+     * @param  Request $request
+     * @return array
+     *
+     * @Template()
+     */
+    public function updateUserAction(User $user, Request $request)
+    {
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $form = $this->createForm(new UserType(), $user);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em->flush();
+
+            return $this->redirectToRoute('valiknet_home');
+        }
+
+        return [
+            "form" => $form->createView(),
+            "user" => $user
         ];
     }
 }
