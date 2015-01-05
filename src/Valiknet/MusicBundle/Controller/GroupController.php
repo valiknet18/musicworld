@@ -342,4 +342,37 @@ class GroupController extends Controller
             "group" => $group
         ];
     }
+
+    /**
+     * This method render form for update clip
+     *
+     * @param  Group                                                    $group
+     * @param  Clip                                                     $clip
+     * @param  Request                                                  $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @Template()
+     * @ParamConverter("clip", options={"mapping": {"slugClip": "slug"}})
+     */
+    public function updateClipAction(Group $group, Clip $clip, Request $request)
+    {
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $form = $this->createForm(new AddClipType(), $clip);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em->flush();
+
+            return $this->redirectToRoute('valiknet_home');
+        }
+
+        return [
+            "form" => $form->createView(),
+            "group" => $group,
+            "clip" => $clip
+        ];
+    }
 }
