@@ -76,7 +76,7 @@ class Release
     protected $group;
 
     /**
-     * @ORM\OneToMany(targetEntity="Track", mappedBy="release", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Track", mappedBy="release", cascade={"all"})
      */
     protected $tracks;
 
@@ -268,29 +268,6 @@ class Release
     }
 
     /**
-     * Add tracks
-     *
-     * @param  \Valiknet\MusicBundle\Entity\Track $tracks
-     * @return Release
-     */
-    public function addTrack(\Valiknet\MusicBundle\Entity\Track $tracks)
-    {
-        $this->tracks[] = $tracks;
-
-        return $this;
-    }
-
-    /**
-     * Remove tracks
-     *
-     * @param \Valiknet\MusicBundle\Entity\Track $tracks
-     */
-    public function removeTrack(\Valiknet\MusicBundle\Entity\Track $tracks)
-    {
-        $this->tracks->removeElement($tracks);
-    }
-
-    /**
      * Get tracks
      *
      * @return \Doctrine\Common\Collections\Collection
@@ -418,5 +395,29 @@ class Release
         if ($file) {
             unlink($file);
         }
+    }
+
+    /**
+     * Add tracks
+     *
+     * @param  \Valiknet\MusicBundle\Entity\Track $track
+     * @return Release
+     */
+    public function addTrack(\Valiknet\MusicBundle\Entity\Track $track)
+    {
+        $this->tracks[] = $track;
+    }
+
+    /**
+     * Remove tracks
+     *
+     * @param  \Valiknet\MusicBundle\Entity\Track $tracks
+     * @return boolean
+     */
+    public function removeTrack(\Valiknet\MusicBundle\Entity\Track $tracks)
+    {
+        $this->tracks->removeElement($tracks);
+
+        return true;
     }
 }
