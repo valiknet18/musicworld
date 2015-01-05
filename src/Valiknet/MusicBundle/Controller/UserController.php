@@ -5,6 +5,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Valiknet\MusicBundle\Entity\User;
+use Valiknet\MusicBundle\Form\Type\AddUserType;
 
 class UserController extends Controller
 {
@@ -92,6 +93,35 @@ class UserController extends Controller
     {
         return [
             "user" => $user
+        ];
+    }
+
+    /**
+     * This method render form for add user
+     *
+     * @param  Request $request
+     * @return array
+     *
+     * @Template()
+     */
+    public function addUserAction(Request $request)
+    {
+        $em = $this->getDoctrine()
+                ->getManager();
+
+        $user = new User();
+
+        $form = $this->createForm(new AddUserType(), $user);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em->persist($user);
+            $em->flush();
+        }
+
+        return [
+            "form" => $form->createView()
         ];
     }
 }

@@ -17,3 +17,7 @@ valiknet_user_news_list:
 valiknet_user_contacts:
   path: /{slug}/contacts
   defaults: { _controller: ValiknetMusicBundle:User:contacts }
+
+valiknet_user_add:
+  path: /add
+  defaults: { _controller: ValiknetMusicBundle:User:addUser }
