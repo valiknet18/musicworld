@@ -25,3 +25,15 @@ valiknet_user_add:
 valiknet_user_update:
   path: /{slug}/add
   defaults: { _controller: ValiknetMusicBundle:User:updateUser }
+
+valiknet_user_add_in_group:
+  path: /{slug}/addUserInGroup
+  defaults: { _controller: ValiknetMusicBundle:User:addUserInGroup }
+
+valiknet_user_update_in_group:
+  path: /{slug}/updateUserInGroup/{id}
+  defaults: { _controller: ValiknetMusicBundle:User:updateUserInGroup }
+
+valiknet_user_delete_in_group:
+  path: /{slug}/deleteUserInGroup/{id}
+  defaults: { _controller: ValiknetMusicBundle:User:deleteUserInGroup }
