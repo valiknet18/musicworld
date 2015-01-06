@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-    Додавання нової людини
+    Обновлення людини {{ user.name }} {{ user.lastname }}
 {% endblock %}
 
 {% block content %}
@@ -12,7 +12,7 @@
 
         <form action="#" method="POST" enctype="multipart/form-data" novalidate>
             <div class="col-lg-12">
-                <img src="{{ asset(user.webPath|imagine_filter('thumb250')) }}" />
+                <img src="{% if user.webPath %} {{ asset(user.webPath|imagine_filter('thumb250')) }} {% else %} {{ asset("standart/group/empty.png"|imagine_filter("thumb250")) }} {% endif %}" />
             </div>
 
             <div class="col-lg-12">

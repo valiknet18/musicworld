@@ -22,7 +22,7 @@ class GroupUserType extends AbstractType
                     "Вокаліст",
                     "Клавішнік",
                     "Ді-джей",
-                    "Саксофоніст"
+                    "Саксофоніст",
                 ],
                 "label" => "Роль"
             ])

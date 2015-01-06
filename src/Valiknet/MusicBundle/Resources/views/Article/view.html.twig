@@ -9,6 +9,10 @@
 {% endblock %}
 
 {% block article_content %}
+    <div class="col-lg-2 col-lg-offset-10">
+        <a href="{{ path('valiknet_article_update', {"slug" : article.slug}) }}">Обновити статтю</a>
+    </div>
+
     <div class="col-lg-12">
         <h3 class="col-lg-12">
             {{ article.name }}
