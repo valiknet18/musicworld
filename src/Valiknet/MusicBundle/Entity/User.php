@@ -562,4 +562,12 @@ class User
     {
         return $this->pathToPhoto;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->name." ".$this->lastname;
+    }
 }
