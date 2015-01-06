@@ -9,3 +9,11 @@ valiknet_article_group_list:
 valiknet_article_user_list:
   path: /{slug}/user/list
   defaults: { _controller: ValiknetMusicBundle:Article:listUser }
+
+valiknet_article_create:
+  path: /create
+  defaults: { _controller: ValiknetMusicBundle:Article:createArticle }
+
+valiknet_article_update:
+  path: /{slug}/update
+  defaults: { _controller: ValiknetMusicBundle:Article:updateArticle }

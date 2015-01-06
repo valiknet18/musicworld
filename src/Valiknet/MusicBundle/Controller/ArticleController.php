@@ -5,6 +5,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Valiknet\MusicBundle\Entity\Article;
+use Valiknet\MusicBundle\Form\Type\ArticleType;
 
 class ArticleController extends Controller
 {
@@ -77,6 +78,65 @@ class ArticleController extends Controller
     {
         return [
             "article" => $article
+        ];
+    }
+
+    /**
+     * This method render form for create article
+     *
+     * @param  Request                                                  $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @Template()
+     */
+    public function createArticleAction(Request $request)
+    {
+        $em = $this->getDoctrine()
+                ->getManager();
+
+        $article = new Article();
+
+        $form = $this->createForm(new ArticleType(), $article);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em->persist($article);
+            $em->flush();
+
+            return $this->redirectToRoute('valiknet_home');
+        }
+
+        return [
+            "form" => $form->createView()
+        ];
+    }
+
+    /**
+     * This method render form update article
+     *
+     * @param  Article                                                  $article
+     * @param  Request                                                  $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @Template()
+     */
+    public function updateArticleAction(Article $article, Request $request)
+    {
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $form = $this->createForm(new ArticleType(), $article);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em->flush();
+
+            return $this->redirectToRoute('valiknet_home');
+        }
+
+        return [
+            "article" => $article,
+            "form" => $form->createView()
         ];
     }
 }
