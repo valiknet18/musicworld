@@ -15,3 +15,7 @@ valiknet_style_children_list_ajax:
 valiknet_style_group_list:
   path: /{slug}/groups
   defaults: { _controller: ValiknetMusicBundle:Style:showGroup }
+
+valiknet_style_create:
+  path: /create
+  defaults: { _controller: ValiknetMusicBundle:Style:createStyle }
