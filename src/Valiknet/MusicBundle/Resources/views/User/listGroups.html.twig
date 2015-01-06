@@ -9,45 +9,54 @@
 {% endblock %}
 
 {% block user_content %}
+    <div class="col-lg-2 col-lg-offset-10">
+        <a href="{{ path('valiknet_user_add_in_group', {"slug" : user.slug}) }}">Добавити групу</a>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>
+                Назва группи
+            </th>
+
+            <th>
+                Роль в групі
+            </th>
+
+            <th>
+                Дата входу в групу
+            </th>
+
+            <th>
+                Посилання на обновлення
+            </th>
+        </tr>
     {% for groupuser in user.groups %}
-        <div class="col-lg-6 thumbnail">
-            <h4 class="col-lg-12">
-                {{ groupuser.group.name }}
-            </h4>
+        <tr>
+            <td>
+                <a href="{{ path("valiknet_group_view", {"slug" : groupuser.group.slug}) }}">{{ groupuser.group.name }}</a>
+            </td>
 
-            <div class="col-lg-4">
-                <img src="#" class="mini-poster" />
-            </div>
+            <td>
+                {{ groupuser.role }}
+            </td>
 
-            <div class="col-lg-8 characters">
-                <div class="col-lg-12">
-                    Країна: <a href="{{ path('valiknet_country_group_view', {"slug" : groupuser.group.country.slug}) }}">{{ groupuser.group.country.name }}</a>
-                </div>
+            <td>
+                {{ groupuser.joinedAt|date('d.m.Y') }}
+            </td>
 
-                <div class="col-lg-12">
-                    Стилі:
-
-                    {% for style in groupuser.group.styles %}
-                        <a href="#">{{ style.name }}</a>
-                    {% endfor %}
-                </div>
-
-                <div class="col-lg-12">
-                    Дата створення: {{ groupuser.group.createdAt|date('d.m.Y') }}
-                </div>
-            </div>
-
-            <div class="col-lg-12">
-                <a href="{{ path('valiknet_group_view', {"slug" : groupuser.group.slug}) }}" class="btn btn-success">
-                    Перейти
-                </a>
-            </div>
-        </div>
+            <td>
+                <a href="{{ path('valiknet_user_update_in_group', {"id" : groupuser.id, "slug" : user.slug}) }}">Обновлення</a>
+            </td>
+        </tr>
     {% else %}
-        <div class="col-lg-12">
-            <h4>
-                Ця людина не участвує ні в одній музичній групі
-            </h4>
-        </div>
+        <tr>
+            <td colspan="4">
+                <h4>
+                    Ця людина не участвує ні в одній музичній групі
+                </h4>
+            </td>
+        </tr>
     {% endfor %}
+    </table>
 {% endblock %}
