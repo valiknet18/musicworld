@@ -107,4 +107,34 @@ class StyleController extends Controller
             "form" => $form->createView()
         ];
     }
+
+    /**
+     * This method render form for update style
+     *
+     * @param Style $style
+     * @param Request $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @Template()
+     */
+    public function updateStyleAction(Style $style, Request $request)
+    {
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $form = $this->createForm(new StyleType(), $style);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em->flush();
+
+            return $this->redirectToRoute('valiknet_home');
+        }
+
+        return [
+            "style" => $style,
+            "form" => $form->createView()
+        ];
+    }
 }
