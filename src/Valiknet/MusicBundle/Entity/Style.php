@@ -8,6 +8,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 /**
  * @ORM\Entity(repositoryClass="Valiknet\MusicBundle\Entity\StyleRepository")
  * @ORM\Table(name="`style`")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Style
 {
@@ -219,6 +220,16 @@ class Style
             return "--".$this->name;
         } else {
             return "---".$this->name;
+        }
+    }
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function hasParent()
+    {
+        if ($this->parent && $this->parent->getParent() && $this->parent->getParent()->getParent()) {
+            $this->parent = $this->parent->getParent();
         }
     }
 }
