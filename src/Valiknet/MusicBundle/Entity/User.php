@@ -3,10 +3,13 @@ namespace Valiknet\MusicBundle\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity()
  * @ORM\Table(name="user")
+ * @ORM\HasLifecycleCallbacks
  */
 class User
 {
@@ -23,6 +26,7 @@ class User
      * @var string
      *
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
      */
     protected $name;
 
@@ -30,6 +34,7 @@ class User
      * @var string
      *
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
      */
     protected $lastname;
 
@@ -37,6 +42,7 @@ class User
      * @var text
      *
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     protected $history;
 
@@ -56,11 +62,18 @@ class User
     protected $slug;
 
     /**
+     * @Assert\File(maxSize="6000000")
+     */
+    protected $photo;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="string", nullable=true)
      */
-    protected $photo;
+    protected $pathToPhoto;
+
+    protected $tmp;
 
     /**
      * @var string
@@ -245,11 +258,95 @@ class User
      * @param  string $photo
      * @return User
      */
-    public function setPhoto($photo)
+    public function setPhoto(UploadedFile $photo = null)
     {
         $this->photo = $photo;
+        // check if we have an old image path
+        if (isset($this->pathToPhoto)) {
+            // store the old name to delete after the update
+            $this->temp = $this->pathToPhoto;
+            $this->pathToPhoto = null;
+        } else {
+            $this->pathToPhoto = 'initial';
+        }
+    }
 
-        return $this;
+    /**
+     * @return null|string
+     */
+    public function getAbsolutePath()
+    {
+        return null === $this->pathToPhoto
+            ? null
+            : $this->getUploadRootDir().'/'.$this->pathToPhoto;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getWebPath()
+    {
+        return null === $this->pathToPhoto
+            ? null
+            : $this->getUploadDir().'/'.$this->pathToPhoto;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    /**
+     * @return string
+     */
+    protected function getUploadDir()
+    {
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return 'uploads/users';
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        if (null !== $this->getPhoto()) {
+            // do whatever you want to generate a unique name
+            $filename = sha1(uniqid(mt_rand(), true));
+            $this->pathToPhoto = $filename.'.'.$this->getPhoto()->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
+    {
+        if (null === $this->getPhoto()) {
+            return;
+        }
+
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->getPhoto()->move($this->getUploadRootDir(), $this->pathToPhoto);
+
+        // check if we have an old image
+        if (isset($this->temp)) {
+            // delete the old image
+            unlink($this->getUploadRootDir().'/'.$this->temp);
+            // clear the temp image path
+            $this->temp = null;
+        }
+        $this->photo = null;
     }
 
     /**
@@ -441,5 +538,28 @@ class User
     public function getOfficialTwitterPage()
     {
         return $this->officialTwitterPage;
+    }
+
+    /**
+     * Set pathToPhoto
+     *
+     * @param  string $pathToPhoto
+     * @return User
+     */
+    public function setPathToPhoto($pathToPhoto)
+    {
+        $this->pathToPhoto = $pathToPhoto;
+
+        return $this;
+    }
+
+    /**
+     * Get pathToPhoto
+     *
+     * @return string
+     */
+    public function getPathToPhoto()
+    {
+        return $this->pathToPhoto;
     }
 }

@@ -9,10 +9,14 @@
 {% endblock %}
 
 {% block user_content %}
+    <div class="col-lg-3 col-lg-offset-9">
+        <a href="{{ path('valiknet_user_update', {"slug" : user.slug}) }}">Обновити інформацію</a>
+    </div>
+
     <div class="col-lg-12">
         <h3>{{ user.name }} {{ user.lastname }}</h3>
         <div class="col-lg-4">
-            <img src="#" class="poster"/>
+            <img src="{% if user.webPath %} {{ asset(user.webPath|imagine_filter('thumb250')) }} {% else %} {{ asset("standart/group/empty.png"|imagine_filter("thumb250")) }} {% endif %}" class="poster"/>
         </div>
 
         <div class="col-lg-8 characters">

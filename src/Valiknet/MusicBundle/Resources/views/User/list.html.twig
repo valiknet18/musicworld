@@ -9,6 +9,10 @@
         <a href="{{ path('valiknet_user_list') }}">Люди</a>
     </div>
 
+    <div class="col-lg-2 col-lg-offset-10">
+        <a href="{{ path('valiknet_user_add') }}">Додати людину</a>
+    </div>
+
     <div class="row col-lg-12">
         {% for user in users %}
             <div class="col-lg-6 thumbnail">
@@ -17,7 +21,7 @@
                 </h4>
 
                 <div class="col-lg-4">
-                    <img src="#" class="mini-poster" />
+                    <img src="{% if user.webPath %} {{ asset(user.webPath|imagine_filter('thumb140')) }} {% else %} {{ asset("standart/group/empty.png"|imagine_filter("thumb140")) }} {% endif %}" class="mini-poster" />
                 </div>
 
                 <div class="col-lg-8 characters">
