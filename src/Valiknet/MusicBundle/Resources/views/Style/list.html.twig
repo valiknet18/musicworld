@@ -17,24 +17,36 @@
         <ul>
             {% for style in styles %}
                 <li>
-                    <div>
+                    <div class="col-lg-8">
                         <a href="#" class="parent-div">+</a> <a href="{{ path('valiknet_style_children_list', {"slug" : style.slug}) }}">{{ style.name }}</a>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <a href="{{ path('valiknet_style_update', {"slug" : style.slug}) }}">Обновити</a>
                     </div>
 
                     {% if style.children %}
                         <ul class="children-list">
                             {% for style in style.children %}
                                 <li>
-                                    <div>
+                                    <div class="col-lg-8">
                                         <a href="#" class="parent-div">+</a> <a href="{{ path('valiknet_style_children_list', {"slug" : style.slug}) }}">{{ style.name }}</a>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <a href="{{ path('valiknet_style_update', {"slug" : style.slug}) }}">Обновити</a>
                                     </div>
 
                                     {% if style.children %}
                                         <ul class="children-list">
                                             {% for style in style.children %}
                                                 <li>
-                                                    <div>
+                                                    <div class="col-lg-8">
                                                         <a href="{{ path('valiknet_style_children_list', {"slug" : style.slug}) }}">{{ style.name }}</a>
+                                                    </div>
+
+                                                    <div class="col-lg-4">
+                                                        <a href="{{ path('valiknet_style_update', {"slug" : style.slug}) }}">Обновити</a>
                                                     </div>
                                                 </li>
                                             {% endfor %}
