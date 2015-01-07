@@ -1,7 +1,7 @@
 {% extends 'ValiknetMusicBundle:Country:country_webber.html.twig' %}
 
 {% block title %}
-    Групи з країни {{ country.name }}
+    Люди з країни {{ country.name }}
 {% endblock %}
 
 {% block links %}
@@ -39,7 +39,7 @@
         {% else %}
             <div class="col-lg-12">
                 <h4>
-                    В цьому жанрі немає ні одного піджанру.
+                    З цієї країни в базі немає ні одної людини
                 </h4>
             </div>
         {% endfor %}
