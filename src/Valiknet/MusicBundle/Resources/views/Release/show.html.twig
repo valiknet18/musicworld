@@ -4,7 +4,7 @@
     <h3 class="col-lg-12">{{ release.name }}</h3>
 
     <div class="col-lg-4">
-        <img src="{% if release.webPath %} {{ asset(release.webPath|imagine_filter('thumb250')) }} {% else %} {{ asset("standart/group/empty.png"|imagine_filter("thumb250")) }} {% endif %}" class="poster" />
+        <img src="{{ asset(release.webPath|valiknet_image()|imagine_filter('thumb250')) }}" class="poster" />
     </div>
 
     <div class="col-lg-8">

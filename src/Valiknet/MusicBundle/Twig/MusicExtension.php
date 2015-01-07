@@ -15,6 +15,7 @@ class MusicExtension extends \Twig_Extension
         return [
             new \Twig_SimpleFilter('valiknet_role', [$this, "roleFilter"]),
             new \Twig_SimpleFilter('valiknet_release', [$this, "releaseFilter"]),
+            new \Twig_SimpleFilter('valiknet_image', [$this, "imageFilter"]),
         ];
     }
 
@@ -103,6 +104,15 @@ class MusicExtension extends \Twig_Extension
             default:
                 return "Такого типу релізу немає";
         }
+    }
+
+    public function imageFilter($image)
+    {
+        if (empty($image)) {
+            return "standart/group/empty.png";
+        }
+
+        return $image;
     }
 
     public function getName()
