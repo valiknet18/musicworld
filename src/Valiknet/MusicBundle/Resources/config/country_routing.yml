@@ -9,3 +9,11 @@ valiknet_country_user_view:
 valiknet_country_list:
   path: /list
   defaults: { _controller: ValiknetMusicBundle:Country:list }
+
+valiknet_country_create:
+  path: /create
+  defaults: { _controller: ValiknetMusicBundle:Country:createCountry }
+
+valiknet_country_update:
+  path: /{slug}/create
+  defaults: { _controller: ValiknetMusicBundle:Country:updateCountry }

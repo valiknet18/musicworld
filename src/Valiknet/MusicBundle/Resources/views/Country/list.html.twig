@@ -9,11 +9,21 @@
         <a href="{{ path('valiknet_country_list') }}">Країни</a>
     </div>
 
+    <div class="col-lg-2 col-lg-offset-10">
+        <a href="{{ path('valiknet_country_create') }}">Додати країну</a>
+    </div>
+
     <div class="row col-lg-12">
         <ul>
             {% for country in countries %}
                 <li>
-                    <a href="{{ path("valiknet_country_group_view", {"slug" : country.slug}) }}">{{ country.name }}</a>
+                    <div class="col-lg-4">
+                        <a href="{{ path("valiknet_country_group_view", {"slug" : country.slug}) }}">{{ country.name }}</a>
+                    </div>
+
+                    <div class="col-lg-8">
+                        <a href="{{ path("valiknet_country_update", {"slug" : country.slug}) }}">Обновити</a>
+                    </div>
                 </li>
             {% endfor %}
         </ul>
