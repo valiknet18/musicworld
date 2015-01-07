@@ -24,12 +24,7 @@ class CountryController extends Controller
                         ->getRepository('ValiknetMusicBundle:Country')
                         ->findAll();
 
-        $paginator  = $this->get('knp_paginator');
-        $countries = $paginator->paginate(
-            $countries,
-            $request->query->get('page', 1),
-            10
-        );
+        $countries = $this->get('valiknet.service.extend_paginator')->extend($countries);
 
         return [
             "countries" => $countries

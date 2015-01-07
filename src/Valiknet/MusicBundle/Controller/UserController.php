@@ -26,12 +26,7 @@ class UserController extends Controller
                     ->getRepository('ValiknetMusicBundle:User')
                     ->findAll();
 
-        $paginator  = $this->get('knp_paginator');
-        $users = $paginator->paginate(
-            $users,
-            $request->query->get('page', 1),
-            10
-        );
+        $users = $this->get('valiknet.service.extend_paginator')->extend($users);
 
         return [
             "users" => $users
