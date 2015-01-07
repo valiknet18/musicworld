@@ -5,6 +5,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Valiknet\MusicBundle\Entity\Country;
+use Valiknet\MusicBundle\Form\Type\CountryType;
 
 class CountryController extends Controller
 {
@@ -64,6 +65,37 @@ class CountryController extends Controller
     {
         return [
             "country" => $country
+        ];
+    }
+
+    /**
+     * This method render form for create country
+     *
+     * @param  Request                                                  $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @Template()
+     */
+    public function createCountryAction(Request $request)
+    {
+        $em = $this->getDoctrine()
+                ->getManager();
+
+        $country = new Country();
+
+        $form = $this->createForm(new CountryType(), $country);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em->persist($country);
+            $em->flush();
+
+            return $this->redirectToRoute('valiknet_home');
+        }
+
+        return [
+            "form" => $form->createView()
         ];
     }
 }
