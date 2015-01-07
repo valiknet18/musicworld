@@ -15,7 +15,8 @@
                 {{ form_row(form.name) }}
             </div>
 
-            <div class="col-lg-12">
+            <div class="col-
+            lg-12">
                 {{ form_rest(form) }}
             </div>
 
@@ -24,4 +25,8 @@
             </div>
         </form>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/valiknetmusic/js/common.js') }}"></script>
 {% endblock %}

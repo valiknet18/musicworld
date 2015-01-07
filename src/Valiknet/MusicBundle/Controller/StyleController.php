@@ -111,8 +111,8 @@ class StyleController extends Controller
     /**
      * This method render form for update style
      *
-     * @param Style $style
-     * @param Request $request
+     * @param  Style                                                    $style
+     * @param  Request                                                  $request
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      *
      * @Template()
