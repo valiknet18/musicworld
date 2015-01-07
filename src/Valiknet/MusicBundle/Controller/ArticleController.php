@@ -24,12 +24,7 @@ class ArticleController extends Controller
                         ->getRepository('ValiknetMusicBundle:Article')
                         ->findBy([], ['id' => 'DESC']);
 
-        $paginator  = $this->get('knp_paginator');
-        $articles = $paginator->paginate(
-            $articles,
-            $request->query->get('page', 1),
-            10
-        );
+        $articles = $this->get('valiknet.service.extend_paginator')->extend($articles);
 
         return [
             "articles" => $articles

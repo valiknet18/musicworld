@@ -32,12 +32,7 @@ class GroupController extends Controller
                         ->getRepository('ValiknetMusicBundle:Group')
                         ->findBy([], ['name' => 'ASC']);
 
-        $paginator  = $this->get('knp_paginator');
-        $groups = $paginator->paginate(
-            $groups,
-            $request->query->get('page', 1),
-            10
-        );
+        $groups = $this->get('valiknet.service.extend_paginator')->extend($groups);
 
         return [
             "groups" => $groups

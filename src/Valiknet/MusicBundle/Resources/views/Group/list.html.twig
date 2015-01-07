@@ -21,7 +21,7 @@
                 </h4>
 
                 <div class="col-lg-4">
-                    <img src="{% if group.webPath %} {{ asset(group.webPath|imagine_filter('thumb140')) }} {% else %} {{ asset("standart/group/empty.png"|imagine_filter("thumb140")) }} {% endif %}" class="mini-poster" />
+                    <img src="{{ asset(group.webPath|valiknet_image()|imagine_filter('thumb140')) }}" class="mini-poster" />
                 </div>
 
                 <div class="col-lg-8 characters">
