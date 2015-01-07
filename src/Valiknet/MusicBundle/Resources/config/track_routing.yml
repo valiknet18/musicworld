@@ -1,0 +1,5 @@
+valiknet_track_remove:
+  path: /{id}/delete
+  defaults: { _controller: ValiknetMusicBundle:Track:remove }
+  options:
+      expose: true

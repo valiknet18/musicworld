@@ -1,0 +1,46 @@
+
+
+<div class="col-lg-12">
+    <h3 class="col-lg-12">{{ release.name }}</h3>
+
+    <div class="col-lg-4">
+        <img src="{{ asset(release.webPath|valiknet_image()|imagine_filter('thumb250')) }}" class="poster" />
+    </div>
+
+    <div class="col-lg-8">
+        <div class="col-lg-12">
+            Тип: {{ release.type|valiknet_release }}
+        </div>
+
+        <div class="col-lg-12">
+            Дата релізу: {{ release.releasedAt|date('d.m.Y') }}
+        </div>
+        <p class="col-lg-12">
+            {{ release.text }}
+        </p>
+
+        <div class="col-lg-12">
+            <h3>Список треків</h3>
+
+            <table class="table">
+                <tr>
+                    <th>#</th>
+                    <th>Назва треку</th>
+                    <th>Час</th>
+                </tr>
+                {% set counter = 1 %}
+
+                {% for track in release.tracks %}
+                <tr>
+                    <td>{{ counter }}</td>
+                    <td>{{ track.name }}</td>
+                    <td>{{ track.timeline }}</td>
+                </tr>
+
+                {% set counter = counter + 1 %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</div>

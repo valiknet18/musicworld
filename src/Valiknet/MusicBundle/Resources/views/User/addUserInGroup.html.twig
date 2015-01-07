@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Додавання людини {{ user.name }} в групу
+{% endblock %}
+
+{% block content %}
+    <div class="col-lg-12">
+        <div class="col-lg-12">
+            {{ form_errors(form) }}
+        </div>
+
+        <form action="#" method="POST" enctype="multipart/form-data" novalidate>
+            <div class="col-lg-12">
+                {{ form_row(form.group) }}
+            </div>
+
+            <div class="col-lg-12">
+                {{ form_row(form.role) }}
+            </div>
+
+            <div class="col-lg-12">
+                {{ form_row(form.joinedAt) }}
+            </div>
+
+            <div>
+                {{ form_rest(form) }}
+            </div>
+
+            <div class="col-lg-12">
+                <button type="submit">Добавити людину в групу</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

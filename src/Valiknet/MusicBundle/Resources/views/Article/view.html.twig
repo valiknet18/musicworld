@@ -1,0 +1,31 @@
+{% extends 'ValiknetMusicBundle:Article:article_webber.html.twig' %}
+
+{% block title %}
+    Стаття {{ article.name }}
+{% endblock %}
+
+{% block links %}
+    <a href="{{ path('valiknet_home') }}">Статі</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ article.name }}</a>
+{% endblock %}
+
+{% block article_content %}
+    <div class="col-lg-2 col-lg-offset-10">
+        <a href="{{ path('valiknet_article_update', {"slug" : article.slug}) }}">Обновити статтю</a>
+    </div>
+
+    <div class="col-lg-12">
+        <h3 class="col-lg-12">
+            {{ article.name }}
+        </h3>
+
+        <div class="col-lg-12">
+            Дата створення: {{ article.createdAt|date('H:m:i d.m.Y') }}
+        </div>
+
+        <div class="col-lg-12">
+            <p>
+                {{ article.text }}
+            </p>
+        </div>
+    </div>
+{% endblock %}

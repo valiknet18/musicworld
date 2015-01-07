@@ -1,0 +1,47 @@
+{% extends 'ValiknetMusicBundle:Country:country_webber.html.twig' %}
+
+{% block title %}
+    Люди з країни {{ country.name }}
+{% endblock %}
+
+{% block links %}
+    <a href="{{ path('valiknet_group_list') }}">Країни</a>>{{ country.name }}><a href="{{ path('valiknet_country_user_view', {"slug" : country.slug}) }}">Люди</a>
+{% endblock %}
+
+{% block country_content %}
+    <div class="col-lg-12">
+        {% for user in country.users %}
+            <div class="col-lg-6 thumbnail">
+                <h4 class="col-lg-12">
+                    {{ user.name }} {{ user.lastname }}
+                </h4>
+
+                <div class="col-lg-4">
+                    <img src="#" class="mini-poster" />
+                </div>
+
+                <div class="col-lg-8 characters">
+                    <div class="col-lg-12">
+                        Країна: <a href="{{ path('valiknet_country_user_view', {"slug" : user.country.slug}) }}">{{ user.country.name }}</a>
+                    </div>
+
+                    <div class="col-lg-12">
+                        Дата народення: {{ user.birthedAt|date('d.m.Y') }}
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <a href="{{ path('valiknet_user_view', {"slug" : user.slug}) }}" class="btn btn-success">
+                        Перейти
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-lg-12">
+                <h4>
+                    З цієї країни в базі немає ні одної людини
+                </h4>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

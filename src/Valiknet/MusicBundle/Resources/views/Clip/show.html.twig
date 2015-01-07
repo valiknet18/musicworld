@@ -1,0 +1,17 @@
+<div class="col-lg-12">
+    <h3 class="col-lg-12">
+        {{ clip.name }}
+    </h3>
+
+    <div class="col-lg-12">
+        <p>
+            {{ clip.text }}
+        </p>
+    </div>
+
+    {% if clip.video %}
+        <div class="col-lg-12">
+            <iframe width="560" height="315" src="{{ clip.video }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+    {% endif %}
+</div>

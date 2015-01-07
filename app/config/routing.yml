@@ -1,3 +1,18 @@
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+valiknet_home:
+  path: /{_locale}
+  defaults: { _controller: ValiknetMusicBundle:Article:list, _locale: uk }
+  requirements:
+    _locale: uk|ru|en
+
 valiknet_music:
-    resource: "@ValiknetMusicBundle/Resources/config/routing.yml"
-    prefix:   /
+  resource: "@ValiknetMusicBundle/Resources/config/routing.yml"
+  prefix:   /{_locale}
+  defaults: { _locale: uk }
+  requirements:
+    _locale: uk|ru|en

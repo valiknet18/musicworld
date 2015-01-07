@@ -2,12 +2,80 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %} | Music world</title>
+        <link href="{{ asset('/bundles/valiknetmusic/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('/bundles/valiknetmusic/css/common.css') }}" rel="stylesheet"/>
         {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('standart/favicon/music.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="container">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+                    <span class="navbar-brand">
+                        Music World
+                    </span>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{{ path('valiknet_home') }}">
+                            <div>
+                                {{ "navigator.articles"|trans() }}
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ path('valiknet_group_list') }}">
+                            <div>
+                                {{ "navigator.groups"|trans() }}
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ path('valiknet_user_list') }}">
+                            <div>
+                                {{ "navigator.users"|trans() }}
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ path('valiknet_style_list') }}">
+                            <div>
+                                {{ "navigator.styles"|trans() }}
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ path('valiknet_country_list') }}">
+                            <div>
+                                {{ "navigator.countries"|trans() }}
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Поточна мова <b>{{ valiknet_target_language(app.request.attributes.get('_route_params')) }}</b><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({"_locale" : "uk"})) }}">Українська</a></li>
+                            <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({"_locale" : "en"})) }}">Англійська</a></li>
+                            <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({"_locale" : "ru"})) }}">Російська</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            {% block content %}{% endblock %}
+        </div>
+
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+        <script src="{{ asset('bundles/valiknetmusic/js/jquery.js') }}"></script>
+        <script src="{{ asset('bundles/valiknetmusic/js/dropdown.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

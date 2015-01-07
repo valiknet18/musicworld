@@ -1,0 +1,25 @@
+valiknet_style_list:
+  path: /list
+  defaults: { _controller: ValiknetMusicBundle:Style:list }
+
+valiknet_style_children_list:
+  path: /{slug}/childrens
+  defaults: { _controller: ValiknetMusicBundle:Style:showChildren }
+
+valiknet_style_children_list_ajax:
+  path: /{id}/childrens/ajax
+  defaults: { _controller: ValiknetMusicBundle:Style:showChildrenPost }
+  options:
+    expose: true
+
+valiknet_style_group_list:
+  path: /{slug}/groups
+  defaults: { _controller: ValiknetMusicBundle:Style:showGroup }
+
+valiknet_style_create:
+  path: /create
+  defaults: { _controller: ValiknetMusicBundle:Style:createStyle }
+
+valiknet_style_update:
+  path: /{slug}/update
+  defaults: { _controller: ValiknetMusicBundle:Style:updateStyle }

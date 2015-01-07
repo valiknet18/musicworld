@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <div class="row col-lg-10 col-lg-offset-1">
+        <nav class="navbar navbar-inverse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="{{ path('valiknet_style_children_list', {"slug" : style.slug}) }}">
+                        Дочірні категорії <span class="badge">{{ style.children|length }}</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ path('valiknet_style_group_list', {"slug" : style.slug}) }}">
+                        Групи <span class="badge">{{ style.groups|length }}</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="col-lg-12 arrow-navigator">
+            {% block links %}
+            {% endblock %}
+        </div>
+
+        <div>
+            {% block style_content %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

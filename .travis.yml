@@ -27,7 +27,7 @@ before_script:
 
     # Update composer
     - composer self-update
-    - composer install --dev --prefer-dist
+    - composer install
 
     # Make symfony2 preparation steps
     - mkdir -p web/upload/media
@@ -38,9 +38,6 @@ before_script:
     - sudo chmod -R 777 app/cache app/logs
     - app/console --env=test cache:warmup
     - sudo chmod -R 777 app/cache app/logs
-
-    # Check
-    - php app/check.php
 
 script:
   - phpunit -c app/

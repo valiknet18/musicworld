@@ -1,0 +1,39 @@
+{% extends 'ValiknetMusicBundle:User:user_webber.html.twig' %}
+
+{% block title %}
+    {{ user.name }} {{ user.lastname }}
+{% endblock %}
+
+{% block links %}
+    <a href="{{ path('valiknet_user_list') }}">Люди</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ user.name }} {{ user.lastname }}</a>
+{% endblock %}
+
+{% block user_content %}
+    <div class="col-lg-3 col-lg-offset-9">
+        <a href="{{ path('valiknet_user_update', {"slug" : user.slug}) }}">Обновити інформацію</a>
+    </div>
+
+    <div class="col-lg-12">
+        <h3>{{ user.name }} {{ user.lastname }}</h3>
+        <div class="col-lg-4">
+            <img src="{{ asset(user.webPath|valiknet_image()|imagine_filter('thumb250')) }}" class="poster"/>
+        </div>
+
+        <div class="col-lg-8 characters">
+            <div class="col-lg-12">
+                Країна: <a href="{{ path('valiknet_country_user_view', {"slug" : user.country.slug}) }}">{{ user.country.name }}</a>
+            </div>
+
+            <div class="col-lg-12">
+                Дата народження: {{ user.birthedAt|date('d.m.Y') }}
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <h4>Коротка історія:</h4>
+            <p>
+                {{ user.history }}
+            </p>
+        </div>
+    </div>
+{% endblock %}

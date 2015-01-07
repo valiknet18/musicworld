@@ -1,0 +1,33 @@
+{% extends 'ValiknetMusicBundle:Group:group_webber.html.twig' %}
+
+{% block title %}
+    Список контактів групи {{ group.name }}
+{% endblock %}
+
+{% block links %}
+    <a href="{{ path('valiknet_group_list') }}">Групи</a>><a href="{{ path("valiknet_group_view", { "slug" : group.slug }) }}">{{ group.name }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">Контакти</a>
+{% endblock %}
+
+{% block group_content %}
+    <div class="col-lg-12">
+        {% if group.officialSite %}
+            Офіційний сайт: <a href="{{ group.officialSite }}">{{ group.officialSite }}</a>
+        {% endif %}
+
+        {% if group.officialVkPage %}
+            Офіційна сторінка вконтакті: <a href="{{ group.officialVkPage }}">{{ group.officialVkPage }}</a>
+        {% endif %}
+
+        {% if group.officialFacebookPage %}
+            Офіційна фейсбук сторінка: <a href="{{ group.officialFacebookPage }}">{{ group.officialFacebookPage }}</a>
+        {% endif %}
+
+        {% if group.officialTwitterPage %}
+            Офіційна сторінка в твіттері: <a href="{{ group.officialTwitterPage }}">{{ group.officialTwitterPage }}</a>
+        {% endif %}
+
+        {% if (not group.officialSite) and (not group.officialVkPage) and (not group.officialFacebookPage) and (not group.officialTwitterPage) %}
+            <h4>До цієї групи не добавлений ні один офіційний контакт</h4>
+        {% endif %}
+    </div>
+{% endblock %}

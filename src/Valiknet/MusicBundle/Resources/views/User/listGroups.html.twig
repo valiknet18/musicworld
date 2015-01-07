@@ -1,0 +1,62 @@
+{% extends '@ValiknetMusic/User/user_webber.html.twig' %}
+
+{% block title %}
+    Групи в яких приймає участь {{ user.name }} {{ user.lastname }}
+{% endblock %}
+
+{% block links %}
+    <a href="{{ path('valiknet_user_list') }}">Люди</a>><a href="{{ path("valiknet_user_view", { "slug" : user.slug }) }}">{{ user.name }} {{ user.lastname }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">Групи</a>
+{% endblock %}
+
+{% block user_content %}
+    <div class="col-lg-2 col-lg-offset-10">
+        <a href="{{ path('valiknet_user_add_in_group', {"slug" : user.slug}) }}">Добавити групу</a>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>
+                Назва группи
+            </th>
+
+            <th>
+                Роль в групі
+            </th>
+
+            <th>
+                Дата входу в групу
+            </th>
+
+            <th>
+                Посилання на обновлення
+            </th>
+        </tr>
+    {% for groupuser in user.groups %}
+        <tr>
+            <td>
+                <a href="{{ path("valiknet_group_view", {"slug" : groupuser.group.slug}) }}">{{ groupuser.group.name }}</a>
+            </td>
+
+            <td>
+                {{ groupuser.role|valiknet_role }}
+            </td>
+
+            <td>
+                {{ groupuser.joinedAt|date('d.m.Y') }}
+            </td>
+
+            <td>
+                <a href="{{ path('valiknet_user_update_in_group', {"id" : groupuser.id, "slug" : user.slug}) }}">Обновлення</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="4">
+                <h4>
+                    Ця людина не участвує ні в одній музичній групі
+                </h4>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

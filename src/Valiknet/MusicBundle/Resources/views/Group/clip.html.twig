@@ -1,0 +1,18 @@
+{% extends 'ValiknetMusicBundle:Group:group_webber.html.twig' %}
+
+{% block title %}
+    Кліп {{ clip.name }} групи {{ group.name }}
+{% endblock %}
+
+{% block links %}
+    <a href="{{ path('valiknet_group_list') }}">Групи</a>><a href="{{ path("valiknet_group_view", { "slug" : group.slug }) }}">{{ group.name }}</a>><a href="{{ path('valiknet_group_clip_list', {'slug' : group.slug}) }}">Кліпи</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ clip.name }}</a>
+{% endblock %}
+
+{% block group_content %}
+    <div class="col-lg-12">
+        <div class="col-lg-2 col-lg-offset-10">
+            <a href="{{ path('valiknet_group_clip_update', {"slug" : group.slug, "slugClip" : clip.slug}) }}">Обновити кліп</a>
+        </div>
+        {{ render(controller('ValiknetMusicBundle:Clip:show', {'clip' : clip})) }}
+    </div>
+{% endblock %}

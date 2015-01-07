@@ -1,0 +1,19 @@
+valiknet_country_group_view:
+  path: /{slug}/view/group
+  defaults: { _controller: ValiknetMusicBundle:Country:showGroup }
+
+valiknet_country_user_view:
+  path: /{slug}/view/user
+  defaults: { _controller: ValiknetMusicBundle:Country:showUser }
+
+valiknet_country_list:
+  path: /list
+  defaults: { _controller: ValiknetMusicBundle:Country:list }
+
+valiknet_country_create:
+  path: /create
+  defaults: { _controller: ValiknetMusicBundle:Country:createCountry }
+
+valiknet_country_update:
+  path: /{slug}/create
+  defaults: { _controller: ValiknetMusicBundle:Country:updateCountry }

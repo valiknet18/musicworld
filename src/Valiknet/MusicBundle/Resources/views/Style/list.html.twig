@@ -1,0 +1,67 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Список жанрів
+{% endblock %}
+
+{% block content %}
+    <div class="col-lg-12 arrow-navigator">
+        <a href="{{ path('valiknet_style_list') }}">Жанри</a>
+    </div>
+
+    <div class="col-lg-2 col-lg-offset-10">
+        <a href="{{ path('valiknet_style_create') }}">Додати стиль</a>
+    </div>
+
+    <div class="row col-lg-12">
+        <ul>
+            {% for style in styles %}
+                <li>
+                    <div class="col-lg-4">
+                        {% if style.children is not empty %} <a href="#" class="parent-div">+</a> {% endif %} <a href="{{ path('valiknet_style_children_list', {"slug" : style.slug}) }}">{{ style.name }}</a>
+                    </div>
+
+                    <div class="col-lg-8">
+                        <a href="{{ path('valiknet_style_update', {"slug" : style.slug}) }}">Обновити</a>
+                    </div>
+
+                    {% if style.children is not empty %}
+                        <ul class="children-list">
+                            {% for style in style.children %}
+                                <li>
+                                    <div class="col-lg-4">
+                                        {% if style.children is not empty %}<a href="#" class="parent-div">+</a>{% endif %} <a href="{{ path('valiknet_style_children_list', {"slug" : style.slug}) }}">{{ style.name }}</a>
+                                    </div>
+
+                                    <div class="col-lg-8">
+                                        <a href="{{ path('valiknet_style_update', {"slug" : style.slug}) }}">Обновити</a>
+                                    </div>
+
+                                    {% if style.children is not empty %}
+                                        <ul class="children-list">
+                                            {% for style in style.children %}
+                                                <li>
+                                                    <div class="col-lg-4">
+                                                        <a href="{{ path('valiknet_style_children_list', {"slug" : style.slug}) }}">{{ style.name }}</a>
+                                                    </div>
+
+                                                    <div class="col-lg-8">
+                                                        <a href="{{ path('valiknet_style_update', {"slug" : style.slug}) }}">Обновити</a>
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/valiknetmusic/js/common.js') }}"></script>
+{% endblock %}
