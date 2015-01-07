@@ -17,3 +17,11 @@
 .arrow-navigator {
     margin-bottom: 20px;
 }
+
+.children-list {
+    display: none;
+}
+
+ul {
+    list-style: none;
+}

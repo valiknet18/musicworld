@@ -52,3 +52,25 @@ $(document).on('click', '.delete-track', function(e){
         }
     });
 });
+
+$(document).on('click', 'a.parent-div', function (e) {
+    e.preventDefault();
+
+    $(this).parent().next().next().css({
+        "display": "block"
+    })
+
+
+    $(this).attr("class", "parent-div-active");
+});
+
+$(document).on('click', 'a.parent-div-active', function (e) {
+    e.preventDefault();
+
+    $(this).parent().next().next().css({
+        "display": "none"
+    })
+
+
+    $(this).attr("class", "parent-div");
+});
