@@ -18,6 +18,7 @@
             {% for country in countries %}
                 <li>
                     <a href="{{ path("valiknet_country_group_view", {"slug" : country.slug}) }}">{{ country.name }}</a>
+                    <a href="{{ path("valiknet_country_update", {"slug" : country.slug}) }}">Обновити</a>
                 </li>
             {% endfor %}
         </ul>
