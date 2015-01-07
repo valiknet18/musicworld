@@ -98,4 +98,35 @@ class CountryController extends Controller
             "form" => $form->createView()
         ];
     }
+
+    /**
+     * This method render form for update country
+     *
+     * @param Country $country
+     * @param Request $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @Template()
+     */
+    public function updateCountryAction(Country $country, Request $request)
+    {
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $form = $this->createForm(new CountryType(), $country);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em->persist($country);
+            $em->flush();
+
+            return $this->redirectToRoute('valiknet_home');
+        }
+
+        return [
+            "country" => $country,
+            "form" => $form->createView()
+        ];
+    }
 }

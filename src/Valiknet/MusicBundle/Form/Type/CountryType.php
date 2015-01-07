@@ -4,7 +4,6 @@ namespace Valiknet\MusicBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Valiknet\MusicBundle\Form\DataTransformer\UrlTransformer;
 
 class CountryType extends AbstractType
 {
