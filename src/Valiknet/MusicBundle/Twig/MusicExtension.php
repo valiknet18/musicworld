@@ -10,6 +10,13 @@ namespace Valiknet\MusicBundle\Twig;
 
 class MusicExtension extends \Twig_Extension
 {
+    public function getFunctions()
+    {
+        return [
+            new \Twig_SimpleFunction('valiknet_target_language', [$this, "targetLanguageFunction"])
+        ];
+    }
+
     public function getFilters()
     {
         return [
@@ -113,6 +120,17 @@ class MusicExtension extends \Twig_Extension
         }
 
         return $image;
+    }
+
+    public function targetLanguageFunction($route)
+    {
+        if ($route["_locale"] == "uk") {
+            return "UK";
+        } elseif ($route["_locale"] == "ru") {
+            return "RU";
+        } else {
+            return "EN";
+        }
     }
 
     public function getName()

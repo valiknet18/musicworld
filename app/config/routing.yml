@@ -6,13 +6,13 @@ fos_js_routing:
 
 valiknet_home:
   path: /{_locale}
-  defaults: { _controller: ValiknetMusicBundle:Article:list, _locale: ua }
+  defaults: { _controller: ValiknetMusicBundle:Article:list, _locale: uk }
   requirements:
-    _locale: ua|ru|en
+    _locale: uk|ru|en
 
 valiknet_music:
   resource: "@ValiknetMusicBundle/Resources/config/routing.yml"
   prefix:   /{_locale}
-  defaults: { _locale: ua }
+  defaults: { _locale: uk }
   requirements:
-    _locale: ua|ru|en
+    _locale: uk|ru|en
