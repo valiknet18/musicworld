@@ -13,7 +13,8 @@ class MusicExtension extends \Twig_Extension
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('valiknet_role', [$this, "roleFilter"])
+            new \Twig_SimpleFilter('valiknet_role', [$this, "roleFilter"]),
+            new \Twig_SimpleFilter('valiknet_release', [$this, "releaseFilter"]),
         ];
     }
 
@@ -50,6 +51,57 @@ class MusicExtension extends \Twig_Extension
 
             default:
                 return "Вибрана роль не вірна";
+        }
+    }
+
+    public function releaseFilter($number)
+    {
+        switch ($number) {
+            case 1:
+                return "Album";
+            break;
+
+            case 2:
+                return "Single";
+            break;
+
+            case 3:
+                return "Remixer";
+            break;
+
+            case 4:
+                return "EP(Extended Play)";
+            break;
+
+            case 5:
+                return "Compilation";
+            break;
+
+            case 6:
+                return "Soundtrack";
+
+            case 7:
+                return "Live";
+            break;
+
+            case 8:
+                return "Bootleg";
+            break;
+
+            case 9:
+                return "Promo";
+            break;
+
+            case 10:
+                return "Tribute(cover)";
+            break;
+
+            case 11:
+                return "Demo";
+            break;
+
+            default:
+                return "Такого типу релізу немає";
         }
     }
 
