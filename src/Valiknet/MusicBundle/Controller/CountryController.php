@@ -102,8 +102,8 @@ class CountryController extends Controller
     /**
      * This method render form for update country
      *
-     * @param Country $country
-     * @param Request $request
+     * @param  Country                                                  $country
+     * @param  Request                                                  $request
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      *
      * @Template()

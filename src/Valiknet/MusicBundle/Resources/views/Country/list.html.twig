@@ -17,8 +17,13 @@
         <ul>
             {% for country in countries %}
                 <li>
-                    <a href="{{ path("valiknet_country_group_view", {"slug" : country.slug}) }}">{{ country.name }}</a>
-                    <a href="{{ path("valiknet_country_update", {"slug" : country.slug}) }}">Обновити</a>
+                    <div class="col-lg-4">
+                        <a href="{{ path("valiknet_country_group_view", {"slug" : country.slug}) }}">{{ country.name }}</a>
+                    </div>
+
+                    <div class="col-lg-8">
+                        <a href="{{ path("valiknet_country_update", {"slug" : country.slug}) }}">Обновити</a>
+                    </div>
                 </li>
             {% endfor %}
         </ul>
