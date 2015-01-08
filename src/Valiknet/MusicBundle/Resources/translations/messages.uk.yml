@@ -1,0 +1,11 @@
+navigator:
+  articles: Статті
+  groups: Групи
+  users: Люди
+  styles: Стилі
+  countries: Країни
+  targetLanguage: Поточна мова
+  languages:
+    ukraine: Українська
+    russian: Російська
+    english: Англійська

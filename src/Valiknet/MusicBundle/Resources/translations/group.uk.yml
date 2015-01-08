@@ -1,0 +1,44 @@
+groups:
+  groups: Групи
+  createGroup: Створити групу
+  updateGroup: Обновити групу
+  moveOn: Перейти
+  navigator:
+    informationAboutGroup: Інформація про групу
+    users: Учасники
+    clips: Кліпи
+    releases: Релізи
+    news: Новини
+    contacs: Контакти
+  group:
+    country: Країна
+    styles: Стилі
+    createdAt: Дата створення
+    shortlyHistory: Коротка історія
+  clips:
+    createClip: Додати кліп
+    updateClip: Обновити кліп
+    errorClipsNotIsset: В цій групі немає ні одного кліпу
+  releases:
+    createRelease: Додати реліз
+    updateRelease: Обновити реліз
+    type: Тип релізу
+    releasedAt: Дата релізу
+    TracksList: Список треків
+    nameTrack: Назва треку
+    timeline: час
+  contacts:
+    officialSite: Офіційний сайт
+    officialVkPage: Офіційна сторінка вконтакті
+    officialTwitterPage: Офіційна сторінка в twitter
+    officialFacebookPage: Офіційна сторінка в facebook
+    errorContacts: До цієї групи не добавлений ні один офіційний контакт
+  title:
+    listGroups: Список груп
+    aboutGroup: Група %groupName%
+    clipsGroup: Список кліпів групи %groupName%
+    clipGroup: Кліп %clipName% групи %groupName%
+    releasesGroup: Список релізів групи %groupName%
+    releaseGroup: Реліз %releaseName% групи %groupName%
+    newsGroup: Новини які прив’язані до групи %groupName%
+    contactsList: Список контактів групи %groupName%
