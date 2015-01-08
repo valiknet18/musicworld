@@ -224,8 +224,8 @@ class UserController extends Controller
     /**
      * This method render user from group
      *
-     * @param User $user
-     * @param GroupUser $groupUser
+     * @param  User                                               $user
+     * @param  GroupUser                                          $groupUser
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteUserInGroupAction(User $user, GroupUser $groupUser)

@@ -1,0 +1,26 @@
+articles:
+  articles: Статі
+  createArticle: Створити статю
+  updateArticle: Обновити статю
+  moveOn: Перейти
+  articlesNotIsset: В базі немає ні однієї статі
+  titles:
+    mainInformationTitle: Статя %articleName%
+    groupsTitle: Групи які прив’язані до статі %articleName%
+    usersTitle: Люди які прив’язані до статі %articleName%
+    listArticlesTitle: Список статей
+    createArticle: Створення нової статі
+    updateArticle: Обновлення статі %articleName%
+  navigator:
+    mainInformation: Основна інформація
+    groups: Групи
+    users: Люди
+  article:
+    createdAt: Дата створення
+  form:
+    name: Назва статті Транс
+    text: Текст статі
+    groups: Групи як зв’язані з статею
+    users: Люди які зв’язані з статею
+    buttonCreate: Створити
+    buttonUpdate: Обновити

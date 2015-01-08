@@ -20,7 +20,7 @@
                     <li>
                         <a href="{{ path('valiknet_home') }}">
                             <div>
-                                Статі
+                                {{ "navigator.articles"|trans() }}
                             </div>
                         </a>
                     </li>
@@ -28,7 +28,7 @@
                     <li>
                         <a href="{{ path('valiknet_group_list') }}">
                             <div>
-                                Групи
+                                {{ "navigator.groups"|trans() }}
                             </div>
                         </a>
                     </li>
@@ -36,7 +36,7 @@
                     <li>
                         <a href="{{ path('valiknet_user_list') }}">
                             <div>
-                                Люди
+                                {{ "navigator.users"|trans() }}
                             </div>
                         </a>
                     </li>
@@ -44,7 +44,7 @@
                     <li>
                         <a href="{{ path('valiknet_style_list') }}">
                             <div>
-                                Стилі
+                                {{ "navigator.styles"|trans() }}
                             </div>
                         </a>
                     </li>
@@ -52,9 +52,20 @@
                     <li>
                         <a href="{{ path('valiknet_country_list') }}">
                             <div>
-                                Країни
+                                {{ "navigator.countries"|trans() }}
                             </div>
                         </a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "navigator.targetLanguage"|trans }} <b>{{ valiknet_target_language(app.request.attributes.get('_route_params')) }}</b><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({"_locale" : "uk"})) }}">{{ "navigator.languages.ukraine"|trans() }}</a></li>
+                            <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({"_locale" : "en"})) }}">{{ "navigator.languages.english"|trans() }}</a></li>
+                            <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({"_locale" : "ru"})) }}">{{ "navigator.languages.russian"|trans() }}</a></li>
+                        </ul>
                     </li>
                 </ul>
             </nav>
@@ -64,6 +75,7 @@
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
         <script src="{{ asset('bundles/valiknetmusic/js/jquery.js') }}"></script>
+        <script src="{{ asset('bundles/valiknetmusic/js/dropdown.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

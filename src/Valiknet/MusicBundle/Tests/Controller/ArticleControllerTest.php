@@ -19,7 +19,7 @@ class ArticleControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/ua/article/-1/view');
+        $client->request('GET', '/uk/article/-1/view');
 
         $this->assertEquals(404, $client->getResponse()->getStatusCode());
     }

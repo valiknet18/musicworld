@@ -1,11 +1,13 @@
 {% extends 'ValiknetMusicBundle:Article:article_webber.html.twig' %}
 
+{% trans_default_domain "article" %}
+
 {% block title %}
-    Групи які прив’язані до статі {{ article.name }}
+    {{ "articles.titles.groupsTitle"|trans({ "%articleName%" : article.name }) }}
 {% endblock %}
 
 {% block links %}
-    <a href="{{ path('valiknet_home') }}">Статі</a>><a href="{{ path('valiknet_article_view', {"slug" : article.slug}) }}">{{ article.name }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">Групи</a>
+    <a href="{{ path('valiknet_home') }}">{{ "articles.articles"|trans() }}</a>><a href="{{ path('valiknet_article_view', {"slug" : article.slug}) }}">{{ article.name }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ "articles.navigator.groups"|trans() }}</a>
 {% endblock %}
 
 {% block article_content %}

@@ -1,7 +1,10 @@
 {% extends '::base.html.twig' %}
 
+{% trans_default_domain "group" %}
+
 {% block title %}
     Обновлення кліпу {{ clip.name }} групи {{ group.name }}
+    {{ "groups.title.updateGroup"|trans({ "clipName" : clip.name, "groupName" : group.name }) }}
 {% endblock %}
 
 {% block content %}
@@ -24,7 +27,7 @@
             </div>
 
             <div class="col-lg-12">
-                <button type="submit" class="btn btn-default">Обновити</button>
+                <button type="submit" class="btn btn-default">{{ "groups.form.updateButton"|trans() }}</button>
             </div>
         </form>
     </div>

@@ -1,24 +1,26 @@
 {% extends '::base.html.twig' %}
 
+{% trans_default_domain "article" %}
+
 {% block content %}
     <div class="row col-lg-10 col-lg-offset-1">
         <nav class="navbar navbar-inverse">
             <ul class="nav navbar-nav">
                 <li>
                     <a href="{{ path('valiknet_article_view', {"slug" : article.slug}) }}">
-                        Основна інформація
+                        {{ "articles.navigator.mainInformation"|trans() }}
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ path('valiknet_article_group_list', {"slug" : article.slug}) }}">
-                        Групи <span class="badge">{{ article.groups|length }}</span>
+                        {{ "articles.navigator.groups"|trans() }} <span class="badge">{{ article.groups|length }}</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ path('valiknet_article_user_list', {"slug" : article.slug}) }}">
-                        Люди <span class="badge">{{ article.users|length }}</span>
+                        {{ "articles.navigator.users"|trans() }} <span class="badge">{{ article.users|length }}</span>
                     </a>
                 </li>
             </ul>
