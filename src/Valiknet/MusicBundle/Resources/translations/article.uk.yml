@@ -9,6 +9,8 @@ articles:
     groupsTitle: Групи які прив’язані до статі %articleName%
     usersTitle: Люди які прив’язані до статі %articleName%
     listArticlesTitle: Список статей
+    createArticle: Створення нової статі
+    updateArticle: Обновлення статі %articleName%
   navigator:
     mainInformation: Основна інформація
     groups: Групи
@@ -20,3 +22,5 @@ articles:
     text: Текст статі
     groups: Групи як зв’язані з статею
     users: Люди які зв’язані з статею
+    buttonCreate: Створити
+    buttonUpdate: Обновити
