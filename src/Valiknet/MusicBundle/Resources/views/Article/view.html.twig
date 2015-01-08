@@ -1,16 +1,16 @@
 {% extends 'ValiknetMusicBundle:Article:article_webber.html.twig' %}
 
 {% block title %}
-    Стаття {{ article.name }}
+    {{ "articles.titles.mainInformationTitle"|trans() }} {{ article.name }}
 {% endblock %}
 
 {% block links %}
-    <a href="{{ path('valiknet_home') }}">Статі</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ article.name }}</a>
+    <a href="{{ path('valiknet_home') }}">{{ "articles.articles"|trans() }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ article.name }}</a>
 {% endblock %}
 
 {% block article_content %}
     <div class="col-lg-2 col-lg-offset-10">
-        <a href="{{ path('valiknet_article_update', {"slug" : article.slug}) }}">Обновити статтю</a>
+        <a href="{{ path('valiknet_article_update', {"slug" : article.slug}) }}">{{ "articles.updateArticle"|trans() }}</a>
     </div>
 
     <div class="col-lg-12">
@@ -19,7 +19,7 @@
         </h3>
 
         <div class="col-lg-12">
-            Дата створення: {{ article.createdAt|date('H:m:i d.m.Y') }}
+            {{ "articles.article.createdAt"|trans() }}: {{ article.createdAt|date('H:m:i d.m.Y') }}
         </div>
 
         <div class="col-lg-12">

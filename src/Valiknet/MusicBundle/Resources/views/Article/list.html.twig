@@ -1,17 +1,17 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-    Список статей
+    {{ "articles.titles.listArticlesTitle"|trans() }}
 {% endblock %}
 
 {% block content %}
     <div class="row">
         <div class="col-lg-12 arrow-navigator">
-            <a href="{{ path('valiknet_home') }}">Статі</a>
+            <a href="{{ path('valiknet_home') }}">{{ "articles.articles"|trans() }}</a>
         </div>
 
         <div class="col-lg-2 col-lg-offset-10">
-            <a href="{{ path('valiknet_article_create') }}">Створити статю</a>
+            <a href="{{ path('valiknet_article_create') }}">{{ "articles.createArticle"|trans() }}</a>
         </div>
 
         <div class="col-lg-12">
@@ -29,14 +29,14 @@
 
                     <div class="col-lg-12">
                         <a href="{{ path('valiknet_article_view', {"slug" : article.slug}) }}" class="btn btn-success">
-                            Перейти
+                            {{ "articles.moveOn"|trans() }}
                         </a>
                     </div>
                 </div>
             {% else %}
                 <div>
                     <h4>
-                        В базі немає ні однієї статі
+                        {{ "articles.articlesNotIsset"|trans() }}
                     </h4>
                 </div>
             {% endfor %}
