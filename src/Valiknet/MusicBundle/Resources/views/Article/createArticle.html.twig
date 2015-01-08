@@ -8,8 +8,8 @@
     <div class="col-lg-12">
         <form action="#" method="POST">
             <div class="col-lg-12">
-                {{ form_widget(form.name, form.name.vars.id) }}
-                {{ form_widget(form.name) }}
+                {{ form_label(form.name)|trans() }}
+                {{ form_row(form.name) }}
             </div>
 
             <div class="col-lg-12">

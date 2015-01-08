@@ -1,7 +1,9 @@
 {% extends 'ValiknetMusicBundle:Article:article_webber.html.twig' %}
 
+{% trans_default_domain "article" %}
+
 {% block title %}
-    {{ "articles.titles.groupsTitle"|trans() }} {{ article.name }}
+    {{ "articles.titles.groupsTitle"|trans({ "%articleName%" : article.name }) }}
 {% endblock %}
 
 {% block links %}
