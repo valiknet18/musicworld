@@ -1,11 +1,13 @@
 {% extends 'ValiknetMusicBundle:Group:group_webber.html.twig' %}
 
+{% trans_default_domain "group" %}
+
 {% block title %}
-    Реліз {{ release.name }} групи {{ group.name }}
+    {{ "groups.title.releasesGroup"|trans({ "%releaseName%" : release.name, "%groupName%" : group.name}) }}
 {% endblock %}
 
 {% block links %}
-    <a href="{{ path('valiknet_group_list') }}">Групи</a>><a href="{{ path("valiknet_group_view", { "slug" : group.slug }) }}">{{ group.name }}</a>><a href="{{ path('valiknet_group_clip_list', {'slug' : group.slug}) }}">Релізи</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ release.name }}</a>
+    <a href="{{ path('valiknet_group_list') }}">{{ "groups.groups"|trans() }}</a>><a href="{{ path("valiknet_group_view", { "slug" : group.slug }) }}">{{ group.name }}</a>><a href="{{ path('valiknet_group_clip_list', {'slug' : group.slug}) }}">{{ "groups.navigator.releases"|trans() }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ release.name }}</a>
 {% endblock %}
 
 {% block group_content %}
