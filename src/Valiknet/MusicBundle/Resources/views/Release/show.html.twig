@@ -1,4 +1,4 @@
-
+{% trans_default_domain "group" %}
 
 <div class="col-lg-12">
     <h3 class="col-lg-12">{{ release.name }}</h3>
@@ -9,24 +9,24 @@
 
     <div class="col-lg-8">
         <div class="col-lg-12">
-            Тип: {{ release.type|valiknet_release }}
+            {{ "groups.releases.type"|trans() }}: {{ release.type|valiknet_release }}
         </div>
 
         <div class="col-lg-12">
-            Дата релізу: {{ release.releasedAt|date('d.m.Y') }}
+            {{ "groups.releases.releasedAt"|trans() }}: {{ release.releasedAt|date('d.m.Y') }}
         </div>
         <p class="col-lg-12">
             {{ release.text }}
         </p>
 
         <div class="col-lg-12">
-            <h3>Список треків</h3>
+            <h3>{{ "groups.releases.TracksList"|trans() }}</h3>
 
             <table class="table">
                 <tr>
                     <th>#</th>
-                    <th>Назва треку</th>
-                    <th>Час</th>
+                    <th>{{ "groups.releases.nameTrack"|trans() }}</th>
+                    <th>{{ "groups.releases.timeline"|trans() }}</th>
                 </tr>
                 {% set counter = 1 %}
 

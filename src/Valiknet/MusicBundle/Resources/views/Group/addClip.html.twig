@@ -1,7 +1,9 @@
 {% extends '::base.html.twig' %}
 
+{% trans_default_domain "group" %}
+
 {% block title %}
-    Додавання кліпу до групи {{ group.name }}
+    {{ "groups.title.addClip"|trans({"%groupName%" : group.name}) }}
 {% endblock %}
 
 {% block content %}
@@ -28,7 +30,7 @@
 
             <div class="col-lg-12">
                 <button type="submit">
-                    Додати кліп
+                    {{ "groups.form.createButton"|trans() }}
                 </button>
             </div>
         </form>

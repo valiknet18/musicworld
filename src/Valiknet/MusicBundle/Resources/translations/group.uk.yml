@@ -42,3 +42,12 @@ groups:
     releaseGroup: Реліз %releaseName% групи %groupName%
     newsGroup: Новини які прив’язані до групи %groupName%
     contactsList: Список контактів групи %groupName%
+    addClip: Додавання кліпу групи %groupName%
+    addRelease: Додавання релізу до групи %grouName%
+    createGroup: Створення групи
+    updateClip: Обновлення кліпу %clipName% групи %groupName%
+    updateRelease: Обновлення релізу %releaseName% групи %groupName%
+    updateGroup: Обновлення групи %groupName%
+  form:
+    createButton: Створити
+    updateButton: Обновити
