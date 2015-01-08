@@ -1,7 +1,9 @@
 {% extends '::base.html.twig' %}
 
+{% trans_default_domain "user" %}
+
 {% block title %}
-    Додавання людини {{ user.name }} в групу
+    {{ "users.title.addUserInGroup"|trans({"%userName%" : user.name}) }}
 {% endblock %}
 
 {% block content %}
@@ -28,7 +30,7 @@
             </div>
 
             <div class="col-lg-12">
-                <button type="submit">Добавити людину в групу</button>
+                <button type="submit">{{ "users.form.createButton"|trans() }}</button>
             </div>
         </form>
     </div>

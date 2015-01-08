@@ -1,33 +1,45 @@
 {% extends 'ValiknetMusicBundle:User:user_webber.html.twig' %}
 
+{% trans_default_domain "user" %}
+
 {% block title %}
-    Список контактів людини {{ user.name }} {{ user.lastname }}
+    {{ "users.title.contacts"|trans({"%userName%" : user.name ~ " " ~ user.lastname}) }}
 {% endblock %}
 
 {% block links %}
-    <a href="{{ path('valiknet_user_list') }}">Люди</a>><a href="{{ path("valiknet_user_view", { "slug" : user.slug }) }}">{{ user.name }} {{ user.lastname }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">Контакти</a>
+    <a href="{{ path('valiknet_user_list') }}">{{ "users.users"|trans() }}</a>><a href="{{ path("valiknet_user_view", { "slug" : user.slug }) }}">{{ user.name }} {{ user.lastname }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ "users.navigator.contacts"|trans() }}</a>
 {% endblock %}
 
 {% block user_content %}
     <div class="col-lg-12">
         {% if user.officialSite %}
-            Офіційний сайт: <a href="{{ user.officialSite }}">{{ user.officialSite }}</a>
+            <div class="col-lg-12">
+                {{ "users.contacts.officialSite"|trans() }}: <a href="{{ user.officialSite }}">{{ user.officialSite }}</a>
+            </div>
         {% endif %}
 
         {% if user.officialVkPage %}
-            Офіційна сторінка вконтакті: <a href="{{ user.officialVkPage }}">{{ user.officialVkPage }}</a>
+            <div class="col-lg-12">
+                {{ "users.contacts.officialVkPage"|trans() }}: <a href="{{ user.officialVkPage }}">{{ user.officialVkPage }}</a>
+            </div>
         {% endif %}
 
         {% if user.officialFacebookPage %}
-            Офіційна фейсбук сторінка: <a href="{{ user.officialFacebookPage }}">{{ user.officialFacebookPage }}</a>
+            <div class="col-lg-12">
+                {{ "users.contacts.officialFacebookPage"|trans() }}: <a href="{{ user.officialFacebookPage }}">{{ user.officialFacebookPage }}</a>
+            </div>
         {% endif %}
 
         {% if user.officialTwitterPage %}
-            Офіційна сторінка в твіттері: <a href="{{ user.officialTwitterPage }}">{{ user.officialTwitterPage }}</a>
+            <div class="col-lg-12">
+                {{ "users.contacts.officialTwitterPage"|trans() }}: <a href="{{ user.officialTwitterPage }}">{{ user.officialTwitterPage }}</a>
+            </div>
         {% endif %}
 
         {% if (not user.officialSite) and (not user.officialVkPage) and (not user.officialFacebookPage) and (not user.officialTwitterPage) %}
-            <h4>До цієї людини не добавлений ні один офіційний контакт</h4>
+            <div class="col-lg-12">
+                <h4>{{ "users.contacts.pageNoIsset"|trans() }}</h4>
+            </div>
         {% endif %}
     </div>
 {% endblock %}

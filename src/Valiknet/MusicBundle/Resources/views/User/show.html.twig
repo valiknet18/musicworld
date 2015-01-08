@@ -1,16 +1,18 @@
 {% extends 'ValiknetMusicBundle:User:user_webber.html.twig' %}
 
+{% trans_default_domain "user" %}
+
 {% block title %}
-    {{ user.name }} {{ user.lastname }}
+    {{ "users.title.informationAbout"|trans() }} {{ user.name }} {{ user.lastname }}
 {% endblock %}
 
 {% block links %}
-    <a href="{{ path('valiknet_user_list') }}">Люди</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ user.name }} {{ user.lastname }}</a>
+    <a href="{{ path('valiknet_user_list') }}"> {{ "users.users"|trans() }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ user.name }} {{ user.lastname }}</a>
 {% endblock %}
 
 {% block user_content %}
     <div class="col-lg-3 col-lg-offset-9">
-        <a href="{{ path('valiknet_user_update', {"slug" : user.slug}) }}">Обновити інформацію</a>
+        <a href="{{ path('valiknet_user_update', {"slug" : user.slug}) }}"> {{ "users.updateUser"|trans() }}</a>
     </div>
 
     <div class="col-lg-12">
@@ -21,16 +23,16 @@
 
         <div class="col-lg-8 characters">
             <div class="col-lg-12">
-                Країна: <a href="{{ path('valiknet_country_user_view', {"slug" : user.country.slug}) }}">{{ user.country.name }}</a>
+                {{ "users.user.country"|trans() }}: <a href="{{ path('valiknet_country_user_view', {"slug" : user.country.slug}) }}">{{ user.country.name }}</a>
             </div>
 
             <div class="col-lg-12">
-                Дата народження: {{ user.birthedAt|date('d.m.Y') }}
+                {{ "users.user.birthedAt"|trans() }}: {{ user.birthedAt|date('d.m.Y') }}
             </div>
         </div>
 
         <div class="col-lg-8">
-            <h4>Коротка історія:</h4>
+            <h4> {{ "users.user.shortHistory"|trans() }}:</h4>
             <p>
                 {{ user.history }}
             </p>

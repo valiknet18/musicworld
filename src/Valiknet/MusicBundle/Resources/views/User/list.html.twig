@@ -1,16 +1,18 @@
 {% extends '::base.html.twig' %}
 
+{% trans_default_domain "user" %}
+
 {% block title %}
-    Список людей
+    {{ "users.title.listUser"|trans() }}
 {% endblock %}
 
 {% block content %}
     <div class="col-lg-12 arrow-navigator">
-        <a href="{{ path('valiknet_user_list') }}">Люди</a>
+        <a href="{{ path('valiknet_user_list') }}">{{ "users.users"|trans() }}</a>
     </div>
 
     <div class="col-lg-2 col-lg-offset-10">
-        <a href="{{ path('valiknet_user_add') }}">Додати людину</a>
+        <a href="{{ path('valiknet_user_add') }}">{{ "users.addUser"|trans() }}</a>
     </div>
 
     <div class="row col-lg-12">
@@ -26,17 +28,17 @@
 
                 <div class="col-lg-8 characters">
                     <div class="col-lg-12">
-                        Країна: <a href="{{ path('valiknet_country_user_view', {"slug" : user.country.slug}) }}">{{ user.country.name }}</a>
+                        {{ "users.user.country"|trans() }}: <a href="{{ path('valiknet_country_user_view', {"slug" : user.country.slug}) }}">{{ user.country.name }}</a>
                     </div>
 
                     <div class="col-lg-12">
-                        Дата народення: {{ user.birthedAt|date('d.m.Y') }}
+                        {{ "users.user.birthedAt"|trans() }}: {{ user.birthedAt|date('d.m.Y') }}
                     </div>
                 </div>
 
                 <div class="col-lg-12">
                     <a href="{{ path('valiknet_user_view', {"slug" : user.slug}) }}" class="btn btn-success">
-                        Перейти
+                        {{ "users.moveOn"|trans() }}
                     </a>
                 </div>
             </div>
