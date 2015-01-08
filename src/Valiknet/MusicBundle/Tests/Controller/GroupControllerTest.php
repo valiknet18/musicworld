@@ -9,7 +9,7 @@ class GroupControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/ua/group/list');
+        $client->request('GET', '/uk/group/list');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
