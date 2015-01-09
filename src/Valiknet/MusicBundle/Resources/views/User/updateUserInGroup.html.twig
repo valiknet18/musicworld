@@ -3,8 +3,7 @@
 {% trans_default_domain "user" %}
 
 {% block title %}
-    Обновлення людини {{ user.name }} в групі
-    {{ "users.title.updateUserInGroup"|trans("%userName%" : user.name ~ " " ~ user.lastname) }}
+    {{ "users.title.updateUserInGroup"|trans({"%userName%" : user.name ~ " " ~ user.lastname}) }}
 {% endblock %}
 
 {% block content %}

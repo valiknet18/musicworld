@@ -29,31 +29,31 @@ class MusicExtension extends \Twig_Extension
     public function roleFilter($number)
     {
         switch ($number) {
-            case 1:
+            case 0:
                 return "Гітарист(-ка)";
                 break;
 
-            case 2:
+            case 1:
                 return "Барабанщик";
                 break;
 
-            case 3:
+            case 2:
                 return "Басист(-ка)";
                 break;
 
-            case 4:
+            case 3:
                 return "Вокаліст(-ка)";
                 break;
 
-            case 5:
+            case 4:
                 return "Клавішнік(-ца)";
                 break;
 
-            case 6:
+            case 5:
                 return "Ді-джей(-ка)";
                 break;
 
-            case 7:
+            case 6:
                 return "Саксофоніст(-ка)";
                 break;
 
@@ -65,46 +65,46 @@ class MusicExtension extends \Twig_Extension
     public function releaseFilter($number)
     {
         switch ($number) {
-            case 1:
+            case 0:
                 return "Album";
             break;
 
-            case 2:
+            case 1:
                 return "Single";
             break;
 
-            case 3:
+            case 2:
                 return "Remixer";
             break;
 
-            case 4:
+            case 3:
                 return "EP(Extended Play)";
             break;
 
-            case 5:
+            case 4:
                 return "Compilation";
             break;
 
-            case 6:
+            case 5:
                 return "Soundtrack";
 
-            case 7:
+            case 6:
                 return "Live";
             break;
 
-            case 8:
+            case 7:
                 return "Bootleg";
             break;
 
-            case 9:
+            case 8:
                 return "Promo";
             break;
 
-            case 10:
+            case 9:
                 return "Tribute(cover)";
             break;
 
-            case 11:
+            case 10:
                 return "Demo";
             break;
 

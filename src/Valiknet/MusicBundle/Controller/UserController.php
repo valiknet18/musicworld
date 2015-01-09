@@ -1,6 +1,7 @@
 <?php
 namespace Valiknet\MusicBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -200,6 +201,8 @@ class UserController extends Controller
      * @param  Request                                                  $request
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      *
+     * @ParamConverter("user", options={"mapping": {"slug": "slug"}})
+     * @ParamConverter("group_user", options={"mapping": {"id": "id"}})
      * @Template()
      */
     public function updateUserInGroupAction(User $user, GroupUser $groupUser, Request $request)

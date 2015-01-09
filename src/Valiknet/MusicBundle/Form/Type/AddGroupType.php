@@ -1,7 +1,6 @@
 <?php
 namespace Valiknet\MusicBundle\Form\Type;
 
-use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -52,11 +51,6 @@ class AddGroupType extends AbstractType
             ])
             ->add("styles", 'entity', [
                 "class" => 'ValiknetMusicBundle:Style',
-                "query_builder" => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('s')
-                            ->where('s.parent is NULL');
-                },
-                "property" => "name",
                 "multiple" => "true",
                 "expanded" => true,
                 "label" => "Жанри"

@@ -36,8 +36,8 @@ users:
     groupsUser: Групи в яких приймає участь %userName%
     newsUser: Новини в яких згадується %userName%
     contacts: Список контактів %userName%
-    addUserInGroup: Додавання людини в групу %groupName%
-    updateUserInGroup: Обновлення людини в групу %groupName%
+    addUserInGroup: Додавання людини %userName% в групу
+    updateUserInGroup: Обновлення людини %userName% в групу
   form:
     createButton: Створити
     updateButton: Обновити
