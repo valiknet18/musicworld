@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block links %}
-    <a href="{{ path('valiknet_user_list') }}"> {{ "users.users"|trans() }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ user.name }} {{ user.lastname }}</a>
+    {{ wo_render_breadcrumbs() }}
 {% endblock %}
 
 {% block user_content %}
