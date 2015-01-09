@@ -159,8 +159,11 @@ class GroupController extends Controller
      */
     public function listNewsAction(Group $group)
     {
+        $articles = $this->get('valiknet.service.extend_paginator')->extend($group->getNews());
+
         return [
-            "group" => $group
+            "group" => $group,
+            "articles" => $articles
         ];
     }
 

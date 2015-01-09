@@ -42,8 +42,11 @@ class CountryController extends Controller
      */
     public function showGroupAction(Country $country, Request $request)
     {
+        $groups = $this->get('valiknet.service.extend_paginator')->extend($country->getGroups());
+
         return [
-            "country" => $country
+            "country" => $country,
+            "groups" => $groups
         ];
     }
 
@@ -58,8 +61,11 @@ class CountryController extends Controller
      */
     public function showUserAction(Country $country, Request $request)
     {
+        $users = $this->get('valiknet.service.extend_paginator')->extend($country->getUsers());
+
         return [
-            "country" => $country
+            "country" => $country,
+            "users" => $users
         ];
     }
 
