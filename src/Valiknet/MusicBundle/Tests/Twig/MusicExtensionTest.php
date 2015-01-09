@@ -117,10 +117,15 @@ class MusicExtensionTest extends \PHPUnit_Framework_TestCase
     {
         return [
             [
-                "EN", "/en",
-                "UK", "/",
-                "RU", "/ru",
-                "UK", "/uk",
+                "EN", [
+                    "_locale" => "en"
+                ],
+                "RU", [
+                    "_locale" => "ru"
+                ],
+                "UK", [
+                    "_locale" => "uk"
+                ]
             ]
         ];
     }
