@@ -5,3 +5,4 @@ Markdowns
 
 Music world project
 ============================
+Music world, it's musical portal, where people can read information about lovely group or people, read news, watch clips, and add new groups
