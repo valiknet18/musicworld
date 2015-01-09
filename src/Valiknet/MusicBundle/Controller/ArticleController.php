@@ -26,8 +26,11 @@ class ArticleController extends Controller
 
         $articles = $this->get('valiknet.service.extend_paginator')->extend($articles);
 
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('articles.articles', [], 'article'), $this->get("router")->generate("valiknet_home"));
+
         return [
-            "articles" => $articles
+            "articles" => $articles,
         ];
     }
 
@@ -41,6 +44,10 @@ class ArticleController extends Controller
      */
     public function viewAction(Article $article)
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('articles.articles', [], 'article'), $this->get("router")->generate("valiknet_home"));
+        $breadcrumbs->addItem($article->getName(), $this->get('router')->generate("valiknet_article_view", ["slug" => $article->getSlug()]));
+
         return [
             "article" => $article
         ];
@@ -57,6 +64,11 @@ class ArticleController extends Controller
     public function listGroupAction(Article $article)
     {
         $groups = $this->get('valiknet.service.extend_paginator')->extend($article->getGroups());
+
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('articles.articles', [], 'article'), $this->get("router")->generate("valiknet_home"));
+        $breadcrumbs->addItem($article->getName(), $this->get('router')->generate("valiknet_article_view", ["slug" => $article->getSlug()]));
+        $breadcrumbs->addItem($this->get('translator')->trans('articles.navigator.groups', [], 'article'), $this->get('router')->generate("valiknet_article_group_list", ["slug" => $article->getSlug()]));
 
         return [
             "article" => $article,
@@ -75,6 +87,11 @@ class ArticleController extends Controller
     public function listUserAction(Article $article)
     {
         $users = $this->get('valiknet.service.extend_paginator')->extend($article->getUsers());
+
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('articles.articles', [], 'article'), $this->get("router")->generate("valiknet_home"));
+        $breadcrumbs->addItem($article->getName(), $this->get('router')->generate("valiknet_article_view", ["slug" => $article->getSlug()]));
+        $breadcrumbs->addItem($this->get('translator')->trans('articles.navigator.users', [], 'article'), $this->get('router')->generate("valiknet_article_user_list", ["slug" => $article->getSlug()]));
 
         return [
             "article" => $article,
