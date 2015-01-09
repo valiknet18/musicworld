@@ -12,6 +12,6 @@ styles:
     createButton: Створити
     updateButton: Обновити
   navigator:
-    childrenStyle: Дочірні жанои
+    childrenStyle: Дочірні жанри
     groups: Групи
   childrenStylesNotIsset: В цьому жанрі немає ні одного піджанру.
