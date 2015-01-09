@@ -8,7 +8,7 @@ groups:
     users: Участники
     clips: Клипы
     releases: Релизы
-    news: Новости
+    news: Статьи
     contacs: Контакты
   group:
     country: Страна
