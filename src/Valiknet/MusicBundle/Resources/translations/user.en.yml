@@ -36,8 +36,8 @@ users:
     groupsUser: User groups %userName%
     newsUser: News are tied to user %userName%
     contacts: List contacts %userName%
-    addUserInGroup: Add user in group %groupName%
-    updateUserInGroup: Update user in group %groupName%
+    addUserInGroup: Add user %userName% in group
+    updateUserInGroup: Update user %userName% in group
   form:
     createButton: Create
     updateButton: Update
