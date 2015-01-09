@@ -49,7 +49,7 @@ class UserController extends Controller
     {
         $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addItem($this->get('translator')->trans('users.users', [], 'user'), $this->get("router")->generate("valiknet_user_list"));
-        $breadcrumbs->addItem($user->getName()." ".$user->getLastname() , $this->get("router")->generate("valiknet_user_view", ["slug" => $user->getSlug()]));
+        $breadcrumbs->addItem($user->getName()." ".$user->getLastname(), $this->get("router")->generate("valiknet_user_view", ["slug" => $user->getSlug()]));
 
         return [
             "user" => $user
@@ -68,7 +68,7 @@ class UserController extends Controller
     {
         $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addItem($this->get('translator')->trans('users.users', [], 'user'), $this->get("router")->generate("valiknet_user_list"));
-        $breadcrumbs->addItem($user->getName()." ".$user->getLastname() , $this->get("router")->generate("valiknet_user_view", ["slug" => $user->getSlug()]));
+        $breadcrumbs->addItem($user->getName()." ".$user->getLastname(), $this->get("router")->generate("valiknet_user_view", ["slug" => $user->getSlug()]));
         $breadcrumbs->addItem($this->get('translator')->trans('users.navigator.groups', [], 'user'), $this->get("router")->generate("valiknet_user_groups_list", ["slug" => $user->getSlug()]));
 
         return [
@@ -90,7 +90,7 @@ class UserController extends Controller
 
         $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addItem($this->get('translator')->trans('users.users', [], 'user'), $this->get("router")->generate("valiknet_user_list"));
-        $breadcrumbs->addItem($user->getName()." ".$user->getLastname() , $this->get("router")->generate("valiknet_user_view", ["slug" => $user->getSlug()]));
+        $breadcrumbs->addItem($user->getName()." ".$user->getLastname(), $this->get("router")->generate("valiknet_user_view", ["slug" => $user->getSlug()]));
         $breadcrumbs->addItem($this->get('translator')->trans('users.navigator.news', [], 'user'), $this->get("router")->generate("valiknet_user_news_list", ["slug" => $user->getSlug()]));
 
         return [
@@ -111,7 +111,7 @@ class UserController extends Controller
     {
         $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addItem($this->get('translator')->trans('users.users', [], 'user'), $this->get("router")->generate("valiknet_user_list"));
-        $breadcrumbs->addItem($user->getName()." ".$user->getLastname() , $this->get("router")->generate("valiknet_user_view", ["slug" => $user->getSlug()]));
+        $breadcrumbs->addItem($user->getName()." ".$user->getLastname(), $this->get("router")->generate("valiknet_user_view", ["slug" => $user->getSlug()]));
         $breadcrumbs->addItem($this->get('translator')->trans('users.navigator.contacts', [], 'user'), $this->get("router")->generate("valiknet_user_contacts", ["slug" => $user->getSlug()]));
 
         return [
