@@ -12,26 +12,6 @@
 
 {% block group_content %}
     <div class="col-lg-12">
-        {% for article in group.news %}
-            <div class="col-lg-6 thumbnail">
-                <h3 class="col-lg-12">
-                    {{ article.name }}
-                </h3>
-
-                <div class="col-lg-12">
-                    <p>
-                        {{ article.text|slice(0, 70) }}
-                    </p>
-                </div>
-
-                <div class="col-lg-12">
-                    <a href="{{ path('valiknet_article_view', {"slug" : article.slug}) }}" class="btn btn-success">
-                        Перейти
-                    </a>
-                </div>
-            </div>
-        {% else %}
-            <h4>В цій групі немає ні одного кліпу</h4>
-        {% endfor %}
+        {% include "@ValiknetMusic/Article/block/listArticles.html.twig" with {"articles" : articles} %}
     </div>
 {% endblock %}
