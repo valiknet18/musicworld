@@ -3,7 +3,7 @@ namespace Valiknet\MusicBundle\Tests\Twig;
 
 use Valiknet\MusicBundle\Twig\MusicExtension;
 
-class MusicExtensionTest extends PHPUnit_Framework_TestCase
+class MusicExtensionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider roleProvider
