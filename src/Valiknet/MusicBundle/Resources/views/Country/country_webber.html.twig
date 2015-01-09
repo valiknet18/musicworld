@@ -1,18 +1,20 @@
 {% extends '::base.html.twig' %}
 
+{% trans_default_domain "country" %}
+
 {% block content %}
     <div class="row col-lg-10 col-lg-offset-1">
         <nav class="navbar navbar-inverse">
             <ul class="nav navbar-nav">
                 <li>
                     <a href="{{ path('valiknet_country_group_view', {"slug" : country.slug}) }}">
-                        Групи <span class="badge">{{ country.groups|length }}</span>
+                        {{ "countries.navigation.groups"|trans() }} <span class="badge">{{ country.groups|length }}</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ path('valiknet_country_user_view', {"slug" : country.slug}) }}">
-                        Люди <span class="badge">{{ country.users|length }}</span>
+                        {{ "countries.navigation.users"|trans() }} <span class="badge">{{ country.users|length }}</span>
                     </a>
                 </li>
             </ul>
