@@ -1,11 +1,14 @@
 {% extends 'ValiknetMusicBundle:Country:country_webber.html.twig' %}
 
+{% trans_default_domain "country" %}
+
 {% block title %}
     Групи з країни {{ country.name }}
+    {{ "countries.title.groupsCountry"|trans({"countryName" : country.name}) }}
 {% endblock %}
 
 {% block links %}
-    <a href="{{ path('valiknet_group_list') }}">Країни</a>>{{ country.name }}><a href="{{ path('valiknet_country_group_view', {"slug" : country.slug}) }}">Групи</a>
+    <a href="{{ path('valiknet_group_list') }}">{{ "countries.countries"|trans() }}</a>>{{ country.name }}><a href="{{ path('valiknet_country_group_view', {"slug" : country.slug}) }}">{{ "countries.navigation.groups"|trans() }}</a>
 {% endblock %}
 
 {% block country_content %}

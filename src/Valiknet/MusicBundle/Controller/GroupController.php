@@ -8,7 +8,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Valiknet\MusicBundle\Entity\Clip;
 use Valiknet\MusicBundle\Entity\Group;
 use Valiknet\MusicBundle\Entity\Release;
-use Valiknet\MusicBundle\Form\Type\AddClipType;
 use Valiknet\MusicBundle\Form\Type\AddGroupType;
 use Valiknet\MusicBundle\Form\Type\AddReleaseType;
 use Valiknet\MusicBundle\Form\Type\ClipType;
@@ -320,7 +319,7 @@ class GroupController extends Controller
 
         $clip = new Clip();
 
-        $form = $this->createForm(new AddClipType(), $clip);
+        $form = $this->createForm(new ClipType(), $clip);
 
         $form->handleRequest($request);
 

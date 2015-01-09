@@ -1,16 +1,18 @@
 {% extends '::base.html.twig' %}
 
+{% trans_default_domain "country" %}
+
 {% block title %}
-    Список країн
+    {{ "countries.title.listCountry"|trans() }}
 {% endblock %}
 
 {% block content %}
     <div class="col-lg-12 arrow-navigator">
-        <a href="{{ path('valiknet_country_list') }}">Країни</a>
+        <a href="{{ path('valiknet_country_list') }}">{{ "countries.countries"|trans() }}</a>
     </div>
 
     <div class="col-lg-2 col-lg-offset-10">
-        <a href="{{ path('valiknet_country_create') }}">Додати країну</a>
+        <a href="{{ path('valiknet_country_create') }}">{{ "countries.createCountry"|trans() }}</a>
     </div>
 
     <div class="row col-lg-12">
@@ -22,7 +24,7 @@
                     </div>
 
                     <div class="col-lg-8">
-                        <a href="{{ path("valiknet_country_update", {"slug" : country.slug}) }}">Обновити</a>
+                        <a href="{{ path("valiknet_country_update", {"slug" : country.slug}) }}">{{ "countries.updateCountry"|trans() }}</a>
                     </div>
                 </li>
             {% endfor %}

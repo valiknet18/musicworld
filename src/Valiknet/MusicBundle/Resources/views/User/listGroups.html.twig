@@ -1,34 +1,36 @@
 {% extends '@ValiknetMusic/User/user_webber.html.twig' %}
 
+{% trans_default_domain "user" %}
+
 {% block title %}
-    Групи в яких приймає участь {{ user.name }} {{ user.lastname }}
+    {{ "users.title.groupsUser"|trans({"%userName%" : user.name ~ " " ~ user.lastname}) }}
 {% endblock %}
 
 {% block links %}
-    <a href="{{ path('valiknet_user_list') }}">Люди</a>><a href="{{ path("valiknet_user_view", { "slug" : user.slug }) }}">{{ user.name }} {{ user.lastname }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">Групи</a>
+    <a href="{{ path('valiknet_user_list') }}">{{ "users.users"|trans() }}</a>><a href="{{ path("valiknet_user_view", { "slug" : user.slug }) }}">{{ user.name }} {{ user.lastname }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ "users.navigator.groups"|trans() }}</a>
 {% endblock %}
 
 {% block user_content %}
     <div class="col-lg-2 col-lg-offset-10">
-        <a href="{{ path('valiknet_user_add_in_group', {"slug" : user.slug}) }}">Добавити групу</a>
+        <a href="{{ path('valiknet_user_add_in_group', {"slug" : user.slug}) }}"> {{ "users.title.addUserInGroup"|trans() }}</a>
     </div>
 
     <table class="table">
         <tr>
             <th>
-                Назва группи
+                {{ "users.group.nameGroup"|trans() }}
             </th>
 
             <th>
-                Роль в групі
+                {{ "users.group.roleGroup"|trans() }}
             </th>
 
             <th>
-                Дата входу в групу
+                {{ "users.group.joinedAt"|trans() }}
             </th>
 
             <th>
-                Посилання на обновлення
+                {{ "users.group.linkToUpdate"|trans() }}
             </th>
         </tr>
     {% for groupuser in user.groups %}
@@ -53,7 +55,7 @@
         <tr>
             <td colspan="4">
                 <h4>
-                    Ця людина не участвує ні в одній музичній групі
+                    {{ "users.group.groupsNotIsset"|trans() }}
                 </h4>
             </td>
         </tr>

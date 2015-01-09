@@ -1,7 +1,9 @@
 {% extends '::base.html.twig' %}
 
+{% trans_default_domain "user" %}
+
 {% block title %}
-    Обновлення людини {{ user.name }} {{ user.lastname }}
+    {{ "users.title.informationAbout"|trans({"%userName%" : user.name ~ " " ~ user.lastname}) }}
 {% endblock %}
 
 {% block content %}
@@ -60,7 +62,7 @@
             </div>
 
             <div class="col-lg-12">
-                <button type="submit">Добавити людину</button>
+                <button type="submit"> {{ "users.form.createButton"|trans() }}</button>
             </div>
         </form>
     </div>

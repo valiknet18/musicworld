@@ -1,7 +1,10 @@
 {% extends '::base.html.twig' %}
 
+{% trans_default_domain "user" %}
+
 {% block title %}
     Обновлення людини {{ user.name }} в групі
+    {{ "users.title.updateUserInGroup"|trans("%userName%" : user.name ~ " " ~ user.lastname) }}
 {% endblock %}
 
 {% block content %}
@@ -28,8 +31,8 @@
             </div>
 
             <div class="col-lg-12">
-                <button type="submit" class="btn btn-default">Обновити людину в групі</button>
-                <a href="{{ path("valiknet_user_delete_in_group", {"id" : groupUser.id, "slug" : user.slug}) }}" class="btn btn-default">Видалити людину з групи</a>
+                <button type="submit" class="btn btn-default"> {{ "users.form.updateButton"|trans() }}</button>
+                <a href="{{ path("valiknet_user_delete_in_group", {"id" : groupUser.id, "slug" : user.slug}) }}" class="btn btn-default"> {{ "users.form.deleteUserFromGroupButton"|trans() }}</a>
             </div>
         </form>
     </div>

@@ -1,0 +1,16 @@
+countries:
+  countries: Країни
+  createCountry: Додати країну
+  updateCountry: Обновити країну
+  title:
+    createCountry: Додавання країни
+    updateCountry: Обновлення інформації про країну %countryName%
+    groupsCountry: Групи з країни %countryName%
+    usersCountry: Люди з країни %countryName%
+    listCountry: Список країн
+  navigation:
+    groups: Групи
+    users: Люди
+  form:
+    createCountryButton: Створити
+    updateCountryButton: Обновити
