@@ -2,6 +2,7 @@ styles:
   styles: Genres
   addStyle: Add genre
   updateStyle: Update genre
+  notHasRecord: Database not has any record about genres
   title:
     addStyle: Add genre
     updateStyle: Update genre %styleName%

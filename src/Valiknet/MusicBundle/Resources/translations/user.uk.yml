@@ -3,6 +3,9 @@ users:
   addUser: Додати людину
   updateUser: Обновити інформацію про людину
   moveOn: Перейти
+  usersNotIsset: В базі данних немає ні одного запису
+  addUserInGroup: Добавлення людини в групу
+  updateUserInGroup: Обновлення людини в групі
   user:
     country: Країна
     birthedAt: Дата народження

@@ -72,8 +72,11 @@ class StyleController extends Controller
      */
     public function showGroupAction(Style $style)
     {
+        $groups = $this->get('valiknet.service.extend_paginator')->extend($style->getGroups());
+
         return [
-            "style" => $style
+            "style" => $style,
+            "groups" => $groups
         ];
     }
 

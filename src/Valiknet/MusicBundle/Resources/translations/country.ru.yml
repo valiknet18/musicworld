@@ -2,6 +2,7 @@ countries:
   countries: Страны
   createCountry: Добавить страну
   updateCountry: Обновить страну
+  notHasRecord: В базе данных нету ни одной страны
   title:
     createCountry: Добавить страну
     updateCountry: Обновленние інформации про страну %countryName%

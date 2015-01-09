@@ -56,8 +56,11 @@ class ArticleController extends Controller
      */
     public function listGroupAction(Article $article)
     {
+        $groups = $this->get('valiknet.service.extend_paginator')->extend($article->getGroups());
+
         return [
-            "article" => $article
+            "article" => $article,
+            "groups" => $groups
         ];
     }
 
@@ -71,8 +74,11 @@ class ArticleController extends Controller
      */
     public function listUserAction(Article $article)
     {
+        $users = $this->get('valiknet.service.extend_paginator')->extend($article->getUsers());
+
         return [
-            "article" => $article
+            "article" => $article,
+            "users" => $users
         ];
     }
 

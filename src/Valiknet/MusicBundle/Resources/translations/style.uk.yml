@@ -2,6 +2,7 @@ styles:
   styles: Жанри
   addStyle: Додати жанр
   updateStyle: Обновити жанр
+  notHasRecord: В базі данних немає ні одного жанру
   title:
     addStyle: Додавання жанр
     updateStyle: Обновлення жанру %styleName%

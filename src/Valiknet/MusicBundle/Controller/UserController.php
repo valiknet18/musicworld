@@ -73,8 +73,11 @@ class UserController extends Controller
      */
     public function listNewsAction(User $user)
     {
+        $articles = $this->get('valiknet.service.extend_paginator')->extend($user->getNews());
+
         return [
-            "user" => $user
+            "user" => $user,
+            "articles" => $articles
         ];
     }
 

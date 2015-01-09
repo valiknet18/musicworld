@@ -2,6 +2,7 @@ countries:
   countries: Countries
   createCountry: Add country
   updateCountry: Update country
+  notHasRecord: Database not has any record about countries
   title:
     createCountry: Add country
     updateCountry: Update information about country %countryName%
