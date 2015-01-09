@@ -1,0 +1,53 @@
+groups:
+  groups: Группы
+  createGroup: Создать групу
+  updateGroup: Обновить групу
+  moveOn: Перейти
+  navigator:
+    informationAboutGroup: Информация о групе
+    users: Участники
+    clips: Клипы
+    releases: Релизы
+    news: Новости
+    contacs: Контакты
+  group:
+    country: Страна
+    styles: Жанры
+    createdAt: Дата создания
+    shortlyHistory: Краткая история
+  clips:
+    createClip: Добавить клип
+    updateClip: Обновить клип
+    errorClipsNotIsset: В этой групе нету ни одного клипу
+  releases:
+    createRelease: Добавить релиз
+    updateRelease: Обновить релиз
+    type: Тип релиза
+    releasedAt: Дата релиза
+    TracksList: Список треков
+    nameTrack: Название трека
+    timeline: время
+  contacts:
+    officialSite: Официальный сайт
+    officialVkPage: Официальная страница вконтакте
+    officialTwitterPage: Официальная страница в twitter
+    officialFacebookPage: Официальная страница в facebook
+    errorContacts: К этой групе не добавлен ни один официальный контакт
+  title:
+    listGroups: Список груп
+    aboutGroup: Група %groupName%
+    clipsGroup: Список клипов группы %groupName%
+    clipGroup: Клип %clipName% группы %groupName%
+    releasesGroup: Список релизов группы %groupName%
+    releaseGroup: Релиз %releaseName% группы %groupName%
+    newsGroup: Новисти которые привязаные к групе %groupName%
+    contactsList: Список контактов группы %groupName%
+    addClip: Добавление клипу группы %groupName%
+    addRelease: Добавление релиза к групе %grouName%
+    createGroup: Создание группы
+    updateClip: Обновление клипа %clipName% группы %groupName%
+    updateRelease: Обновление релиза %releaseName% группы %groupName%
+    updateGroup: Обновленние информации о групе %groupName%
+  form:
+    createButton: Создать
+    updateButton: Обновить

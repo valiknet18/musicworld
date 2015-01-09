@@ -1,0 +1,22 @@
+articles:
+  articles: Статьи
+  createArticle: Создать статью
+  updateArticle: Обновить статью
+  moveOn: Перейти
+  articlesNotIsset: В базе нету ни одной статьи
+  titles:
+    mainInformationTitle: Статья %articleName%
+    groupsTitle: Группы которые привязаные к статье %articleName%
+    usersTitle: Люди которые привязаные к статье %articleName%
+    listArticlesTitle: Список статей
+    createArticle: Создание новой статьи
+    updateArticle: Обновленние статьи %articleName%
+  navigator:
+    mainInformation: Основная информация
+    groups: Групи
+    users: Люди
+  article:
+    createdAt: Дата создания
+  form:
+    buttonCreate: Создать
+    buttonUpdate: Обновить

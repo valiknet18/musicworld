@@ -1,0 +1,41 @@
+users:
+  users: Люди
+  addUser: Добавить человека
+  updateUser: Обновить информацию о человеке
+  moveOn: Перейти
+  user:
+    country: Страна
+    birthedAt: Дата рождения
+    shortHistory: Краткая история
+  navigator:
+    informationAboutUser: Информация о человеке
+    groups: Группы
+    news: Новости
+    contacts: Контакты
+  group:
+    nameGroup: Название группы
+    roleGroup: Роль в групе
+    joinedAt: Дата вступления в групу
+    linkToUpdate: Ссылка на обновленние
+    createUserGroup: Добавить групу
+    groupsNotIsset: Этот человек не участвует ни в одной музыкальной групе
+  contacts:
+    officialSite: Официальный сайт
+    officialVkPage: Официальная страница вконтакте
+    officialTwitterPage: Официальная страница в twitter
+    officialFacebookPage: Официальная страница в facebook
+    pageNoIsset: К этому человеку не добавлен ни один официальный контакт
+  title:
+    informationAbout: Информацая о челоке
+    listUser: Список людей
+    addNewUser: Добавление нового человека
+    updateUser: Обновление информации о %userName%
+    groupsUser: Группы в которых принимает участь %userName%
+    newsUser: Новости в которых упоминается %userName%
+    contacts: Список контактов %userName%
+    addUserInGroup: Добавление человека в групу %groupName%
+    updateUserInGroup: Обновление человека в групу %groupName%
+  form:
+    createButton: Создать
+    updateButton: Обновить
+    deleteUserFromGroupButton: Удалить человека из группы

@@ -1,0 +1,17 @@
+styles:
+  styles: Жанры
+  addStyle: Добавить жанр
+  updateStyle: Обновить жанр
+  title:
+    addStyle: Добавить жанр
+    updateStyle: Обновленние жанра %styleName%
+    childrenStyle: Дочерние жанры жанра %styleName%
+    listStyle: Список жанров
+    listGroups: Группы с жанром %styleName%
+  form:
+    createButton: Создать
+    updateButton: Обновить
+  navigator:
+    childrenStyle: Дочерние жанры
+    groups: Группы
+  childrenStylesNotIsset: В этом жанре нету ни одного поджанра.
