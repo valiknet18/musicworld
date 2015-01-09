@@ -1,0 +1,16 @@
+countries:
+  countries: Countries
+  createCountry: Add country
+  updateCountry: Update country
+  title:
+    createCountry: Add country
+    updateCountry: Update information about country %countryName%
+    groupsCountry: Groups from %countryName%
+    usersCountry: Users from %countryName%
+    listCountry: List country
+  navigation:
+    groups: Groups
+    users: Users
+  form:
+    createCountryButton: Create
+    updateCountryButton: Update

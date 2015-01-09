@@ -1,0 +1,11 @@
+navigator:
+  articles: Articles
+  groups: Groups
+  users: Users
+  styles: Genres
+  countries: Countries
+  targetLanguage: Current language
+  languages:
+    ukraine: Ukrainian
+    russian: Russian
+    english: English

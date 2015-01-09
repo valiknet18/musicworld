@@ -1,0 +1,26 @@
+articles:
+  articles: Articles
+  createArticle: Create Article
+  updateArticle: Update Article
+  moveOn: Move on
+  articlesNotIsset: In database not have articles
+  titles:
+    mainInformationTitle: Article %articleName%
+    groupsTitle: Groups are tied to Article %articleName%
+    usersTitle: Users are tied to Article %articleName%
+    listArticlesTitle: List articles
+    createArticle: Create new article
+    updateArticle: Update article %articleName%
+  navigator:
+    mainInformation: Main information
+    groups: Groups
+    users: Users
+  article:
+    createdAt: Created at
+  form:
+    name: Назва статті
+    text: Текст статі
+    groups: Групи як зв’язані з статею
+    users: Люди які зв’язані з статею
+    buttonCreate: Create
+    buttonUpdate: Update
