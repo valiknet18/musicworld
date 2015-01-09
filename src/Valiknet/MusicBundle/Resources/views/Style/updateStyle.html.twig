@@ -1,7 +1,9 @@
 {% extends '::base.html.twig' %}
 
+{% trans_default_domain "style" %}
+
 {% block title %}
-    Редагування стилю {{ style.name }}
+    {{ "styles.title.updateStyle"|trans({"styleName" : style.name}) }}
 {% endblock %}
 
 {% block content %}
@@ -21,7 +23,7 @@
             </div>
 
             <div class="col-lg-12">
-                <button type="submit">Додати стиль</button>
+                <button type="submit">{{ "styles.form.updateButton"|trans() }}</button>
             </div>
         </form>
     </div>

@@ -1,11 +1,13 @@
 {% extends 'ValiknetMusicBundle:Style:style_webber.html.twig' %}
 
+{% trans_default_domain "style" %}
+
 {% block title %}
-    Групи з жанром {{ style.name }}
+    {{ "styles.title.listGroups"|trans({"styleName" : style.name}) }}
 {% endblock %}
 
 {% block links %}
-    <a href="{{ path('valiknet_style_list') }}">Жанри</a>><a href="{{ path('valiknet_style_children_list', {"slug" : style.slug}) }}">{{ style.name }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">Піджанри</a>
+    <a href="{{ path('valiknet_style_list') }}">{{ "styles.styles"|trans() }}</a>><a href="{{ path('valiknet_style_children_list', {"slug" : style.slug}) }}">{{ style.name }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ "styles.navigator.groups"|trans() }}</a>
 {% endblock %}
 
 {% block style_content %}
