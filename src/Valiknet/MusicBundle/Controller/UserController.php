@@ -255,6 +255,9 @@ class UserController extends Controller
      * @param  User                                               $user
      * @param  GroupUser                                          $groupUser
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @ParamConverter("user", options={"mapping": {"slug": "slug"}})
+     * @ParamConverter("group_user", options={"mapping": {"id": "id"}})
      */
     public function deleteUserInGroupAction(User $user, GroupUser $groupUser)
     {
