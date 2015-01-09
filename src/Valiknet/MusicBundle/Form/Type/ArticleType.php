@@ -11,7 +11,7 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('name', 'text', [
-                "label" => "Назва статі",
+                "label" => "Назва статі"
             ])
             ->add('text', 'textarea', [
                 "label" => "Опис статі"

@@ -4,6 +4,8 @@ users:
   updateUser: Update information about user
   moveOn: Move on
   usersNotIsset: In database not has users
+  addUserInGroup: Add user in group
+  updateUserInGroup: Update user in group
   user:
     country: Country
     birthedAt: Birthed at

@@ -12,7 +12,7 @@
 
 {% block user_content %}
     <div class="col-lg-2 col-lg-offset-10">
-        <a href="{{ path('valiknet_user_add_in_group', {"slug" : user.slug}) }}"> {{ "users.title.addUserInGroup"|trans() }}</a>
+        <a href="{{ path('valiknet_user_add_in_group', {"slug" : user.slug}) }}"> {{ "users.addUserInGroup"|trans() }}</a>
     </div>
 
     <table class="table">
@@ -48,7 +48,7 @@
             </td>
 
             <td>
-                <a href="{{ path('valiknet_user_update_in_group', {"id" : groupuser.id, "slug" : user.slug}) }}">Обновлення</a>
+                <a href="{{ path('valiknet_user_update_in_group', {"id" : groupuser.id, "slug" : user.slug}) }}">{{ "users.updateUserInGroup"|trans() }}</a>
             </td>
         </tr>
     {% else %}

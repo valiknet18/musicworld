@@ -24,6 +24,7 @@ class GroupUserType extends AbstractType
                     "Ді-джей",
                     "Саксофоніст",
                 ],
+                "empty_value" => "Виберіть роль цієї людини в групі",
                 "label" => "Роль"
             ])
             ->add('joinedAt', "date", [
