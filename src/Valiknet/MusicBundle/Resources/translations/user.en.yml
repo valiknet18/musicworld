@@ -1,0 +1,41 @@
+users:
+  users: User
+  addUser: Add user
+  updateUser: Update information about user
+  moveOn: Move on
+  user:
+    country: Country
+    birthedAt: Birthed at
+    shortHistory: Short history
+  navigator:
+    informationAboutUser: Information about user
+    groups: Groups
+    news: News
+    contacts: Contacts
+  group:
+    nameGroup: Group name
+    roleGroup: Role in group
+    joinedAt: Joined at
+    linkToUpdate: Link to update
+    createUserGroup: Add group
+    groupsNotIsset: This user does not play in any group
+  contacts:
+    officialSite: Official site
+    officialVkPage: Official vkontakte page
+    officialTwitterPage: Official twitter page
+    officialFacebookPage: Official facebook page
+    pageNoIsset: This user does not has any contact
+  title:
+    informationAbout: Information about user
+    listUser: List user
+    addNewUser: Add new user
+    updateUser: Update information about %userName%
+    groupsUser: User groups %userName%
+    newsUser: News are tied to user %userName%
+    contacts: List contacts %userName%
+    addUserInGroup: Add user in group %groupName%
+    updateUserInGroup: Update user in group %groupName%
+  form:
+    createButton: Create
+    updateButton: Update
+    deleteUserFromGroupButton: Delete user from group

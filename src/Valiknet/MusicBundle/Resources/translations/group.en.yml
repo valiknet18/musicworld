@@ -1,0 +1,53 @@
+groups:
+  groups: Groups
+  createGroup: Create group
+  updateGroup: Update group
+  moveOn: Move on
+  navigator:
+    informationAboutGroup: Information about group
+    users: Users
+    clips: Clips
+    releases: Releases
+    news: Articles
+    contacs: Contacts
+  group:
+    country: Country
+    styles: Genres
+    createdAt: Created at
+    shortlyHistory: Short history
+  clips:
+    createClip: Create clip
+    updateClip: Update clip
+    errorClipsNotIsset: This group not has clips
+  releases:
+    createRelease: Add release
+    updateRelease: Update release
+    type: Release type
+    releasedAt: Released at
+    TracksList: Track list
+    nameTrack: Track name
+    timeline: timeline
+  contacts:
+    officialSite: Official site
+    officialVkPage: Official Vkontakte page
+    officialTwitterPage: Official twitter page
+    officialFacebookPage: Official facebook page
+    errorContacts: This group not has officials contacts
+  title:
+    listGroups: Groups list
+    aboutGroup: Grop %groupName%
+    clipsGroup: Clips list of group %groupName%
+    clipGroup: Clip %clipName% grop %groupName%
+    releasesGroup: Releases lists of group %groupName%
+    releaseGroup: Release %releaseName% group %groupName%
+    newsGroup: News are tied to the group %groupName%
+    contactsList: Contacts list of contacts %groupName%
+    addClip: Add clip to group %groupName%
+    addRelease: Add release to group %grouName%
+    createGroup: Create group
+    updateClip: Update clip %clipName% group %groupName%
+    updateRelease: Update release %releaseName% group %groupName%
+    updateGroup: Update group %groupName%
+  form:
+    createButton: Create
+    updateButton: Update

@@ -8,11 +8,11 @@ groups:
     users: Учасники
     clips: Кліпи
     releases: Релізи
-    news: Новини
+    news: Статті
     contacs: Контакти
   group:
     country: Країна
-    styles: Стилі
+    styles: Жанри
     createdAt: Дата створення
     shortlyHistory: Коротка історія
   clips:
@@ -40,7 +40,7 @@ groups:
     clipGroup: Кліп %clipName% групи %groupName%
     releasesGroup: Список релізів групи %groupName%
     releaseGroup: Реліз %releaseName% групи %groupName%
-    newsGroup: Новини які прив’язані до групи %groupName%
+    newsGroup: Статі які прив’язані до групи %groupName%
     contactsList: Список контактів групи %groupName%
     addClip: Додавання кліпу групи %groupName%
     addRelease: Додавання релізу до групи %grouName%

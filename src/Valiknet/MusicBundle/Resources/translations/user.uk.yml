@@ -26,12 +26,12 @@ users:
     officialFacebookPage: Офіційна сторінка в facebook
     pageNoIsset: До цієї людини не добавлений ні один офіційний контакт
   title:
-    informationAbout: Інформація про
+    informationAbout: Інформація про людину
     listUser: Список людей
     addNewUser: Додавання нової людини
     updateUser: Обновлення інформації про %userName%
-    groupsUser: Група в яких приймає участь %userName%
-    newsUser: Новини в яких знадується %userName%
+    groupsUser: Групи в яких приймає участь %userName%
+    newsUser: Новини в яких згадується %userName%
     contacts: Список контактів %userName%
     addUserInGroup: Додавання людини в групу %groupName%
     updateUserInGroup: Обновлення людини в групу %groupName%

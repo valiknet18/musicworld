@@ -1,0 +1,17 @@
+styles:
+  styles: Genres
+  addStyle: Add genre
+  updateStyle: Update genre
+  title:
+    addStyle: Add genre
+    updateStyle: Update genre %styleName%
+    childrenStyle: Children genres of genre %styleName%
+    listStyle: List genres
+    listGroups: Group with genre %styleName%
+  form:
+    createButton: Create
+    updateButton: Update
+  navigator:
+    childrenStyle: Children genres
+    groups: Groups
+  childrenStylesNotIsset: This genre not has childrens
