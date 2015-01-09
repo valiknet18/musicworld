@@ -3,6 +3,7 @@ users:
   addUser: Add user
   updateUser: Update information about user
   moveOn: Move on
+  usersNotIsset: In database not has users
   user:
     country: Country
     birthedAt: Birthed at

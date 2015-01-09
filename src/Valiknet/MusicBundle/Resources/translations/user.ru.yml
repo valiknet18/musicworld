@@ -3,6 +3,7 @@ users:
   addUser: Добавить человека
   updateUser: Обновить информацию о человеке
   moveOn: Перейти
+  usersNotIsset: В базе данных нету ни одной записи
   user:
     country: Страна
     birthedAt: Дата рождения
