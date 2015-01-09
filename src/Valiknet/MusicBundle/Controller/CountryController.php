@@ -26,6 +26,9 @@ class CountryController extends Controller
 
         $countries = $this->get('valiknet.service.extend_paginator')->extend($countries);
 
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('countries.countries', [], 'country'), $this->get("router")->generate("valiknet_country_list"));
+
         return [
             "countries" => $countries
         ];
@@ -43,6 +46,10 @@ class CountryController extends Controller
     public function showGroupAction(Country $country, Request $request)
     {
         $groups = $this->get('valiknet.service.extend_paginator')->extend($country->getGroups());
+
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('countries.countries', [], 'country'), $this->get("router")->generate("valiknet_country_list"));
+        $breadcrumbs->addItem($country->getName(), $this->get("router")->generate("valiknet_country_group_view", ["slug" => $country->getSlug()]));
 
         return [
             "country" => $country,
@@ -62,6 +69,11 @@ class CountryController extends Controller
     public function showUserAction(Country $country, Request $request)
     {
         $users = $this->get('valiknet.service.extend_paginator')->extend($country->getUsers());
+
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('countries.countries', [], 'country'), $this->get("router")->generate("valiknet_country_list"));
+        $breadcrumbs->addItem($country->getName(), $this->get("router")->generate("valiknet_country_group_view", ["slug" => $country->getSlug()]));
+        $breadcrumbs->addItem($this->get('translator')->trans('countries.navigation.users', [], 'country'), $this->get("router")->generate("valiknet_country_user_view", ["slug" => $country->getSlug()]));
 
         return [
             "country" => $country,

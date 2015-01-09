@@ -25,7 +25,6 @@ class StyleController extends Controller
                     ->getRepository('ValiknetMusicBundle:Style')
                     ->findStyleWithoutParent();
 
-
         $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addItem($this->get('translator')->trans('styles.styles', [], 'style'), $this->get("router")->generate("valiknet_style_list"));
 
