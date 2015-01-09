@@ -8,7 +8,7 @@
 
 {% block content %}
     <div class="col-lg-12 arrow-navigator">
-        <a href="{{ path('valiknet_group_list') }}">{{ "groups.groups"|trans() }}</a>
+        {{ wo_render_breadcrumbs() }}
     </div>
 
     <div class="col-lg-2 col-lg-offset-10">
