@@ -122,3 +122,5 @@ liip_imagine:
             filters:
                 background: { color: '#00FFFF' }
                 thumbnail: { size: [100, 140], mode: inset }
+
+white_october_breadcrumbs: ~

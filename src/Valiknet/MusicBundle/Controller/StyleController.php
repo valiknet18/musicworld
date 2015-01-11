@@ -25,6 +25,9 @@ class StyleController extends Controller
                     ->getRepository('ValiknetMusicBundle:Style')
                     ->findStyleWithoutParent();
 
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('styles.styles', [], 'style'), $this->get("router")->generate("valiknet_style_list"));
+
         return [
             "styles" => $styles
         ];
@@ -40,6 +43,10 @@ class StyleController extends Controller
      */
     public function showChildrenAction(Style $style)
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('styles.styles', [], 'style'), $this->get("router")->generate("valiknet_style_list"));
+        $breadcrumbs->addItem($style->getName(), $this->get("router")->generate("valiknet_style_children_list", ["slug" => $style->getSlug()]));
+
         return [
             "style" => $style
         ];
@@ -73,6 +80,11 @@ class StyleController extends Controller
     public function showGroupAction(Style $style)
     {
         $groups = $this->get('valiknet.service.extend_paginator')->extend($style->getGroups());
+
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('styles.styles', [], 'style'), $this->get("router")->generate("valiknet_style_list"));
+        $breadcrumbs->addItem($style->getName(), $this->get("router")->generate("valiknet_style_children_list", ["slug" => $style->getSlug()]));
+        $breadcrumbs->addItem($this->get('translator')->trans('styles.navigator.groups', [], 'style'), $this->get("router")->generate("valiknet_style_group_list", ["slug" => $style->getSlug()]));
 
         return [
             "style" => $style,

@@ -33,6 +33,9 @@ class GroupController extends Controller
 
         $groups = $this->get('valiknet.service.extend_paginator')->extend($groups);
 
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.groups', [], 'group'), $this->get("router")->generate("valiknet_group_list"));
+
         return [
             "groups" => $groups
         ];
@@ -48,6 +51,10 @@ class GroupController extends Controller
      */
     public function viewAction(Group $group)
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.groups', [], 'group'), $this->get("router")->generate("valiknet_group_list"));
+        $breadcrumbs->addItem($group->getName(), $this->get("router")->generate("valiknet_group_view", ["slug" => $group->getSlug()]));
+
         return [
             "group" => $group
         ];
@@ -63,6 +70,11 @@ class GroupController extends Controller
      */
     public function listClipAction(Group $group)
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.groups', [], 'group'), $this->get("router")->generate("valiknet_group_list"));
+        $breadcrumbs->addItem($group->getName(), $this->get("router")->generate("valiknet_group_view", ["slug" => $group->getSlug()]));
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.navigator.clips', [], 'group'), $this->get("router")->generate("valiknet_group_clip_list", ["slug" => $group->getSlug()]));
+
         return [
             "group" => $group
         ];
@@ -80,6 +92,12 @@ class GroupController extends Controller
      */
     public function clipAction(Group $group, Clip $clip)
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.groups', [], 'group'), $this->get("router")->generate("valiknet_group_list"));
+        $breadcrumbs->addItem($group->getName(), $this->get("router")->generate("valiknet_group_view", ["slug" => $group->getSlug()]));
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.navigator.clips', [], 'group'), $this->get("router")->generate("valiknet_group_clip_list", ["slug" => $group->getSlug()]));
+        $breadcrumbs->addItem($clip->getName(), $this->get("router")->generate("valiknet_group_clip_view", ["slug" => $group->getSlug(), "slugClip" => $clip->getSlug()]));
+
         return [
             "group" => $group,
             "clip" => $clip
@@ -96,6 +114,11 @@ class GroupController extends Controller
      */
     public function listReleaseAction(Group $group)
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.groups', [], 'group'), $this->get("router")->generate("valiknet_group_list"));
+        $breadcrumbs->addItem($group->getName(), $this->get("router")->generate("valiknet_group_view", ["slug" => $group->getSlug()]));
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.navigator.releases', [], 'group'), $this->get("router")->generate("valiknet_group_release_list", ["slug" => $group->getSlug()]));
+
         return [
             "group" => $group
         ];
@@ -113,6 +136,12 @@ class GroupController extends Controller
      */
     public function releaseAction(Group $group, Release $release)
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.groups', [], 'group'), $this->get("router")->generate("valiknet_group_list"));
+        $breadcrumbs->addItem($group->getName(), $this->get("router")->generate("valiknet_group_view", ["slug" => $group->getSlug()]));
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.navigator.clips', [], 'group'), $this->get("router")->generate("valiknet_group_release_list", ["slug" => $group->getSlug()]));
+        $breadcrumbs->addItem($release->getName(), $this->get("router")->generate("valiknet_group_release_view", ["slug" => $group->getSlug(), "slugRelease" => $release->getSlug()]));
+
         return [
             "group" => $group,
             "release" => $release
@@ -129,6 +158,11 @@ class GroupController extends Controller
      */
     public function playersAction(Group $group)
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.groups', [], 'group'), $this->get("router")->generate("valiknet_group_list"));
+        $breadcrumbs->addItem($group->getName(), $this->get("router")->generate("valiknet_group_view", ["slug" => $group->getSlug()]));
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.navigator.users', [], 'group'), $this->get("router")->generate("valiknet_group_player_list", ["slug" => $group->getSlug()]));
+
         return [
             'group' => $group
         ];
@@ -144,6 +178,11 @@ class GroupController extends Controller
      */
     public function contactsAction(Group $group)
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.groups', [], 'group'), $this->get("router")->generate("valiknet_group_list"));
+        $breadcrumbs->addItem($group->getName(), $this->get("router")->generate("valiknet_group_view", ["slug" => $group->getSlug()]));
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.navigator.contacs', [], 'group'), $this->get("router")->generate("valiknet_group_contacts", ["slug" => $group->getSlug()]));
+
         return [
             "group" => $group
         ];
@@ -160,6 +199,11 @@ class GroupController extends Controller
     public function listNewsAction(Group $group)
     {
         $articles = $this->get('valiknet.service.extend_paginator')->extend($group->getNews());
+
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.groups', [], 'group'), $this->get("router")->generate("valiknet_group_list"));
+        $breadcrumbs->addItem($group->getName(), $this->get("router")->generate("valiknet_group_view", ["slug" => $group->getSlug()]));
+        $breadcrumbs->addItem($this->get('translator')->trans('groups.navigator.news', [], 'group'), $this->get("router")->generate("valiknet_group_news", ["slug" => $group->getSlug()]));
 
         return [
             "group" => $group,

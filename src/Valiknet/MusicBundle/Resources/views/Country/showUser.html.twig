@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block links %}
-    <a href="{{ path('valiknet_group_list') }}">{{ "countries.countries"|trans() }}</a>>{{ country.name }}><a href="{{ path('valiknet_country_user_view', {"slug" : country.slug}) }}">{{ "countries.navigation.users"|trans() }}</a>
+    {{ wo_render_breadcrumbs() }}
 {% endblock %}
 
 {% block country_content %}

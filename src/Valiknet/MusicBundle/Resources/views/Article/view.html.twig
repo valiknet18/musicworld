@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block links %}
-    <a href="{{ path('valiknet_home') }}">{{ "articles.articles"|trans() }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ article.name }}</a>
+    {{ wo_render_breadcrumbs() }}
 {% endblock %}
 
 {% block article_content %}

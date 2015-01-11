@@ -3,12 +3,11 @@
 {% trans_default_domain "group" %}
 
 {% block title %}
-    Список кліпів групи {{ group.name }}
     {{ "groups.title.clipsGroup"|trans({ "%groupName%" : group.name }) }}
 {% endblock %}
 
 {% block links %}
-    <a href="{{ path('valiknet_group_list') }}">{{ "groups.groups"|trans() }}</a>><a href="{{ path("valiknet_group_view", { "slug" : group.slug }) }}">{{ group.name }}</a>><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}">{{ "articles.navigator.users"|trans() }}</a>
+    {{ wo_render_breadcrumbs() }}
 {% endblock %}
 
 {% block group_content %}

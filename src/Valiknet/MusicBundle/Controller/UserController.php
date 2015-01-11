@@ -29,6 +29,9 @@ class UserController extends Controller
 
         $users = $this->get('valiknet.service.extend_paginator')->extend($users);
 
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('users.users', [], 'user'), $this->get("router")->generate("valiknet_user_list"));
+
         return [
             "users" => $users
         ];
@@ -44,6 +47,10 @@ class UserController extends Controller
      */
     public function showAction(User $user)
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('users.users', [], 'user'), $this->get("router")->generate("valiknet_user_list"));
+        $breadcrumbs->addItem($user->getName()." ".$user->getLastname(), $this->get("router")->generate("valiknet_user_view", ["slug" => $user->getSlug()]));
+
         return [
             "user" => $user
         ];
@@ -59,6 +66,11 @@ class UserController extends Controller
      */
     public function listGroupsAction(User $user)
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('users.users', [], 'user'), $this->get("router")->generate("valiknet_user_list"));
+        $breadcrumbs->addItem($user->getName()." ".$user->getLastname(), $this->get("router")->generate("valiknet_user_view", ["slug" => $user->getSlug()]));
+        $breadcrumbs->addItem($this->get('translator')->trans('users.navigator.groups', [], 'user'), $this->get("router")->generate("valiknet_user_groups_list", ["slug" => $user->getSlug()]));
+
         return [
             "user" => $user
         ];
@@ -76,6 +88,11 @@ class UserController extends Controller
     {
         $articles = $this->get('valiknet.service.extend_paginator')->extend($user->getNews());
 
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('users.users', [], 'user'), $this->get("router")->generate("valiknet_user_list"));
+        $breadcrumbs->addItem($user->getName()." ".$user->getLastname(), $this->get("router")->generate("valiknet_user_view", ["slug" => $user->getSlug()]));
+        $breadcrumbs->addItem($this->get('translator')->trans('users.navigator.news', [], 'user'), $this->get("router")->generate("valiknet_user_news_list", ["slug" => $user->getSlug()]));
+
         return [
             "user" => $user,
             "articles" => $articles
@@ -92,6 +109,11 @@ class UserController extends Controller
      */
     public function contactsAction(User $user)
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem($this->get('translator')->trans('users.users', [], 'user'), $this->get("router")->generate("valiknet_user_list"));
+        $breadcrumbs->addItem($user->getName()." ".$user->getLastname(), $this->get("router")->generate("valiknet_user_view", ["slug" => $user->getSlug()]));
+        $breadcrumbs->addItem($this->get('translator')->trans('users.navigator.contacts', [], 'user'), $this->get("router")->generate("valiknet_user_contacts", ["slug" => $user->getSlug()]));
+
         return [
             "user" => $user
         ];
@@ -233,6 +255,9 @@ class UserController extends Controller
      * @param  User                                               $user
      * @param  GroupUser                                          $groupUser
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @ParamConverter("user", options={"mapping": {"slug": "slug"}})
+     * @ParamConverter("group_user", options={"mapping": {"id": "id"}})
      */
     public function deleteUserInGroupAction(User $user, GroupUser $groupUser)
     {

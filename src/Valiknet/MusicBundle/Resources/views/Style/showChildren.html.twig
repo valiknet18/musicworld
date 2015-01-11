@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block links %}
-    <a href="{{ path('valiknet_style_list') }}">{{ "styles.styles"|trans() }}</a>><a href="{{ path('valiknet_style_children_list', {"slug" : style.slug}) }}">{{ style.name }}</a>
+    {{ wo_render_breadcrumbs() }}
 {% endblock %}
 
 {% block style_content %}
